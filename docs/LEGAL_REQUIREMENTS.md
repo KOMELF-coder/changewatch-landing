@@ -26,3 +26,7 @@ Les deux pages HTML juridiques sont des emplacements provisoires clairement sign
 Formaliser le périmètre, la facturation HT/TVA, le paiement, la résiliation, le support, les limites de service et l’accord de passage de l’essai au payant. Ne pas ajouter sur le site de garantie ou de délai de réponse qui n’a pas été défini.
 
 Une fois les informations réunies, remplacer `mentions-legales.html` et `confidentialite.html`, adapter le texte du formulaire et vérifier les liens de pied de page. Ce fichier constitue une liste de préparation, pas une assurance de conformité juridique.
+
+## Informations désormais connues
+
+Contact : changewatch@cybersignal.fr. Domaine : https://changewatch.cybersignal.fr. Hébergement : GitHub Pages. Réception des demandes : Formspree. Restent à fournir : identité et adresse légales de l’éditeur, statut/immatriculation et mentions fiscales applicables, responsable de publication, identité du responsable du traitement, coordonnées légales vérifiées de l’hébergeur, base juridique, destinataires habilités, durées de conservation, éventuels transferts et modalités des droits. Les coordonnées de contact ne suffisent pas à établir une identité légale.

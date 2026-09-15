@@ -2,8 +2,8 @@
 
 // The only form configuration location. These values are public, never add secrets.
 const CONTACT_CONFIG = Object.freeze({
-  CONTACT_EMAIL: 'YOUR_CONTACT_EMAIL',
-  FORM_ENDPOINT: '', // HTTPS endpoint accepting JSON; see README.md for the response contract.
+  CONTACT_EMAIL: 'changewatch@cybersignal.fr',
+  FORM_ENDPOINT: 'https://formspree.io/f/mbgjnvjq',
 });
 
 document.documentElement.classList.add('js');
@@ -35,29 +35,21 @@ const form = document.querySelector('#demande');
 if (form) {
   const status = document.querySelector('#form-status');
   const submit = form.querySelector('[type="submit"]');
-  submit.disabled = false;
-  const fallback = document.querySelector('#email-fallback');
-  const emailLink = document.querySelector('#email-link');
-  const requestCopy = document.querySelector('#request-copy');
   const selectedPlan = document.querySelector('#selected-plan');
-  const emailConfigured = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(CONTACT_CONFIG.CONTACT_EMAIL);
-  const setStatus = (message, state = 'info') => {
-    status.textContent = message;
-    status.dataset.state = state;
-  };
-  if (!CONTACT_CONFIG.FORM_ENDPOINT && !emailConfigured) {
-    setStatus('Les demandes en ligne ne sont pas encore ouvertes. Vous pouvez préparer votre demande ici, mais aucun envoi ne sera effectué.');
-  } else if (!CONTACT_CONFIG.FORM_ENDPOINT) {
-    setStatus('Ce formulaire prépare un email à envoyer depuis votre messagerie. Votre essai sera confirmé après la configuration des pages.');
-  }
-  document.querySelectorAll('[data-plan]').forEach((link) => {
+  const originalButton = submit.innerHTML;
+  let sending = false;
+  submit.disabled = false;
+  document.querySelectorAll('a[href="#demande"]').forEach((link) => {
     link.addEventListener('click', () => {
-      form.elements.plan.value = link.dataset.plan;
-      selectedPlan.textContent = `Forfait envisagé : ${link.dataset.plan}. L’essai reste gratuit pendant 7 jours sur 3 URLs.`;
-      selectedPlan.hidden = false;
+      if (link.dataset.plan) {
+        form.elements.plan.value = link.dataset.plan;
+        selectedPlan.textContent = 'Forfait envisagé : ' + link.dataset.plan + '. L’essai reste gratuit pendant 7 jours sur 3 URLs.';
+        selectedPlan.hidden = false;
+      }
+      form.focus({ preventScroll: true });
     });
   });
-  const urls = ['url1', 'url2', 'url3'].map((name) => form.elements[name]);
+  const urls = [1, 2, 3].map((i) => form.elements['competitor_url_' + i]);
   function validateUrl(input) {
     input.setCustomValidity('');
     if (!input.value) return;
@@ -69,66 +61,40 @@ if (form) {
     }
   }
   urls.forEach((input) => input.addEventListener('input', () => validateUrl(input)));
-  function prepareEmail(data, prefix = '') {
-    const body = [
-      'Bonjour, je souhaite essayer ChangeWatch gratuitement pendant 7 jours sur 3 URLs.',
-      '', `Contact : ${data.name}`, `Entreprise : ${data.company}`, `Email : ${data.email}`,
-      `Forfait envisagé : ${data.plan}`, '', 'Pages concurrentes :', data.url1, data.url2, data.url3,
-      '', `Message : ${data.message || 'Non renseigné'}`,
-    ].join('\n');
-    fallback.hidden = false;
-    emailLink.hidden = !emailConfigured;
-    requestCopy.value = `${emailConfigured ? `Destinataire : ${CONTACT_CONFIG.CONTACT_EMAIL}\n` : ''}Objet : Demande d’essai ChangeWatch — 7 jours\n\n${body}`;
-    if (emailConfigured) {
-      emailLink.href = `mailto:${CONTACT_CONFIG.CONTACT_EMAIL}?subject=${encodeURIComponent('Demande d’essai ChangeWatch — 7 jours')}&body=${encodeURIComponent(body)}`;
-      setStatus(`${prefix}Votre demande est prête. Ouvrez votre messagerie ci-dessous, puis envoyez l’email. ${prefix ? 'Vérifiez votre messagerie avant de réessayer pour éviter une demande en double.' : 'Aucun message n’a encore été envoyé.'}`, prefix ? 'error' : 'info');
-    } else {
-      emailLink.removeAttribute('href');
-      setStatus(`${prefix}L’envoi par email est indisponible pour le moment. ${prefix ? 'Vérifiez votre messagerie avant de réessayer.' : 'Aucun message n’a été envoyé.'} Vous pouvez conserver une copie de votre demande ci-dessous.`, 'error');
-    }
-  }
-  form.addEventListener('input', () => {
-    if (!fallback.hidden) {
-      fallback.hidden = true;
-      emailLink.removeAttribute('href');
-      requestCopy.value = '';
-      setStatus('Votre demande a été modifiée. Cliquez à nouveau sur « Activer mon essai gratuit » pour la préparer.');
-    }
-  });
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (sending) return;
     urls.forEach(validateUrl);
     if (!form.reportValidity()) return;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(new FormData(form));
     Object.keys(data).forEach((key) => { data[key] = data[key].trim(); });
-    if (!CONTACT_CONFIG.FORM_ENDPOINT) {
-      prepareEmail(data);
-      return;
-    }
+    sending = true;
     submit.disabled = true;
+    submit.textContent = 'Envoi en cours…';
     form.setAttribute('aria-busy', 'true');
-    fallback.hidden = true;
-    setStatus('Envoi de votre demande en cours…');
+    status.dataset.state = 'info';
+    status.textContent = 'Envoi de votre demande en cours…';
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      const endpoint = new URL(CONTACT_CONFIG.FORM_ENDPOINT);
-      if (endpoint.protocol !== 'https:') throw new Error('An HTTPS endpoint is required');
-      const response = await fetch(endpoint.href, {
+      const response = await fetch(CONTACT_CONFIG.FORM_ENDPOINT, {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data), signal: controller.signal, credentials: 'omit',
       });
-      if (!response.ok) throw new Error('Request rejected');
-      const result = await response.json();
-      if (result.success !== true) throw new Error('No explicit confirmation');
-      setStatus('Votre demande a bien été reçue. La compatibilité des pages et le démarrage de votre essai vous seront confirmés par email.', 'success');
+      // Formspree confirms acceptance with an HTTP 2xx response to an AJAX request.
+      if (!response.ok) throw new Error('Formspree rejected the request');
+      status.dataset.state = 'success';
+      status.textContent = 'Votre demande a bien été reçue. Nous vous recontactons rapidement pour configurer la surveillance de vos 3 pages concurrentes.';
       form.reset();
       selectedPlan.hidden = true;
     } catch {
-      prepareEmail(data, 'La réception de votre demande n’a pas pu être confirmée. ');
+      status.dataset.state = 'error';
+      status.textContent = 'Impossible d’envoyer votre demande pour le moment. Vous pouvez nous écrire directement à ' + CONTACT_CONFIG.CONTACT_EMAIL + '.';
     } finally {
       clearTimeout(timeout);
+      sending = false;
       submit.disabled = false;
+      submit.innerHTML = originalButton;
       form.removeAttribute('aria-busy');
     }
   });
