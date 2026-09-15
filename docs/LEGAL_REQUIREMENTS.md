@@ -1,32 +1,42 @@
-# Informations à réunir avant publication commerciale
+# Dossier juridique B2B — rédaction et mise en œuvre
 
-Les deux pages HTML juridiques sont des emplacements provisoires clairement signalés, pas des documents finalisés. Ne pas inventer l’identité d’une société, une adresse ou un numéro d’immatriculation. Faire adapter et vérifier les documents en fonction de la structure et des traitements réels.
+## Documents finalisés dans le dépôt
 
-## Informations de l’éditeur
+- mentions-legales.html : identité de Flavian Combes, entrepreneur individuel / Cybersignal, adresse et immatriculation fournies par le propriétaire, direction de publication et GitHub Pages / GitHub, Inc.
+- cgv.html : service exclusivement professionnel, prix mensuels, Stripe, configuration manuelle, limites de couverture, obligations, résiliation, impayés, propriété intellectuelle, confidentialité, responsabilité et droit français.
+- confidentialite.html : responsable du traitement, finalités et bases, données, prestataires, conservation par catégories, transferts, droits et CNIL, cookies.
+- Landing : notice professionnelle près des tarifs, accès aux CGV avant souscription et liens juridiques en pied de page.
 
-- Nom / raison sociale réelle, forme juridique et immatriculation applicable.
-- Adresse professionnelle publiable, contact professionnel réel.
-- Responsable de publication et autres mentions applicables à la structure.
-- Informations fiscales applicables, notamment la TVA le cas échéant.
-- Identité et coordonnées vérifiées de l’hébergeur effectivement utilisé.
+Les textes publics ne comportent plus d’emplacement provisoire. Les informations d’identité sont celles communiquées par le propriétaire, sans vérification du registre effectuée dans cette tâche. Aucun numéro de téléphone n’a été inventé.
 
-## Confidentialité
+## Hypothèses opérationnelles à confirmer
 
-- Responsable du traitement, coordonnées pour les demandes.
-- Finalités : traitement de la demande, configuration et suivi du service ; distinguer toute prospection ultérieure.
-- Base juridique adaptée à chaque traitement, à faire valider.
-- Catégories de données, destinataires et personnes habilitées.
-- Formspree pour les demandes, Stripe pour le paiement externe, prestataire email et hébergement effectivement retenus.
-- Durées de conservation définies, suppression et modalités d’exercice des droits.
-- Transferts éventuels et garanties ; voies de réclamation appropriées.
-- Traitement technique par les prestataires, même si la landing page n’intègre aucun traceur.
+1. Le paiement initial ouvre la période mensuelle Stripe ; la configuration est ensuite manuelle dans un délai raisonnable. Vérifier le processus de prise de contact, les retards et le traitement d’une impossibilité de surveillance après paiement.
+2. Une résiliation reçue avant l’échéance empêche le renouvellement. Organiser le traitement des emails et le paramétrage Stripe pour respecter la date de réception, y compris une demande proche de l’échéance. Pas de remboursement automatique des périodes commencées hors règle légale ou accord.
+3. Présenter les CGV dans les trois Payment Links et recueillir leur acceptation avant paiement, avec conservation de la version acceptée. Aucun écran ou faux consentement n’a été ajouté à la landing. Le paramétrage Stripe n’a pas été inspecté ni modifié.
+4. Vérifier effectivement la qualité professionnelle des souscripteurs et le pouvoir du représentant ; une simple notice ne contrôle pas le profil de l’acheteur.
+5. Vérifier la délivrance des factures, les pénalités légales, les rappels et le préavis raisonnable avant suspension pour impayé.
+6. Traduire les critères de conservation de la politique en calendrier interne, suppression/archivage et réglages réels chez les prestataires. Aucune durée opérationnelle chiffrée inconnue n’a été inventée.
+7. Vérifier les contrats de traitement, rôles RGPD, destinations, garanties de transfert et réglages de Stripe, Formspree, Apify, Resend et GitHub. Aucune résidence exclusivement française n’est affirmée. Évaluer un accord de traitement pour compte de clients lorsque nécessaire.
 
-## Conditions commerciales avant vente
+## Points de revue par un avocat français
 
-Formaliser le périmètre, la facturation mensuelle avec la mention « TVA non applicable — art. 293 B du CGI. », le paiement, la résiliation, le support, les limites de service et l’accord d’activation du service payant. Ne pas ajouter sur le site de garantie ou de délai de réponse qui n’a pas été défini.
+- Applicabilité et preuve d’acceptation des CGV, qualification professionnelle des parties et règles impératives selon les situations réelles.
+- Adéquation des limites de responsabilité : dommages directs et prévisibles, maintien des obligations essentielles et exceptions légales, sans exclusion générale ni plafond financier arbitraire.
+- Compétence : droit commun, sans attribution exclusive universelle à un tribunal commercial.
+- Obligations de contact téléphonique : le propriétaire n’utilise pas actuellement de numéro professionnel ; le numéro de l’hébergeur n’a pas été vérifié. Faire confirmer les mentions requises et obtenir des coordonnées vérifiées lorsqu’elles sont nécessaires.
+- Cohérence facturation/activation, suspension, preuve des notifications, fiscalité indiquée par le propriétaire et conditions de résiliation.
+- Licéité des sources surveillées, données de tiers, couverture partielle et droits sur les contenus.
+- Information RGPD et mise en œuvre effective des critères de conservation et transferts.
 
-Une fois les informations réunies, remplacer `mentions-legales.html` et `confidentialite.html`, adapter le texte du formulaire et vérifier les liens de pied de page. Ce fichier constitue une liste de préparation, pas une assurance de conformité juridique.
+## Sources officielles consultées le 15 septembre 2026
 
-## Informations désormais connues
+- Adresse GitHub : https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#contact-us
+- Compétence territoriale, article 48 du Code de procédure civile : https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006410147/
+- Obligation essentielle, article 1170 du Code civil : https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032041115/
+- Retards de paiement professionnels : https://www.legifrance.gouv.fr/codes/id/LEGIARTI000053151438/2026-09-01
+- Conservation : https://www.cnil.fr/fr/passer-laction/les-durees-de-conservation-des-donnees
+- Information des personnes : https://www.cnil.fr/fr/cnil-direct/question/reglement-europeen-de-quoi-les-personnes-doivent-elles-etre-informees
+- Mentions d’identification et hébergement : https://www.economie.gouv.fr/entreprises/developper-son-entreprise/innover-et-numeriser-son-entreprise/mentions-sur-votre-site-internet-les-obligations-respecter
 
-Contact : changewatch@cybersignal.fr. Domaine : https://changewatch.cybersignal.fr. Hébergement : GitHub Pages. Réception des demandes : Formspree. Restent à fournir : identité et adresse légales de l’éditeur, statut/immatriculation et mentions fiscales applicables, responsable de publication, identité du responsable du traitement, coordonnées légales vérifiées de l’hébergeur, base juridique, destinataires habilités, durées de conservation, éventuels transferts et modalités des droits. Les coordonnées de contact ne suffisent pas à établir une identité légale.
+Les politiques officielles des cinq prestataires sont directement liées dans confidentialite.html. Ces sources étayent la rédaction ; elles ne démontrent pas que tous les réglages des comptes de production sont conformes.

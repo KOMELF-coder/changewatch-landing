@@ -44,7 +44,11 @@ Après déploiement et validation HTTPS, ouvrir le domaine public, remplir une d
 
 ## Juridique et confidentialité
 
-Les pages expliquent le rôle de Formspree et indiquent le contact réel. L’identité légale de l’éditeur et du responsable du traitement, les mentions applicables, les coordonnées de l’hébergeur et les modalités de conservation restent à fournir ; voir docs/LEGAL_REQUIREMENTS.md. Aucune durée ou identité n’a été inventée. Le site n’intègre ni analytics, ni publicité, ni cookie de suivi ; pas de bandeau cookies ajouté.
+Les mentions légales identifient Flavian Combes, entrepreneur individuel / Cybersignal, et l’hébergeur GitHub. cgv.html contient les conditions de vente exclusivement professionnelles. La politique de confidentialité couvre Stripe, Formspree, Apify, Resend et GitHub, les finalités, droits, critères de conservation et transferts éventuels. Aucun contenu provisoire ne reste dans ces pages.
+
+L’offre est réservée aux professionnels. Les CGV prévoient l’arrêt des renouvellements après résiliation, la fin de service au terme de la période payée et l’absence de remboursement automatique, sous réserve de la loi ou d’un accord explicite. Les informations d’identité et le régime de TVA proviennent du propriétaire. Consulter docs/LEGAL_REQUIREMENTS.md pour les vérifications de mise en œuvre et de revue juridique ; la rédaction ne constitue pas une certification de conformité.
+
+Le site n’intègre ni analytics, ni publicité, ni cookie de suivi ; pas de bandeau cookies ajouté.
 
 ## Maintenance et contrôles
 
@@ -61,3 +65,5 @@ Parcours : landing page → Payment Link Stripe → abonnement mensuel → confi
 - Pro : https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04
 
 Ces liens publics de production fournis par le propriétaire créent des abonnements mensuels sur le compte Cybersignal. Aucune clé Stripe, aucun SDK, backend, webhook ou seconde page de paiement n’est ajouté au dépôt. La confirmation de paiement est hébergée par Stripe ; l’opérateur finalise ensuite la configuration. Vérifier dans Stripe les montants, la périodicité, les notifications et le suivi manuel des nouveaux abonnés. Un clic de contrôle ne doit pas se transformer en achat réel non voulu.
+
+Pages juridiques : mentions-legales.html, cgv.html, confidentialite.html. Elles sont accessibles depuis le pied de page ; les CGV sont également liées près des tarifs. Configurer dans Stripe la présentation des CGV et leur acceptation avant paiement, la restriction aux clients professionnels et la conservation de la version acceptée : le lien de la landing ne prouve pas à lui seul cette acceptation.

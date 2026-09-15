@@ -1,6 +1,6 @@
 # Offre publique v1 — référence commerciale
 
-ChangeWatch est un service mensuel payant de veille concurrentielle pour les équipes e-commerce. Configuration manuelle incluse, sans engagement, résiliable à tout moment.
+ChangeWatch est un service mensuel payant de veille concurrentielle réservé aux professionnels agissant dans le cadre de leur activité. Vendeur : Flavian Combes, entrepreneur individuel / Cybersignal. Configuration manuelle incluse, sans engagement, résiliable à tout moment.
 
 | Forfait | Prix public | URLs | Fréquence |
 | --- | --- | --- | --- |
@@ -25,3 +25,7 @@ L’offre publique est payante. Un essai manuel peut être accordé à titre dis
 ## Positionnement interne
 
 ChangeWatch reste le produit d’entrée envisagé d’une future suite de services de surveillance métier ciblés. Ne pas présenter de produits inexistants comme disponibles. Le prix reflète une automatisation ciblée et une offre simple.
+
+## Conditions contractuelles
+
+CGV : https://changewatch.cybersignal.fr/cgv.html. Résiliation par email : arrêt des renouvellements futurs et service jusqu’à la fin de la période payée, sans remboursement automatique de la période commencée sauf obligation légale ou accord. Présenter les CGV et recueillir l’acceptation dans Stripe. Les documents juridiques sont rédigés ; les contrôles de mise en œuvre sont recensés dans LEGAL_REQUIREMENTS.md.

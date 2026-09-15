@@ -9,7 +9,7 @@
 7. [x] Contrôles locaux du formulaire, menu, CTA, liens et responsive ; réponses Formspree simulées.
 8. [ ] Vérifier l’émission du certificat GitHub et activer Enforce HTTPS si ce n’est pas déjà fait.
 9. [ ] Envoyer une demande réelle après déploiement ; vérifier réception dans Formspree et livraison email.
-10. [ ] Fournir les informations légales manquantes et finaliser les pages avant ouverture commerciale.
+10. [x] Identité fournie, mentions légales finalisées, CGV B2B créées et politique de confidentialité actualisée.
 
 Les étapes d’infrastructure cochées reflètent la configuration confirmée par le propriétaire. Elles ne constituent pas une preuve de livraison des emails ou de fin d’émission du certificat.
 
@@ -21,3 +21,9 @@ Premier jour commercial : qualifier 10 prospects réels, personnaliser cinq mess
 - [x] Formulaire facultatif conservé pour l’avant-vente et la compatibilité.
 - [ ] Ouvrir les trois pages Stripe publiques et vérifier intitulé, montant et périodicité mensuelle, sans achat involontaire.
 - [ ] Vérifier notifications Stripe et procédure de prise de contact/configuration après abonnement.
+
+## Mise en œuvre juridique
+
+- [ ] Configurer les liens CGV et confidentialité dans Stripe, leur acceptation et la preuve de version avant paiement.
+- [ ] Vérifier la qualité professionnelle des acheteurs et la procédure de résiliation, facturation et impayés.
+- [ ] Faire revoir les clauses et obligations de contact, puis confirmer le calendrier de conservation et les accords de traitement/transferts selon LEGAL_REQUIREMENTS.md.
