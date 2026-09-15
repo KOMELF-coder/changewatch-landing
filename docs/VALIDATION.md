@@ -39,3 +39,16 @@ Script officiel Cloudflare ajouté et widget compact avant le bouton, avec la se
 Contrôles locaux avec widget et réponses simulés : absence de jeton, jeton vide, transmission du jeton, succès, erreur HTTP, panne réseau et expiration. Réinitialisation du widget vérifiée après chaque tentative envoyée ; conservation des données à l’échec et remise à zéro au succès. Double soumission, navigation clavier, six largeurs, liens Stripe, menu et absence d’erreurs JavaScript contrôlés. Aucun appel externe de validation ni soumission réelle effectué.
 
 Contrôle de production restant : vérifier le domaine autorisé pour la clé publique, la résolution réelle du widget et la réception Formspree avec la configuration privée déjà fournie par le propriétaire. Aucune clé privée n’a été ajoutée au dépôt. La politique de confidentialité mentionne désormais Cloudflare pour cette protection anti-spam.
+
+## Premier article SEO et fondation du blog
+
+- Création de /blog/ et /blog/veille-concurrentielle-ecommerce/, publication datée du 15 septembre 2026, auteur ChangeWatch — Cybersignal.
+- Guide d’environ 1 764 mots, estimation de lecture de 9 minutes ; neuf sections principales, sous-sections pratiques et tableau comparatif accessible.
+- Un seul h1 par page, titres/descriptions uniques, canonical, Open Graph et Twitter. BlogPosting et BreadcrumbList parsés et champs contrôlés ; aucune image fictive.
+- Tous les liens locaux, ressources et ancres des deux pages vérifiés, y compris les chemins vers les sections d’accueil et documents juridiques.
+- Deux pages contrôlées à 320, 375, 768 et 1440 pixels sans débordement global ; menu mobile et clavier testés. Tableau défilant dans son propre conteneur accessible. Captures mobiles et ordinateur inspectées.
+- sitemap.xml validé avec un parseur XML : six URL publiques (accueil, trois documents juridiques, blog et article). robots.txt autorise l’exploration et indique le sitemap.
+- Régression de la landing réussie : six largeurs, menu, clavier, liens Stripe, Formspree et Turnstile simulés, erreurs et expiration, aucun changement du traitement de paiement ou du formulaire.
+- Pages juridiques, CNAME, scripts fonctionnels et favicon conservés. Aucun paiement, demande ou email réel envoyé pendant les tests.
+
+Après déploiement, vérifier les deux URL publiques et soumettre éventuellement le sitemap dans Search Console. Les tests locaux ne constituent pas une validation d’indexation par les moteurs de recherche.

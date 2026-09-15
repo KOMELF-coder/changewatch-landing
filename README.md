@@ -73,3 +73,16 @@ Pages juridiques : mentions-legales.html, cgv.html, confidentialite.html. Elles 
 Le formulaire charge le script officiel Cloudflare et utilise uniquement la clé publique 0x4AAAAAAE2QTEgZOtjjoxAY. Le widget compact tient dans le formulaire mobile. Le champ caché cf-turnstile-response est inclus dans FormData puis transmis avec les autres champs au même endpoint Formspree. Sans jeton, le message anti-spam apparaît et aucune requête n’est envoyée. Après chaque tentative envoyée, réussie ou échouée, le widget est réinitialisé ; les champs du prospect ne sont effacés qu’après succès.
 
 La clé privée reste exclusivement configurée chez Formspree, qui valide le jeton ; aucun appel de validation Cloudflare ni backend n’est ajouté au site. Vérifier que le domaine changewatch.cybersignal.fr est autorisé pour cette clé publique. Après déploiement, tester une vérification réelle et la livraison de la demande. Les tests locaux utilisent un widget simulé et des réponses Formspree interceptées, sans soumission externe.
+
+## Blog SEO
+
+Index : https://changewatch.cybersignal.fr/blog/
+Premier article : https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/
+
+Les pages HTML sont statiques et réutilisent styles.css, le favicon et script.js pour la navigation. Les styles éditoriaux sont isolés dans assets/blog.css. Aucun script Stripe, Formspree ou Turnstile n’est chargé par le blog ; le script partagé n’initialise le formulaire que lorsqu’il existe.
+
+Article publié le 15 septembre 2026, auteur ChangeWatch — Cybersignal. Environ 1764 mots, lecture estimée à 9 minutes sur une base de 200 mots/minute. Métadonnées uniques, canonical, Open Graph, Twitter, BlogPosting et BreadcrumbList sont inclus. Aucun visuel ou résultat client fictif.
+
+Pour un nouvel article : créer blog/<slug>/index.html, adapter le contenu et les métadonnées, ajouter la carte sur l’index et l’URL au sitemap. Ne modifier dateModified qu’après une modification éditoriale effective ; conserver la date de publication initiale. Vérifier les chemins relatifs depuis le sous-dossier et actualiser le temps de lecture.
+
+sitemap.xml référence l’accueil, les trois pages juridiques et les deux pages du blog. La démonstration non indexable est exclue. robots.txt autorise l’exploration et indique le sitemap. Une soumission du sitemap dans Search Console peut être effectuée par le propriétaire après déploiement ; elle ne garantit pas l’indexation.
