@@ -1,43 +1,27 @@
-# Configuration manuelle d’un essai
+# Essai manuel discrétionnaire — usage commercial interne
 
-Le formulaire public recueille les informations de première demande. Confirmer ensuite la langue préférée et le fuseau horaire par échange direct, sans les deviner. Utiliser le moteur existant dans son environnement séparé ; ne rien ajouter à ce dépôt pour surveiller les pages.
+Un essai est un outil de vente optionnel, proposé uniquement en privé à un prospect qualifié. Il ne fait pas partie de l’offre publique. Ne pas le promouvoir sur le site, dans les métadonnées ou dans les messages de prospection standard. Aucun périmètre ni durée automatique.
 
-## Modèle opérateur à copier
+## Modèle opérateur
 
-```text
-DEMANDE D’ESSAI CHANGEWATCH
-Nom du contact :
+Contact :
 Entreprise :
-Email professionnel :
+Email :
 Langue préférée :
-Fuseau horaire (ex. Europe/Paris, à confirmer) :
-URL concurrente 1 :
-URL concurrente 2 :
-URL concurrente 3 :
-Éléments importants à suivre :
+Fuseau horaire confirmé :
 Forfait envisagé :
+Motif de qualification et décision de proposer un essai :
+Pages publiques convenues :
+Compatibilité et couverture vérifiées :
+Fréquence convenue :
+Conditions de l’essai convenues en privé :
+Date de début et date de fin convenues :
+Date de bilan :
+Résultats réellement détectés et limites rencontrées :
+Prochaine action :
 
-CONTRÔLES ET CONFIGURATION
-Pages publiques et accessibles :
-Compatibilité confirmée pour chaque URL :
-Pages de remplacement convenues si nécessaire :
-Adresse destinataire des alertes confirmée :
-Fréquence d’essai convenue :
-Début confirmé (date, heure, fuseau) :
-Fin confirmée (7 jours après) :
-Confirmation envoyée au contact le :
-Opérateur :
+Confirmer individuellement le périmètre et les conditions par écrit. Aucun changement ne doit être inventé pour la démonstration ; le récapitulatif hebdomadaire rend compte de l’activité en l’absence d’alerte significative. Tout passage au service mensuel payant nécessite un accord explicite. Ne pas enregistrer les informations du prospect dans ce dépôt.
 
-BILAN
-Changements réellement détectés :
-Utilité perçue / limites rencontrées :
-Nombre d’URLs souhaité après essai :
-Forfait choisi / refus / à recontacter :
-Prochaine action et date :
-```
+## Mise en place standard payante
 
-## Message de confirmation à adapter
-
-Bonjour [Prénom], vos trois pages [liste] sont configurées. Votre essai gratuit débute le [date/heure/fuseau] et se termine le [date/heure/fuseau], avec [fréquence convenue]. Vous recevrez les changements importants confirmés à [email]. Aucun paiement n’est demandé pour cet essai. Si aucune page ne change, vous ne recevrez pas nécessairement d’alerte. Nous ferons le point le [date].
-
-Conserver les informations client dans l’outil commercial choisi, jamais dans ce dépôt public. Ne pas transformer l’essai en abonnement sans accord explicite.
+Recueillir contact, entreprise, email, langue et fuseau, forfait et liste des pages dans sa limite. Vérifier compatibilité et couverture, convenir des modalités de paiement et de résiliation, puis confirmer la configuration manuelle incluse et la date d’activation sans promettre de délai standard.

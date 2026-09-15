@@ -9,3 +9,7 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .direct-contact a{color:var(--blue);text-decoration:underline;overflow-wrap:anywhere}
+
+.plan-price>span{display:inline;margin:0}
+.pricing-note .vat-note{font-size:.75rem;margin-top:10px}
+.trial-facts strong{font-size:.875rem;overflow-wrap:anywhere}

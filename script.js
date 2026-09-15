@@ -43,7 +43,7 @@ if (form) {
     link.addEventListener('click', () => {
       if (link.dataset.plan) {
         form.elements.plan.value = link.dataset.plan;
-        selectedPlan.textContent = 'Forfait envisagé : ' + link.dataset.plan + '. L’essai reste gratuit pendant 7 jours sur 3 URLs.';
+        selectedPlan.textContent = 'Forfait envisagé : ' + link.dataset.plan + '. Configuration incluse, sans engagement.';
         selectedPlan.hidden = false;
       }
       form.focus({ preventScroll: true });
@@ -84,7 +84,7 @@ if (form) {
       // Formspree confirms acceptance with an HTTP 2xx response to an AJAX request.
       if (!response.ok) throw new Error('Formspree rejected the request');
       status.dataset.state = 'success';
-      status.textContent = 'Votre demande a bien été reçue. Nous vous recontactons rapidement pour configurer la surveillance de vos 3 pages concurrentes.';
+      status.textContent = 'Votre demande a bien été reçue. Nous vous recontactons rapidement pour finaliser la configuration de ChangeWatch.';
       form.reset();
       selectedPlan.hidden = true;
     } catch {

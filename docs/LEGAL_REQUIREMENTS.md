@@ -13,7 +13,7 @@ Les deux pages HTML juridiques sont des emplacements provisoires clairement sign
 ## Confidentialité
 
 - Responsable du traitement, coordonnées pour les demandes.
-- Finalités : traitement de la demande, configuration et suivi d’essai ; distinguer toute prospection ultérieure.
+- Finalités : traitement de la demande, configuration et suivi du service ; distinguer toute prospection ultérieure.
 - Base juridique adaptée à chaque traitement, à faire valider.
 - Catégories de données, destinataires et personnes habilitées.
 - Service de formulaire éventuel, prestataire email et hébergement réellement retenus.
@@ -23,7 +23,7 @@ Les deux pages HTML juridiques sont des emplacements provisoires clairement sign
 
 ## Conditions commerciales avant vente
 
-Formaliser le périmètre, la facturation HT/TVA, le paiement, la résiliation, le support, les limites de service et l’accord de passage de l’essai au payant. Ne pas ajouter sur le site de garantie ou de délai de réponse qui n’a pas été défini.
+Formaliser le périmètre, la facturation mensuelle avec la mention « TVA non applicable — art. 293 B du CGI. », le paiement, la résiliation, le support, les limites de service et l’accord d’activation du service payant. Ne pas ajouter sur le site de garantie ou de délai de réponse qui n’a pas été défini.
 
 Une fois les informations réunies, remplacer `mentions-legales.html` et `confidentialite.html`, adapter le texte du formulaire et vérifier les liens de pied de page. Ce fichier constitue une liste de préparation, pas une assurance de conformité juridique.
 

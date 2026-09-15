@@ -22,17 +22,21 @@ Le bouton affiche « Envoi en cours… », est désactivé et un verrou empêche
 
 En cas d’erreur HTTP, réseau ou après 15 secondes sans confirmation, les données sont conservées, le bouton réactivé et un message propose changewatch@cybersignal.fr. Le lien email reste visible en permanence. Un délai expiré ne prouve pas l’absence de réception : vérifier Formspree avant de retenter un envoi incertain. Sans JavaScript, l’envoi reste désactivé et le lien email fonctionne.
 
-La confirmation signifie réception de la demande, pas activation automatique de l’essai. L’opérateur vérifie les trois pages puis confirme les dates. Documentation prestataire : https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax
+La confirmation signifie réception de la demande, pas activation automatique du service. L’opérateur vérifie les pages et leur couverture, confirme le forfait et les modalités de paiement puis finalise la configuration. Documentation prestataire : https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax
 
 ## Tarifs conservés
 
-| Forfait | Prix HT / mois | URLs | Fréquence |
+| Forfait | Prix / mois | URLs | Fréquence |
 | --- | --- | --- | --- |
 | Starter | 14,90 € | 5 | 1 / jour |
 | Business | 29,90 € | 15 | 1 / jour |
 | Pro | 59,90 € | 40 | Jusqu’à 3 / jour |
 
-Essai gratuit de sept jours, trois URLs, sans carte bancaire, configuration incluse.
+Forfaits mensuels sans engagement, résiliables à tout moment. Configuration manuelle incluse. TVA non applicable — art. 293 B du CGI.
+
+L’offre publique est payante dès le départ. Un essai manuel discrétionnaire peut être proposé uniquement en privé à un prospect qualifié ; voir docs/TRIAL_INTAKE.md.
+
+Lorsqu’aucune alerte significative n’a été envoyée, un récapitulatif hebdomadaire confirme l’activité de surveillance. La compatibilité et la couverture des pages publiques sont vérifiées à la configuration.
 
 ## Test complet de production
 

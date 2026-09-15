@@ -1,27 +1,27 @@
-# Offre de lancement — référence opérateur
+# Offre publique v1 — référence commerciale
 
-Promesse : ChangeWatch surveille automatiquement vos concurrents et vous alerte lorsque leurs prix, produits, promotions ou offres changent. L’offre est destinée aux petites et moyennes équipes e-commerce, boutiques Shopify, marques DTC, commerçants spécialisés et agences.
+ChangeWatch est un service mensuel payant de veille concurrentielle pour les équipes e-commerce. Configuration manuelle incluse, sans engagement, résiliable à tout moment.
 
-| Plan | Price | URLs | Frequency |
+| Forfait | Prix public | URLs | Fréquence |
 | --- | --- | --- | --- |
-| Starter | 14.90 EUR HT/month | 5 URLs | daily |
-| Business | 29.90 EUR HT/month | 15 URLs | daily |
-| Pro | 59.90 EUR HT/month | 40 URLs | up to 3/day |
+| Starter | 14,90 €/mois | 5 | 1 surveillance / jour |
+| Business | 29,90 €/mois | 15 | 1 surveillance / jour |
+| Pro | 59,90 €/mois | 40 | Jusqu’à 3 surveillances / jour |
 
-Affichage français : 14,90 €, 29,90 € et 59,90 € **HT / mois**. Business porte le libellé « Le plus populaire » demandé pour le lancement ; ce n’est pas une preuve statistique.
+TVA non applicable — art. 293 B du CGI.
 
-Tous : détection des changements importants, alertes email et configuration manuelle incluse. Business et Pro : configuration et support prioritaires. Starter : configuration incluse. Aucun tableau de bord client, compte ou paiement automatique dans ce MVP.
+Tous les forfaits comprennent la détection des changements importants, les alertes email et la configuration manuelle. Business et Pro incluent configuration et support prioritaires. Business reste visuellement mis en avant.
 
-## Essai
+Un récapitulatif hebdomadaire confirme l’activité lorsqu’aucune alerte significative n’a été envoyée. Aucune alerte artificielle n’est créée. L’accessibilité publique, la structure, la compatibilité et la couverture des pages sont vérifiées pendant la configuration. Pas de garantie de couverture de tous les catalogues ni de résultat commercial.
 
-7 days · 3 URLs · free · no card. Soit 7 jours gratuits, 3 pages publiques, aucune carte bancaire. Configuration manuelle incluse. L’opérateur confirme les dates de début et de fin. Si les concurrents ne changent rien pendant l’essai, ne pas fabriquer d’alerte. La démonstration reste disponible en tant qu’exemple fictif.
+## Mise en place
 
-À la fin, proposer le forfait adapté au nombre de pages et à la fréquence souhaitée. Ne pas convertir automatiquement l’essai en abonnement. Convenez des modalités de paiement et de résiliation avant engagement ; aucun second pilote payant ni offre parallèle.
+Le prospect choisit un forfait et transmet ses premières pages. L’opérateur confirme leur compatibilité, le périmètre complet, les modalités de paiement et de résiliation, puis finalise la configuration. Le formulaire ne déclenche ni paiement ni activation automatique. Aucun délai de configuration garanti, frais de mise en place additionnels, remise ou abonnement annuel n’est annoncé.
 
-## Périmètre et limites
+## Usage commercial privé
 
-URLs publiques uniquement, sous réserve de compatibilité. Certaines pages peuvent être bloquées ou peu stables. Pas de détection universelle, de garantie de résultat commercial ou d’alerte instantanée. Toute décision importante exige une vérification de la page source.
+L’offre publique est payante. Un essai manuel peut être accordé à titre discrétionnaire à certains prospects qualifiés, uniquement dans un échange privé. Sa durée et son périmètre sont convenus individuellement ; aucun droit automatique à un essai. Voir TRIAL_INTAKE.md.
 
 ## Positionnement interne
 
-ChangeWatch est volontairement le produit d’entrée d’une future suite de services de surveillance métier ciblés. Cette ambition n’est pas une fonctionnalité existante : ne pas citer de produits inexistants sur la landing page ou dans la promesse de vente. Le prix accessible reflète une automatisation ciblée et une offre délibérément simple.
+ChangeWatch reste le produit d’entrée envisagé d’une future suite de services de surveillance métier ciblés. Ne pas présenter de produits inexistants comme disponibles. Le prix reflète une automatisation ciblée et une offre simple.

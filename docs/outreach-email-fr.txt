@@ -1,16 +1,14 @@
-Objet : Les changements de vos concurrents, par email
+Objet : Suivre les changements de vos concurrents
 
 Bonjour [Prénom],
 
-J’ai regardé [Boutique] et [observation réelle et pertinente]. Comment suivez-vous les prix et promotions de vos concurrents aujourd’hui ?
+J’ai regardé [Boutique] et [observation réelle]. Comment suivez-vous les prix et promotions de vos concurrents ?
 
-ChangeWatch surveille les pages que vous choisissez et vous alerte par email lorsqu’un changement important est confirmé.
+ChangeWatch surveille les pages que vous choisissez et vous alerte par email lorsqu’un changement important est confirmé. À partir de 14,90 €/mois, sans engagement, configuration incluse.
 
-Donnez-moi 3 pages concurrentes et je vous configure gratuitement leur surveillance pendant 7 jours. Sans carte bancaire ni installation.
+Quelles pages vous seraient utiles à suivre ? Nous vérifions leur compatibilité avant la mise en place.
 
-Est-ce utile pour votre équipe ?
-
-[Prénom et identité professionnelle réelle]
-[Coordonnées professionnelles]
+[Identité professionnelle réelle]
+changewatch@cybersignal.fr
 
 Si ce sujet ne vous concerne pas, dites-le-moi et je ne vous recontacterai pas.

@@ -1,38 +1,41 @@
-# Script de vente
+# Script commercial — service mensuel payant
 
 ## Pitch de 30 secondes
 
-ChangeWatch surveille les pages publiques de vos concurrents et vous prévient par email lorsqu’un prix, un produit, une promotion ou une offre change de façon importante. Vous choisissez les pages, nous configurons la surveillance. Donnez-moi trois pages concurrentes et je vous configure gratuitement leur surveillance pendant sept jours, sans carte bancaire.
+ChangeWatch surveille les pages publiques de vos concurrents et vous alerte par email lorsqu’un prix, un produit, une promotion ou une offre change de façon importante. Vous choisissez les pages et nous configurons leur surveillance. Le service commence à 14,90 €/mois, sans engagement, configuration incluse. Quelles pages souhaitez-vous suivre ?
 
 ## Explication de deux minutes
 
-Quand vous gérez une boutique, vérifier les concurrents tous les jours devient vite une tâche de plus. Un tarif peut baisser, une promotion apparaître ou les frais de livraison évoluer entre deux visites.
+Vérifier vos concurrents chaque jour prend du temps. Un tarif baisse, une offre disparaît ou une promotion commence entre deux visites. ChangeWatch suit les pages publiques que vous choisissez et vous transmet les changements importants confirmés, avec un lien vers leur source.
 
-Avec ChangeWatch, vous nous donnez les pages publiques que vous voulez suivre. Nous vérifions leur compatibilité et configurons leur surveillance. Vous recevez ensuite un email lorsqu’un changement important est confirmé, avec un résumé et un lien vers la source. Les éléments instables sont filtrés pour limiter les fausses alertes ; certains changements ambigus demandent une confirmation.
+Notre démonstration fictive montre un prix passant de 99 € à 79 €, soit −20 € et −20,2 %. Elle illustre la façon dont une alerte vous aide à décider où regarder. Vérifiez la source avant toute décision commerciale importante.
 
-Par exemple, notre démonstration montre un produit passant de 99 € à 79 €. L’alerte met en évidence les 20 € de différence, soit 20,2 %, pour vous inviter à vérifier la page avant de décider quoi faire. Cet exemple est fictif : pendant votre essai, nous suivons vos propres URLs et ne montrons que de vrais changements.
+Starter coûte 14,90 €/mois pour cinq URLs, Business 29,90 €/mois pour quinze, et Pro 59,90 €/mois pour quarante. Starter et Business vérifient une fois par jour, Pro jusqu’à trois fois. La configuration manuelle est incluse, les forfaits sont sans engagement et résiliables à tout moment. TVA non applicable — art. 293 B du CGI.
 
-L’essai dure sept jours, pour trois pages, sans carte bancaire. Ensuite, Starter coûte 14,90 € HT par mois pour cinq pages, Business 29,90 € pour quinze, et Pro 59,90 € pour quarante. Starter et Business vérifient une fois par jour ; Pro jusqu’à trois fois. Tout se passe par email, sans installation. Quelles trois pages vous seraient les plus utiles à suivre ?
+La compatibilité et la couverture sont vérifiées avant activation. Le service ne garantit pas une prise en charge de tous les sites ou catalogues. Lorsqu’aucune alerte significative n’a été envoyée, un récapitulatif hebdomadaire confirme l’activité de surveillance. Transmettez vos premières pages pour préparer la mise en place.
 
-## Déroulé de démonstration
+## Démonstration
 
-1. Demander quelles pages la personne vérifie aujourd’hui et à quelle fréquence.
-2. Montrer le bloc « Exemple de détection » et préciser que ses données sont fictives.
-3. Lire avant/après : 99 € → 79 €, −20 €, −20,2 %, importance 90/100.
-4. Montrer le résumé, la recommandation et le lien vers la page source fictive. Expliquer que les vraies alertes renvoient au concurrent.
-5. Montrer les forfaits et l’essai de sept jours. Ne promettre ni temps réel ni détection universelle.
-6. Recueillir trois URLs, confirmer leur compatibilité, puis envoyer les dates d’essai.
+1. Demander quelles pages sont suivies et quels changements comptent.
+2. Montrer l’alerte et préciser que les données sont fictives.
+3. Montrer le résumé, la variation, l’importance et le lien source.
+4. Vérifier le périmètre souhaité et choisir le forfait adapté.
+5. Recueillir les pages, vérifier compatibilité et couverture, finaliser les modalités de paiement et de résiliation puis la configuration.
 
 ## Objections
 
-**« Je peux vérifier les concurrents manuellement. »** Oui. ChangeWatch automatise cette routine et regroupe les changements qui méritent votre regard. Si vous suivez peu de pages rarement, la vérification manuelle peut vous suffire. L’essai vous permet d’évaluer l’intérêt dans votre cas.
+**Je peux vérifier manuellement.** Oui. ChangeWatch délègue cette routine et vous adresse les changements utiles. Si vous consultez rarement très peu de pages, la vérification manuelle peut suffire.
 
-**« J’utilise déjà Google Alerts. »** Le besoin ici est de suivre des modifications sur des pages précises que vous choisissez. Regardons vos trois URLs et les changements que vous voulez repérer pour déterminer si ChangeWatch vous apporte une information complémentaire.
+**J’utilise Google Alerts.** Regardons les pages précises et les changements que vous souhaitez suivre pour évaluer l’information complémentaire apportée par ChangeWatch.
 
-**« Et les faux positifs ? »** Les contenus répétitifs ou instables sont filtrés et les changements ambigus peuvent être confirmés avant alerte. Cela limite le bruit sans garantir son absence. Le lien source permet de vérifier et vos retours pendant l’essai nous aident à évaluer la pertinence.
+**Et les faux positifs ?** Les contenus répétitifs ou instables sont filtrés et les changements ambigus peuvent être confirmés. Cela limite le bruit sans garantir son absence ; vérifiez la page source.
 
-**« Pouvez-vous surveiller tous les sites ? »** Non. Nous suivons des pages publiques compatibles. Certains sites bloquent l’accès automatisé ou sont trop instables. Nous vérifions vos URLs avant de confirmer l’essai et cherchons avec vous une autre page si nécessaire.
+**Tous les sites sont compatibles ?** Non. L’accessibilité et la structure comptent ; nous vérifions la compatibilité et la couverture à la configuration et pouvons proposer une autre page publique.
 
-**« Pourquoi payer ? »** Pour déléguer une routine et recevoir les changements importants directement. L’intérêt dépend du nombre de pages et de l’usage que vous faites des alertes ; nous ne promettons pas de gain financier. Testons sur vos concurrents.
+**Pourquoi payer ?** Pour déléguer une vérification régulière et recevoir directement l’information utile. L’intérêt dépend de votre usage ; aucun gain financier n’est garanti.
 
-**« Pourquoi est-ce si peu cher ? »** L’offre repose sur une automatisation ciblée et un périmètre volontairement simple : un nombre défini de pages, une fréquence claire et des alertes email. Vous payez pour cette fonction précise, avec une configuration accompagnée incluse.
+**Pourquoi ce prix accessible ?** Une automatisation ciblée, un nombre de pages défini et une offre volontairement simple permettent de proposer ce service avec une configuration accompagnée incluse.
+
+## Exception privée
+
+Un essai manuel peut être proposé discrétionnairement à un prospect qualifié, sans publicité ni promesse systématique. Convenir de son périmètre individuellement selon TRIAL_INTAKE.md.

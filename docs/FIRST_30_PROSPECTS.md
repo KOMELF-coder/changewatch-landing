@@ -38,10 +38,10 @@ Constituer d’abord une liste de 40 candidats réels, vérifier le site et les 
 ## Colonnes de suivi recommandées
 
 ```text
-Company | Website | Contact | Role | Email | LinkedIn | Competitor 1 | Competitor 2 | Competitor 3 | Qualification | Date contacted | Channel | Response | Trial started | Trial ending | Plan | MRR | Notes
+Company | Website | Contact | Role | Email | LinkedIn | Competitor 1 | Competitor 2 | Competitor 3 | Qualification | Date contacted | Channel | Response | Setup requested | Activated on | Plan | MRR | Notes
 ```
 
-Pour `Qualification`, noter les éléments vérifiés et les blocages. Pour `MRR`, inscrire 0 tant qu’un abonnement n’est pas réellement conclu ; ensuite 14,90 / 29,90 / 59,90 EUR HT selon le forfait. Ajouter dans `Notes` la source du contact, une éventuelle opposition et la prochaine action. Un essai n’est pas du revenu récurrent.
+Pour `Qualification`, noter les éléments vérifiés et les blocages. Pour `MRR`, inscrire 0 tant qu’un abonnement n’est pas réellement conclu ; ensuite 14,90 / 29,90 / 59,90 EUR selon le forfait. Ajouter dans `Notes` la source du contact, une éventuelle opposition et la prochaine action. Une demande de mise en place n’est pas du revenu récurrent.
 
 ## Cadence proposée
 
