@@ -31,3 +31,11 @@ Les réponses Formspree ont été simulées : aucune demande ni email réel envo
 - Régression du site : Stripe, Formspree simulé, menu et clavier, six largeurs, texte agrandi et absence d’erreurs JavaScript validés.
 
 Cette validation porte sur les fichiers et comportements du site, pas sur une certification juridique. Les réglages d’acceptation des CGV dans Stripe, l’éligibilité professionnelle réelle, les coordonnées téléphoniques requises et la mise en œuvre des traitements restent à vérifier selon LEGAL_REQUIREMENTS.md. Aucun paiement ni email réel effectué.
+
+## Protection Turnstile du formulaire
+
+Script officiel Cloudflare ajouté et widget compact avant le bouton, avec la seule clé publique fournie. FormData inclut cf-turnstile-response dans le JSON envoyé au même endpoint Formspree. Un jeton absent ou vide bloque la requête et affiche le message anti-spam demandé.
+
+Contrôles locaux avec widget et réponses simulés : absence de jeton, jeton vide, transmission du jeton, succès, erreur HTTP, panne réseau et expiration. Réinitialisation du widget vérifiée après chaque tentative envoyée ; conservation des données à l’échec et remise à zéro au succès. Double soumission, navigation clavier, six largeurs, liens Stripe, menu et absence d’erreurs JavaScript contrôlés. Aucun appel externe de validation ni soumission réelle effectué.
+
+Contrôle de production restant : vérifier le domaine autorisé pour la clé publique, la résolution réelle du widget et la réception Formspree avec la configuration privée déjà fournie par le propriétaire. Aucune clé privée n’a été ajoutée au dépôt. La politique de confidentialité mentionne désormais Cloudflare pour cette protection anti-spam.

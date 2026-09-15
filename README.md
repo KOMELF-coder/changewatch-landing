@@ -67,3 +67,9 @@ Parcours : landing page → Payment Link Stripe → abonnement mensuel → confi
 Ces liens publics de production fournis par le propriétaire créent des abonnements mensuels sur le compte Cybersignal. Aucune clé Stripe, aucun SDK, backend, webhook ou seconde page de paiement n’est ajouté au dépôt. La confirmation de paiement est hébergée par Stripe ; l’opérateur finalise ensuite la configuration. Vérifier dans Stripe les montants, la périodicité, les notifications et le suivi manuel des nouveaux abonnés. Un clic de contrôle ne doit pas se transformer en achat réel non voulu.
 
 Pages juridiques : mentions-legales.html, cgv.html, confidentialite.html. Elles sont accessibles depuis le pied de page ; les CGV sont également liées près des tarifs. Configurer dans Stripe la présentation des CGV et leur acceptation avant paiement, la restriction aux clients professionnels et la conservation de la version acceptée : le lien de la landing ne prouve pas à lui seul cette acceptation.
+
+## Protection anti-spam Turnstile
+
+Le formulaire charge le script officiel Cloudflare et utilise uniquement la clé publique 0x4AAAAAAE2QTEgZOtjjoxAY. Le widget compact tient dans le formulaire mobile. Le champ caché cf-turnstile-response est inclus dans FormData puis transmis avec les autres champs au même endpoint Formspree. Sans jeton, le message anti-spam apparaît et aucune requête n’est envoyée. Après chaque tentative envoyée, réussie ou échouée, le widget est réinitialisé ; les champs du prospect ne sont effacés qu’après succès.
+
+La clé privée reste exclusivement configurée chez Formspree, qui valide le jeton ; aucun appel de validation Cloudflare ni backend n’est ajouté au site. Vérifier que le domaine changewatch.cybersignal.fr est autorisé pour cette clé publique. Après déploiement, tester une vérification réelle et la livraison de la demande. Les tests locaux utilisent un widget simulé et des réponses Formspree interceptées, sans soumission externe.

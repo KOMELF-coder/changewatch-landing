@@ -15,3 +15,5 @@
 .trial-facts strong{font-size:.875rem;overflow-wrap:anywhere}
 
 .legal-document h1{margin-top:36px}.legal-document address{font-style:normal;margin-bottom:18px}.legal-document li{margin-bottom:12px}.legal-document a,.legal-nav a{overflow-wrap:anywhere}.legal-nav{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px}.legal-nav a,.legal-inline-link{text-decoration:underline;text-underline-offset:3px}.legal-document strong{color:var(--ink)}
+
+.cf-turnstile{margin:16px 0;max-width:100%}

@@ -60,7 +60,14 @@ if (form) {
     if (sending) return;
     urls.forEach(validateUrl);
     if (!form.reportValidity()) return;
-    const data = Object.fromEntries(new FormData(form));
+    const formData = new FormData(form);
+    const turnstileToken = formData.get('cf-turnstile-response');
+    if (typeof turnstileToken !== 'string' || !turnstileToken.trim()) {
+      status.dataset.state = 'error';
+      status.textContent = 'Veuillez patienter quelques secondes pendant la vérification anti-spam.';
+      return;
+    }
+    const data = Object.fromEntries(formData);
     Object.keys(data).forEach((key) => { data[key] = data[key].trim(); });
     sending = true;
     submit.disabled = true;
@@ -89,6 +96,9 @@ if (form) {
       submit.disabled = false;
       submit.innerHTML = originalButton;
       form.removeAttribute('aria-busy');
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
     }
   });
 }
