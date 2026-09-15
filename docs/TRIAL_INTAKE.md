@@ -24,4 +24,4 @@ Confirmer individuellement le périmètre et les conditions par écrit. Aucun ch
 
 ## Mise en place standard payante
 
-Recueillir contact, entreprise, email, langue et fuseau, forfait et liste des pages dans sa limite. Vérifier compatibilité et couverture, convenir des modalités de paiement et de résiliation, puis confirmer la configuration manuelle incluse et la date d’activation sans promettre de délai standard.
+Après souscription via le Payment Link Stripe, recueillir contact, entreprise, email, langue et fuseau, forfait et pages dans sa limite. Vérifier compatibilité et couverture, puis confirmer la configuration manuelle incluse et la date d’activation sans promettre de délai standard. Le formulaire avant-vente est facultatif avant paiement.

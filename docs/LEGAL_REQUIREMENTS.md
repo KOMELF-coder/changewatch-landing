@@ -16,7 +16,7 @@ Les deux pages HTML juridiques sont des emplacements provisoires clairement sign
 - Finalités : traitement de la demande, configuration et suivi du service ; distinguer toute prospection ultérieure.
 - Base juridique adaptée à chaque traitement, à faire valider.
 - Catégories de données, destinataires et personnes habilitées.
-- Service de formulaire éventuel, prestataire email et hébergement réellement retenus.
+- Formspree pour les demandes, Stripe pour le paiement externe, prestataire email et hébergement effectivement retenus.
 - Durées de conservation définies, suppression et modalités d’exercice des droits.
 - Transferts éventuels et garanties ; voies de réclamation appropriées.
 - Traitement technique par les prestataires, même si la landing page n’intègre aucun traceur.

@@ -16,7 +16,7 @@ Un récapitulatif hebdomadaire confirme l’activité lorsqu’aucune alerte sig
 
 ## Mise en place
 
-Le prospect choisit un forfait et transmet ses premières pages. L’opérateur confirme leur compatibilité, le périmètre complet, les modalités de paiement et de résiliation, puis finalise la configuration. Le formulaire ne déclenche ni paiement ni activation automatique. Aucun délai de configuration garanti, frais de mise en place additionnels, remise ou abonnement annuel n’est annoncé.
+Le prospect choisit son forfait et souscrit directement via son Payment Link Stripe à un abonnement mensuel. La configuration manuelle, la compatibilité et la couverture sont finalisées ensuite avec l’équipe. Formspree reste facultatif pour les questions avant achat, les agences et les besoins particuliers. Il ne déclenche ni paiement ni activation. Aucun délai de configuration garanti, frais de mise en place additionnels, remise ou abonnement annuel n’est annoncé.
 
 ## Usage commercial privé
 

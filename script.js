@@ -35,17 +35,11 @@ const form = document.querySelector('#demande');
 if (form) {
   const status = document.querySelector('#form-status');
   const submit = form.querySelector('[type="submit"]');
-  const selectedPlan = document.querySelector('#selected-plan');
   const originalButton = submit.innerHTML;
   let sending = false;
   submit.disabled = false;
   document.querySelectorAll('a[href="#demande"]').forEach((link) => {
     link.addEventListener('click', () => {
-      if (link.dataset.plan) {
-        form.elements.plan.value = link.dataset.plan;
-        selectedPlan.textContent = 'Forfait envisagé : ' + link.dataset.plan + '. Configuration incluse, sans engagement.';
-        selectedPlan.hidden = false;
-      }
       form.focus({ preventScroll: true });
     });
   });
@@ -86,7 +80,6 @@ if (form) {
       status.dataset.state = 'success';
       status.textContent = 'Votre demande a bien été reçue. Nous vous recontactons rapidement pour finaliser la configuration de ChangeWatch.';
       form.reset();
-      selectedPlan.hidden = true;
     } catch {
       status.dataset.state = 'error';
       status.textContent = 'Impossible d’envoyer votre demande pour le moment. Vous pouvez nous écrire directement à ' + CONTACT_CONFIG.CONTACT_EMAIL + '.';

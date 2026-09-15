@@ -12,7 +12,7 @@ Notre démonstration fictive montre un prix passant de 99 € à 79 €, soit �
 
 Starter coûte 14,90 €/mois pour cinq URLs, Business 29,90 €/mois pour quinze, et Pro 59,90 €/mois pour quarante. Starter et Business vérifient une fois par jour, Pro jusqu’à trois fois. La configuration manuelle est incluse, les forfaits sont sans engagement et résiliables à tout moment. TVA non applicable — art. 293 B du CGI.
 
-La compatibilité et la couverture sont vérifiées avant activation. Le service ne garantit pas une prise en charge de tous les sites ou catalogues. Lorsqu’aucune alerte significative n’a été envoyée, un récapitulatif hebdomadaire confirme l’activité de surveillance. Transmettez vos premières pages pour préparer la mise en place.
+La compatibilité et la couverture sont vérifiées avant activation. Le service ne garantit pas une prise en charge de tous les sites ou catalogues. Lorsqu’aucune alerte significative n’a été envoyée, un récapitulatif hebdomadaire confirme l’activité de surveillance. Vous pouvez vous abonner directement depuis les tarifs ; la configuration sera finalisée avec nous. Pour vérifier un point avant achat, utilisez le formulaire facultatif.
 
 ## Démonstration
 
@@ -20,7 +20,7 @@ La compatibilité et la couverture sont vérifiées avant activation. Le service
 2. Montrer l’alerte et préciser que les données sont fictives.
 3. Montrer le résumé, la variation, l’importance et le lien source.
 4. Vérifier le périmètre souhaité et choisir le forfait adapté.
-5. Recueillir les pages, vérifier compatibilité et couverture, finaliser les modalités de paiement et de résiliation puis la configuration.
+5. Proposer le lien Stripe du forfait choisi pour souscrire. Si le prospect a une question avant paiement, l’accompagner via le formulaire facultatif. Après abonnement, finaliser les pages, leur compatibilité, leur couverture et la configuration.
 
 ## Objections
 

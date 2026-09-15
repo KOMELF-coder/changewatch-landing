@@ -14,3 +14,10 @@
 Les étapes d’infrastructure cochées reflètent la configuration confirmée par le propriétaire. Elles ne constituent pas une preuve de livraison des emails ou de fin d’émission du certificat.
 
 Premier jour commercial : qualifier 10 prospects réels, personnaliser cinq messages, qualifier les demandes de mise en place et finaliser les activations acceptées. Voir FIRST_30_PROSPECTS.md et TRIAL_INTAKE.md.
+
+## Paiement Stripe
+
+- [x] Trois Payment Links publics intégrés aux cartes, dans le même onglet ; aucun passage par Formspree.
+- [x] Formulaire facultatif conservé pour l’avant-vente et la compatibilité.
+- [ ] Ouvrir les trois pages Stripe publiques et vérifier intitulé, montant et périodicité mensuelle, sans achat involontaire.
+- [ ] Vérifier notifications Stripe et procédure de prise de contact/configuration après abonnement.

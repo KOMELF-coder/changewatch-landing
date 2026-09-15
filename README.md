@@ -16,13 +16,13 @@ Canonical et og:url : https://changewatch.cybersignal.fr/ ; favicon local conser
 
 Configuration publique dans CONTACT_CONFIG au début de script.js. L’endpoint Formspree est public par conception, ce n’est pas une clé secrète. Aucun secret n’est nécessaire dans le navigateur.
 
-Soumission AJAX par fetch POST JSON avec Accept: application/json. Champs : name, company, email, competitor_url_1, competitor_url_2, competitor_url_3, optional_message ; plan conserve aussi le forfait envisagé.
+Soumission AJAX par fetch POST JSON avec Accept: application/json. Champs : name, company, email, competitor_url_1, competitor_url_2, competitor_url_3, optional_message.
 
 Le bouton affiche « Envoi en cours… », est désactivé et un verrou empêche les doubles soumissions simultanées. Une réponse HTTP 2xx de Formspree confirme la réception : le message de succès s’affiche sans rechargement et le formulaire est vidé. Pas de simulation de succès ni d’exigence d’un champ JSON propriétaire success.
 
 En cas d’erreur HTTP, réseau ou après 15 secondes sans confirmation, les données sont conservées, le bouton réactivé et un message propose changewatch@cybersignal.fr. Le lien email reste visible en permanence. Un délai expiré ne prouve pas l’absence de réception : vérifier Formspree avant de retenter un envoi incertain. Sans JavaScript, l’envoi reste désactivé et le lien email fonctionne.
 
-La confirmation signifie réception de la demande, pas activation automatique du service. L’opérateur vérifie les pages et leur couverture, confirme le forfait et les modalités de paiement puis finalise la configuration. Documentation prestataire : https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax
+La confirmation signifie réception de la demande, pas activation automatique du service. Le formulaire reste facultatif pour les questions de compatibilité, l’avant-vente, les agences et les besoins particuliers. Il n’intervient pas dans le paiement. Documentation prestataire : https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax
 
 ## Tarifs conservés
 
@@ -51,3 +51,13 @@ Les pages expliquent le rôle de Formspree et indiquent le contact réel. L’id
 index.html, styles.css, script.js : page, présentation et interactions. demo-produit.html : exemple fictif. assets/favicon.svg : favicon. Les supports commerciaux restent dans docs/. Voir docs/VALIDATION.md et docs/LAUNCH_CHECKLIST.md.
 
 Prévisualisation : ouvrir index.html ou servir le dossier avec un serveur HTTP statique. Vérification JavaScript : node --check script.js. Après toute modification, contrôler menu, CTA, formulaire, liens, mobile et clavier. Ne pas enregistrer de données de prospects dans ce dépôt.
+
+## Achat public via Stripe
+
+Parcours : landing page → Payment Link Stripe → abonnement mensuel → configuration manuelle ChangeWatch avec l’équipe. Les boutons de forfait ouvrent Stripe dans le même onglet, sans interception JavaScript et sans passer par Formspree. Le bouton du menu et le bouton principal mènent aux tarifs.
+
+- Starter : https://buy.stripe.com/dRm5kC8cA3P93hg9pc4gg02
+- Business : https://buy.stripe.com/dRm28q50o2L5aJI58W4gg03
+- Pro : https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04
+
+Ces liens publics de production fournis par le propriétaire créent des abonnements mensuels sur le compte Cybersignal. Aucune clé Stripe, aucun SDK, backend, webhook ou seconde page de paiement n’est ajouté au dépôt. La confirmation de paiement est hébergée par Stripe ; l’opérateur finalise ensuite la configuration. Vérifier dans Stripe les montants, la périodicité, les notifications et le suivi manuel des nouveaux abonnés. Un clic de contrôle ne doit pas se transformer en achat réel non voulu.

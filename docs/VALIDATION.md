@@ -1,31 +1,21 @@
-# Validation de production — 15 septembre 2026
+# Validation — parcours Stripe et contact facultatif
 
-- Syntaxe JavaScript vérifiée avec node --check.
-- Microsoft Edge / Chromium : aucune erreur JavaScript de page.
-- Largeurs 320, 375, 390, 768, 1024 et 1440 pixels sans débordement horizontal.
-- Texte agrandi à 200 %, préférence de réduction des mouvements, navigation clavier et FAQ vérifiés.
-- Menu mobile : ouverture, fermeture après lien, Escape et retour du focus.
-- CTA de mise en place vers #demande ; focus du formulaire et présélection Business vérifiés.
-- Ancres, labels, identifiants, h1 unique, langue française et assets locaux vérifiés.
-- Canonical et og:url : https://changewatch.cybersignal.fr/.
-- Champs Formspree vérifiés : name, company, email, competitor_url_1, competitor_url_2, competitor_url_3, optional_message, plus plan.
-- Réponses Formspree simulées : HTTP 200, HTTP 422, erreur réseau et expiration après 15 secondes.
-- Bouton désactivé et verrou contre doubles soumissions simultanées : une seule requête.
-- Succès uniquement après réponse HTTP 2xx, message exact et remise à zéro du formulaire.
-- Erreur : message exact, valeurs conservées, bouton réactivé, email de contact visible.
-- Sans JavaScript : menu disponible, envoi désactivé et contact email accessible.
-- CNAME récupéré depuis GitHub et conservé : changewatch.cybersignal.fr.
+## Contrôles locaux
 
-## Limites et contrôle réel restant
+- Liens Starter, Business et Pro comparés exactement aux trois Payment Links fournis par le propriétaire.
+- Navigation clavier vers chaque destination interceptée localement : même onglet, aucun appel Formspree au clic, aucun attribut data-plan ni interception de paiement.
+- CTA du menu et principal vers #tarifs ; liens de question vers #demande avec focus du formulaire.
+- Prix conservés : 14,90 €/mois, 29,90 €/mois et 59,90 €/mois. Note « TVA non applicable — art. 293 B du CGI. » conservée. Offre publique payante inchangée.
+- Formspree conservé à https://formspree.io/f/mbgjnvjq ; champs contact et URLs, validation, verrou de double soumission, chargement et messages préservés. Présélection de forfait obsolète retirée.
+- Succès HTTP simulé : confirmation à l’écran puis formulaire vidé. Échec HTTP, réseau ou expiration : valeurs conservées et bouton réactivé. Adresse de contact toujours disponible.
+- Six largeurs contrôlées : 320, 375, 390, 768, 1024 et 1440 pixels, sans débordement horizontal.
+- Menu mobile, Escape, FAQ clavier, labels, ancres et ressources locales contrôlés.
+- Texte agrandi à 200 %, réduction des mouvements et comportement sans JavaScript contrôlés. Pas d’erreur JavaScript de page.
+- Aucun SDK Stripe, clé API, jeton ou secret webhook ajouté. Seulement les trois URL publiques de paiement ; aucun backend ajouté.
+- Favicon, CNAME, canonical et architecture statique conservés.
 
-Les requêtes de formulaire ont été interceptées localement pour tester les états : aucune demande réelle ni email de test envoyé. Le parcours est prêt pour un test de soumission réel dès que la nouvelle version est déployée et le certificat HTTPS valide. Vérifier ensuite la réception dans Formspree et dans la boîte changewatch@cybersignal.fr. Le contrôle public par l’outil web n’a pas permis de confirmer le certificat ; son état reste à vérifier dans GitHub Pages.
+## Limites et contrôles de lancement
 
-Pas de validation W3C complète ni d’audit certifié. Vérifier aussi Safari/iOS et Android réels. Les informations légales restent à compléter ; les URL de production et coordonnées de contact sont maintenant renseignées.
+Les destinations Stripe ont été interceptées dans les tests pour éviter toute transaction ; leur contenu hébergé, le montant réellement configuré et la périodicité doivent être vérifiés sur Stripe avant ouverture commerciale. Aucune carte n’a été saisie et aucun paiement n’a été effectué.
 
-## Vérification finale de l’offre payante
-
-Les montants publics sont 14,90 €/mois, 29,90 €/mois et 59,90 €/mois. La note « TVA non applicable — art. 293 B du CGI. » est présente. Les anciennes accroches promotionnelles et qualifications de prix ont été supprimées du site et des supports standard. Seule la possibilité d’un essai privé discrétionnaire subsiste dans les documents internes explicitement dédiés.
-
-Les trois boutons sélectionnent respectivement Starter, Business et Pro. Le message de réception correspond exactement au texte demandé pour la configuration du service. Le récapitulatif hebdomadaire figure dans la section fiabilité et la FAQ. La couverture reste conditionnée aux informations publiques et à la vérification de compatibilité.
-
-Nouvelle exécution complète des contrôles Chromium : six largeurs, clavier, menu, ancres, métadonnées, labels, absence d’erreurs JavaScript, succès et échecs Formspree simulés, expiration, verrou de double soumission, conservation et remise à zéro des champs. Captures des tarifs sur ordinateur et de la mise en place sur mobile inspectées. Endpoint, domaine canonique, favicon et configuration Pages préservés. Aucun email réel envoyé.
+Les réponses Formspree ont été simulées : aucune demande ni email réel envoyé. Après publication, vérifier un envoi réel et sa livraison dans la boîte de contact. Vérifier aussi HTTPS, les notifications Stripe et la prise en charge manuelle des nouveaux abonnés. Les informations légales encore manquantes restent listées dans LEGAL_REQUIREMENTS.md.
