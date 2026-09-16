@@ -153,17 +153,48 @@ async function main() {
     }
     await page.goto('http://127.0.0.1:8765/');
     await page.emulateMedia({reducedMotion:'no-preference'});
-    await page.locator('#demo-play').focus();await page.keyboard.press('Enter');
-    assert.equal(await page.locator('[data-demo-step].is-active').count(),1);
-    assert.match(await page.locator('#demo-status').innerText(),/1 sur 4/);
-    await page.keyboard.press('Enter');assert.match(await page.locator('#demo-status').innerText(),/interrompue/);
-    await page.keyboard.press('Enter');
-    await page.waitForFunction(()=>document.querySelector('#demo-status').textContent.startsWith('4 sur 4'));
+    await page.setViewportSize({width:1440,height:1000});
+    await page.goto('http://127.0.0.1:8765/');
+    await page.waitForFunction(()=>document.querySelector('.hero-system').dataset.heroPhase==='3');
+    await page.locator('#story-workbench').scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>document.querySelector('#story-workbench').classList.contains('is-playing'));
+    await page.locator('#demo-play').click();
+    assert.equal(await page.locator('#story-workbench').evaluate(el=>el.classList.contains('is-playing')),false);
+    const paused=await page.locator('#story-workbench').getAttribute('data-phase');
+    await page.waitForTimeout(350);
+    assert.equal(await page.locator('#story-workbench').getAttribute('data-phase'),paused);
+    await page.locator('[data-step="0"]').click();
+    assert.equal(await page.locator('#scene-price').textContent(),'99 €');
+    await page.keyboard.press('ArrowRight');
+    assert.equal(await page.locator('[data-step="1"]').getAttribute('aria-pressed'),'true');
+    assert.equal(await page.locator('#scene-price').textContent(),'79 €');
+    assert.equal(await page.locator('.result-change').isVisible(),true);
+    await page.keyboard.press('End');
+    assert.equal(await page.locator('.result-email').isVisible(),true);
+    await page.keyboard.press('Home');
+    await page.locator('#demo-play').click();
+    await page.waitForFunction(()=>document.querySelector('#story-workbench').dataset.phase==='3');
     assert.match(await page.locator('#demo-play').innerText(),/Rejouer/);
-    await page.emulateMedia({reducedMotion:'reduce'});await page.keyboard.press('Enter');
-    assert.match(await page.locator('#demo-status').innerText(),/4 sur 4/);
-    assert.equal(await page.locator('[data-demo-step]').last().evaluate(el=>getComputedStyle(el).transitionDuration),'0s');
-    console.log('PASS demo keyboard play/stop/replay and reduced-motion immediate result');
+    assert.equal(await page.locator('.result-stage > :visible').count(),1);
+    await page.locator('#demo-play').click();
+    await page.emulateMedia({reducedMotion:'reduce'});
+    await page.waitForFunction(()=>document.querySelector('#story-workbench').dataset.phase==='3', {}, {timeout:1000});
+    assert.equal(await page.locator('#story-workbench').getAttribute('data-phase'),'3');
+    assert.equal(await page.locator('#story-workbench').evaluate(el=>el.classList.contains('is-playing')),false);
+    await page.locator('[data-step="0"]').click();
+    assert.equal(await page.locator('#scene-price').textContent(),'99 €');
+    await page.locator('#demo-play').click();
+    assert.equal(await page.locator('#story-workbench').getAttribute('data-phase'),'3');
+    assert.equal(await page.locator('.scene-scanner').evaluate(el=>getComputedStyle(el).display),'none');
+    for(const width of [320,375,390,768,1024,1440]){
+      await page.setViewportSize({width,height:1000});
+      for(let step=0;step<4;step++){
+        await page.locator('[data-step="'+step+'"]').click();
+        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'demo overflow '+width+'/'+step);
+        assert.equal(await page.locator('.result-stage > :visible').count(),1);
+      }
+    }
+    console.log('PASS hero sequence, demo autoplay/pause/replay, direct steps, arrow/Home/End keyboard, reduced motion, 24 responsive states');
     const pages=['/','/blog/','/blog/veille-concurrentielle-ecommerce/','/cgv.html','/confidentialite.html','/mentions-legales.html','/demo-produit.html'];
     for(const route of pages){
       await page.goto('http://127.0.0.1:8765'+route);
