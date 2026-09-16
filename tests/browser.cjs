@@ -34,6 +34,7 @@ async function main() {
       return {duplicateIds:ids.filter((id,i)=>ids.indexOf(id)!==i),broken,unlabeled,h1:document.querySelectorAll('h1').length,lang:document.documentElement.lang};
     });
     assert.deepEqual(structural,{duplicateIds:[],broken:[],unlabeled:[],h1:1,lang:'fr'});console.log('PASS structure, anchors, labels, heading and language');
+    await page.locator('.cookie-banner [data-consent=reject]').click();
     const links=await page.locator('[href],[src]').evaluateAll(els=>els.map(e=>e.getAttribute('href')||e.getAttribute('src')).filter(s=>s&&!s.startsWith('#')&&!s.includes(':')));
     for (const link of new Set(links)) assert.equal((await page.request.get('http://127.0.0.1:8765/'+link)).status(),200,link);
     console.log('PASS local asset and page links');

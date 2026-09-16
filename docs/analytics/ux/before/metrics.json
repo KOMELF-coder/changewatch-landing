@@ -1,0 +1,99 @@
+[
+  {
+    "width": 320,
+    "height": 360.515625,
+    "overlap": false,
+    "overflow": false,
+    "buttons": [
+      {
+        "height": 44,
+        "visible": true,
+        "width": 130.203125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 130.203125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 130.203125
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 337.71875,
+    "overlap": false,
+    "overflow": false,
+    "buttons": [
+      {
+        "height": 44,
+        "visible": true,
+        "width": 157.703125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 157.703125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 157.703125
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 337.71875,
+    "overlap": false,
+    "overflow": false,
+    "buttons": [
+      {
+        "height": 44,
+        "visible": true,
+        "width": 165.203125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 165.203125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 165.203125
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 159.734375,
+    "overlap": false,
+    "overflow": false,
+    "buttons": [
+      {
+        "height": 44,
+        "visible": true,
+        "width": 122.203125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 112.125
+      },
+      {
+        "height": 44,
+        "visible": true,
+        "width": 120.84375
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "viewportHeight": 720,
+    "ctaOverlap": true
+  }
+]

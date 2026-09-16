@@ -1,0 +1,130 @@
+'use strict';
+(() => {
+  const KEY = 'cw-consent-v1';
+  const ID = 'G-RB6NSRRM9L';
+  const base = new URL('../', document.currentScript.src);
+  const paths = new Map([
+    ['/', 'Accueil'], ['/index.html', 'Accueil'], ['/blog/', 'Blog'], ['/blog/index.html', 'Blog'],
+    ['/blog/veille-concurrentielle-ecommerce/', 'Guide veille concurrentielle'],
+    ['/blog/veille-concurrentielle-ecommerce/index.html', 'Guide veille concurrentielle'],
+    ['/demo-produit.html', 'Démonstration'], ['/cgv.html', 'Conditions de vente'],
+    ['/mentions-legales.html', 'Mentions légales'], ['/confidentialite.html', 'Confidentialité'],
+  ]);
+  const canonicalPath = location.pathname.replace(/index\.html$/, '');
+  // Explicit routes and labels only: never forward query, hash, referrer or document title.
+  const page = {path: paths.has(location.pathname) ? canonicalPath : '/', title: paths.get(location.pathname) || 'ChangeWatch'};
+  let frame = null, ready = false, pending = [], expiryTimer, memoryChoice = null, storageAvailable = true;
+  let sentPageView = false;
+  function readChoice() {
+    if (!storageAvailable) return memoryChoice?.expires > Date.now() ? memoryChoice : null;
+    try {
+      const value = JSON.parse(localStorage.getItem(KEY));
+      return value?.version === 1 && typeof value.analytics === 'boolean' &&
+        Number.isFinite(value.expires) && value.expires > Date.now() &&
+        value.expires <= Date.now() + 184 * 86400000 ? value : null;
+    } catch { storageAvailable = false; return memoryChoice?.expires > Date.now() ? memoryChoice : null; }
+  }
+  function allowed() { return readChoice()?.analytics === true; }
+  function clearCookies() {
+    // Remove readable first-party GA cookies at host/parent domains and current path ancestors.
+    const names = document.cookie.split(';').map(v => v.trim().split('=')[0]).filter(n => /^_ga(?:_|$)/.test(n));
+    const hosts = location.hostname.split('.');
+    const domains = ['', ...hosts.map((_, i) => hosts.slice(i).join('.')).filter(d => d.includes('.'))];
+    const parts = location.pathname.split('/');
+    const cookiePaths = new Set(['/']);
+    for (let i = 1; i < parts.length; i++) { const p = parts.slice(0, i).join('/') || '/'; cookiePaths.add(p); cookiePaths.add(p.replace(/\/$/, '') + '/'); }
+    for (const name of names) for (const domain of domains) for (const path of cookiePaths) {
+      document.cookie = `${name}=; Max-Age=0; Path=${path}; SameSite=Lax${domain ? '; Domain=' + domain : ''}${location.protocol === 'https:' ? '; Secure' : ''}`;
+    }
+  }
+  function stop() {
+    pending = []; ready = false;
+    if (frame) {
+      // Shut down the tag BEFORE destroying its isolated document (including unload events).
+      frame.contentWindow['ga-disable-' + ID] = true;
+      frame.contentWindow.gtag?.('consent', 'update', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+      frame.remove(); frame = null;
+    }
+    clearCookies();
+  }
+  function start() {
+    if (frame || !allowed()) return;
+    frame = document.createElement('iframe');
+    // Keep a layout viewport so enhanced measurement cannot interpret a zero-size document as fully scrolled.
+    frame.style.cssText = 'position:fixed;left:-10000px;top:0;width:1px;height:1px;border:0;visibility:hidden';
+    frame.setAttribute('aria-hidden', 'true');
+    frame.title = 'Mesure d’audience consentie'; frame.tabIndex = -1;
+    frame.referrerPolicy = 'no-referrer';
+    frame.src = new URL('assets/analytics-frame.html', base).href;
+    document.body.append(frame);
+  }
+  function send(name, parameters = {}) {
+    if (!allowed() || !frame) return;
+    const event = {type:'cw-analytics-event', name, parameters};
+    if (ready) frame.contentWindow.cwRecord(event);
+    else if (pending.length < 20) pending.push(event);
+  }
+  window.addEventListener('message', e => {
+    if (!frame || e.source !== frame.contentWindow || e.origin !== location.origin || e.data?.type !== 'cw-analytics-ready' || !allowed() || ready) return;
+    ready = true;
+    frame.contentWindow.cwInit({type:'cw-analytics-init', page, pageView:!sentPageView});
+    sentPageView = true;
+    for (const event of pending) frame.contentWindow.cwRecord(event);
+    pending = [];
+  });
+  const banner = document.createElement('section');
+  banner.className = 'cookie-banner'; banner.setAttribute('aria-labelledby', 'cookie-title');
+  banner.innerHTML = `<div><h2 id="cookie-title">Vos choix de confidentialité</h2><p>Avec votre accord, Google Analytics mesure les visites et les actions commerciales (clics et demandes reçues). Le suivi est facultatif. Le formulaire et sa protection anti-spam restent disponibles sans Analytics.</p><a href="${new URL('confidentialite.html#cookies', base).pathname}">En savoir plus</a></div><div class="cookie-actions"><button type="button" data-consent="accept">Tout accepter</button><button type="button" data-consent="reject">Tout refuser</button><button type="button" data-consent="customize">Personnaliser</button></div>`;
+  document.body.append(banner);
+  const dialog = document.createElement('dialog');
+  dialog.className = 'cookie-dialog'; dialog.setAttribute('aria-labelledby', 'cookie-dialog-title');
+  dialog.innerHTML = `<h2 id="cookie-dialog-title">Gérer les cookies</h2><p>Les fonctions nécessaires au formulaire, dont Turnstile, ne dépendent pas du choix Analytics.</p><label class="cookie-option"><input type="checkbox" id="cookie-analytics"> <span><strong>Mesure d’audience et de conversion</strong><br>Google Analytics : visites, clics sur les offres et demandes confirmées. Aucun champ du formulaire n’est transmis.</span></label><p>Votre choix est conservé six mois sur ce navigateur. Vous pouvez le modifier à tout moment.</p><div class="cookie-actions"><button type="button" data-consent="accept">Tout accepter</button><button type="button" data-consent="reject">Tout refuser</button><button type="button" data-consent="save">Enregistrer mes choix</button><button type="button" data-consent="close">Fermer sans modifier</button></div>`;
+  document.body.append(dialog);
+  let opener;
+  function customize(source) { opener = source; dialog.querySelector('input').checked = allowed(); dialog.showModal(); }
+  dialog.addEventListener('close', () => opener?.focus());
+  function sync() {
+    clearTimeout(expiryTimer);
+    const choice = readChoice();
+    banner.hidden = !!choice;
+    if (choice?.analytics) start(); else stop();
+    // Timers are bounded; recheck long-lived tabs, expiry, focus and bfcache restoration.
+    if (choice) expiryTimer = setTimeout(sync, Math.min(choice.expires - Date.now() + 10, 2147483647));
+  }
+  function choose(analytics) {
+    const expires = new Date(); expires.setMonth(expires.getMonth() + 6);
+    const choice = {version:1, analytics, expires:expires.getTime()};
+    memoryChoice = choice;
+    try { localStorage.setItem(KEY, JSON.stringify(choice)); } catch { storageAvailable = false; }
+
+    if (dialog.open) dialog.close();
+    sync();
+  }
+  document.addEventListener('click', e => {
+    const manage = e.target.closest('[data-manage-cookies]');
+    if (manage) { e.preventDefault(); customize(manage); return; }
+    const action = e.target.closest('[data-consent]');
+    if (action) {
+      const value = action.dataset.consent;
+      if (value === 'customize') customize(action);
+      if (value === 'close') dialog.close();
+      if (value === 'accept' || value === 'reject' || value === 'save') choose(value === 'accept' || (value === 'save' && dialog.querySelector('input').checked));
+      return;
+    }
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const plans = {
+      'https://buy.stripe.com/dRm5kC8cA3P93hg9pc4gg02':'Starter',
+      'https://buy.stripe.com/dRm28q50o2L5aJI58W4gg03':'Business',
+      'https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04':'Pro',
+    };
+    if (plans[link.href]) send('stripe_click', {plan:plans[link.href]});
+    else if (link.origin === location.origin && ['#tarifs', '#demande'].includes(link.hash)) send('commercial_cta_click', {destination:link.hash.slice(1)});
+  });
+  // No form content in this event; dispatched only after Formspree returns HTTP 2xx.
+  document.addEventListener('cw:lead-confirmed', () => send('generate_lead'));
+  window.addEventListener('storage', e => { if (e.key === KEY || e.key === null) sync(); });
+  window.addEventListener('pageshow', sync);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) sync(); });
+  sync();
+})();
