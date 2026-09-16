@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="460" viewBox="0 0 520 460" role="img" aria-labelledby="t d">
+<title id="t">Sac Atelier, produit fictif de démonstration</title><desc id="d">Illustration originale d’un sac en cuir cognac sur un fond de studio crème.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f6f2e9"/><stop offset="1" stop-color="#e8e1d4"/></linearGradient>
+<linearGradient id="leather" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#a5623c"/><stop offset=".35" stop-color="#bb7d52"/><stop offset=".8" stop-color="#a76942"/><stop offset="1" stop-color="#864a2d"/></linearGradient>
+<linearGradient id="side"><stop stop-color="#7e452b"/><stop offset="1" stop-color="#a96d45"/></linearGradient>
+<linearGradient id="strap"><stop stop-color="#683b26"/><stop offset=".5" stop-color="#bc8057"/><stop offset="1" stop-color="#854c2e"/></linearGradient>
+<radialGradient id="shadow"><stop stop-color="#524333" stop-opacity=".25"/><stop offset="1" stop-color="#524333" stop-opacity="0"/></radialGradient>
+<pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M1 2h.7M4 5h.5" stroke="#60381f" stroke-opacity=".12" stroke-width=".6"/></pattern>
+</defs>
+<rect width="520" height="460" fill="url(#bg)"/><ellipse cx="264" cy="389" rx="171" ry="29" fill="url(#shadow)"/>
+<path d="M180 176c0-70 17-112 72-112s72 45 72 112" fill="none" stroke="#6d3e29" stroke-width="17"/>
+<path d="M182 176c0-69 17-108 70-108s70 42 70 108" fill="none" stroke="url(#strap)" stroke-width="12"/>
+<path d="M141 164l30-12h184l25 211-27 21-222-15Z" fill="url(#side)"/>
+<path d="M141 164c51 9 131 9 190 0l22 220c-65 13-150 10-222-15Z" fill="url(#leather)"/>
+<path d="M141 164c51 9 131 9 190 0l22 220c-65 13-150 10-222-15Z" fill="url(#grain)"/>
+<path d="M151 175c48 8 114 8 170 0l20 199c-63 10-133 8-199-13Z" fill="none" stroke="#e2b78b" stroke-opacity=".55" stroke-width="1.4" stroke-dasharray="2.5 2.5"/>
+<path d="M331 164l24-12 25 211-27 21Z" fill="#874d30" opacity=".75"/>
+<path d="M351 165l13 191" fill="none" stroke="#cc9166" stroke-opacity=".4" stroke-width="2"/>
+<path d="M176 172v37m129-37v37" stroke="#75432c" stroke-width="15"/><path d="M176 174v30m129-30v30" stroke="#c18a60" stroke-width="10"/>
+<circle cx="176" cy="201" r="3.6" fill="#d5b778"/><circle cx="305" cy="201" r="3.6" fill="#d5b778"/>
+<path d="M138 357c61 24 138 27 210 12" fill="none" stroke="#713f29" stroke-opacity=".3" stroke-width="3"/>
+<text x="239" y="273" text-anchor="middle" fill="#efc698" font-family="Georgia,serif" font-size="12" letter-spacing="4">ATELIER</text>
+</svg>
