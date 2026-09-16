@@ -87,6 +87,7 @@ if (form) {
       status.dataset.state = 'success';
       status.textContent = 'Votre demande a bien été reçue. Nous vous recontactons rapidement pour finaliser la configuration de ChangeWatch.';
       form.reset();
+      document.dispatchEvent(new Event('cw:lead-confirmed'));
     } catch {
       status.dataset.state = 'error';
       status.textContent = 'Impossible d’envoyer votre demande pour le moment. Vous pouvez nous écrire directement à ' + CONTACT_CONFIG.CONTACT_EMAIL + '.';
