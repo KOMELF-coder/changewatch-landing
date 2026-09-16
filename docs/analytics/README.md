@@ -66,7 +66,9 @@ Résultats de la validation finale (suite de régression, balise simulée et vra
 - Régression : les sept pages, images/liens/ancres, données structurées de l’article, sitemap, tarifs, animations, lecture/pause/reprise et 24 états responsive du démonstrateur passent.
 - Syntaxe JS et `git diff --check` contrôlés.
 
-Captures : [desktop](consent-desktop.png), [mobile](consent-mobile.png), [personnalisation](consent-settings.png).
+Captures de la première version : [desktop](consent-desktop.png), [mobile](consent-mobile.png), [personnalisation](consent-settings.png).
+
+**Présentation finale : [ajustement UX et captures avant/après aux quatre largeurs](ux/README.md).** Les suites de régression et le test du vrai tag GA4 avec collecte interceptée ont été relancés avec succès après cet ajustement CSS.
 
 ## Paramètres confirmés et revue avant publication
 
