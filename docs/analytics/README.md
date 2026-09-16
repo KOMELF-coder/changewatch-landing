@@ -1,6 +1,6 @@
 # GA4 et consentement — dossier de validation
 
-**Branche dédiée ; ne pas fusionner ni publier avant validation du propriétaire.**
+**Intégration prête à la revue ; ne pas fusionner ni publier avant validation du propriétaire.**
 Audit et tests : 16 septembre 2026. Ce travail n’est pas une certification juridique.
 
 ## Audit initial
@@ -10,7 +10,7 @@ Audit et tests : 16 septembre 2026. Ce travail n’est pas une certification jur
 - Seul script distant incorporé : Cloudflare Turnstile sur l’accueil. L’API Formspree reçoit le JSON du formulaire et son jeton anti-spam ; aucun changement d’endpoint, de validation ou de remise à zéro.
 - Trois liens Stripe directs : Starter / Business / Pro ; prix et liens inchangés. Aucun SDK de paiement.
 - Hébergement GitHub Pages, CNAME, Google Search Console, animations et illustrations conservés.
-- La confidentialité déclarait l’absence de traceurs non essentiels : cette partie est remplacée par un **brouillon clairement signalé**, à compléter après vérification des réglages de la propriété.
+- La confidentialité déclarait l’absence de traceurs non essentiels : cette partie est remplacée par les finalités, modalités de consentement et durées confirmées par le propriétaire. La mention provisoire de paramètres inconnus est retirée après ses confirmations.
 
 ## Choix techniques
 
@@ -55,20 +55,20 @@ node --use-system-ca tests/consent.cjs
 
 `--use-system-ca` est nécessaire sur le poste audité à cause de l’inspection HTTPS Norton. La vérification TLS reste active. Le mode normal utilise un double de balise déterministe. Le mode réel télécharge le vrai script Google (une copie en mémoire par exécution) ; **toutes les requêtes de collecte et autres destinations externes sont interceptées et ne sont pas envoyées**. Formspree et Turnstile sont simulés. Le test ne remplit ni ne valide de paiement. Le serveur local utilise le port 8768 ; les tests de régression utilisent 8765.
 
-Résultats :
+Résultats de la validation finale (suite de régression, balise simulée et vrai tag Google avec collecte interceptée) :
 
 - A/B : première visite, bandeau ignoré, personnalisation sans choix, refus, navigation et rechargement sans script Google ni cookie GA.
 - C/E : un seul chargement et une seule vue par document consenti, acceptation répétée sans doublon ; paramètres personnels et changements d’historique du parent non transmis.
-- D : arrêt au retrait, suppression des cookies accessibles, suppression du contexte GA dans les deux onglets, aucun nouvel appel Google après rechargement.
+- D : aucune nouvelle requête à partir du clic de retrait (observation de six secondes avec le vrai tag), suppression des cookies accessibles et du contexte GA dans les deux onglets ; refus maintenu après rechargement.
 - F : aucun lead lors d’une erreur 422 ; un lead après succès simulé ; succès sans consentement non mesuré. La suite existante couvre aussi panne réseau, délai expiré, jeton absent/blanc, double soumission et conservation des champs.
-- G : les trois liens Stripe restent exacts ; clics par forfait, aucun événement purchase.
-- H : navigation clavier, Échap et focus, largeurs 320/390/768/1440, sept liens de gestion, expiration, stockage bloqué, préférence de mouvement réduit. Axe ne signale aucune violation sur le bandeau et le dialogue testés. Cela ne remplace pas une vérification avec lecteur d’écran.
+- G : les trois liens Stripe restent exacts ; paramètres collectés Starter / Business / Pro contrôlés, aucun événement purchase. Identifiant de destination GA4 contrôlé et absence de destination publicitaire/inattendue dans le parcours testé.
+- H : enregistrement du choix personnalisé, navigation clavier, Échap et focus, largeurs 320/390/768/1440, sept liens de gestion, expiration, stockage bloqué, préférence de mouvement réduit. Axe ne signale aucune violation sur le bandeau et le dialogue testés. Cela ne remplace pas une vérification avec lecteur d’écran.
 - Régression : les sept pages, images/liens/ancres, données structurées de l’article, sitemap, tarifs, animations, lecture/pause/reprise et 24 états responsive du démonstrateur passent.
 - Syntaxe JS et `git diff --check` contrôlés.
 
 Captures : [desktop](consent-desktop.png), [mobile](consent-mobile.png), [personnalisation](consent-settings.png).
 
-## Points bloquants avant publication
+## Paramètres confirmés et revue avant publication
 
 Réglages confirmés par le propriétaire dans GA4 (déclaration du 16 septembre 2026 ; pas de lecture directe du compte par cet agent) :
 
@@ -78,12 +78,14 @@ Réglages confirmés par le propriétaire dans GA4 (déclaration du 16 septembre
 | Conservation des données utilisateur | 14 mois |
 | Réinitialisation lors d’une nouvelle activité | Activée |
 | Mesure améliorée | Activée |
+| Google Signals | Désactivé |
+| Collecte des données fournies par les utilisateurs | Désactivée |
 
 1. Conservation : valeurs intégrées dans la politique. Selon la documentation Google, la réinitialisation repousse l’échéance de l’identifiant utilisateur à partir de la nouvelle activité ; elle ne modifie pas la durée des événements. Les rapports agrégés standards ne sont pas limités par ces réglages. Le consentement de six mois et les cookies de 180 jours sont des durées distinctes. Aucun réglage du compte ni du code de suivi n’a été modifié à cette étape.
-2. Google Signals et collecte de données fournies par les utilisateurs : vérifier et laisser désactivés pour cette intégration. Le code ne les active pas.
-3. Flux Web → Mesure améliorée : examiner les événements activés. Désactiver au minimum l’interaction avec les formulaires, les clics sortants et les changements d’historique s’ils n’ont pas d’utilité ; le cloisonnement actuel les empêche d’observer le document commercial. Recontrôler les requêtes après tout changement distant.
+2. Google Signals et collecte de données fournies par les utilisateurs : désactivés selon la confirmation du propriétaire. Le code conserve ses restrictions publicitaires et ne les active pas.
+3. Mesure améliorée : conservée activée dans le compte. Le test du vrai tag contrôle la liste exacte des événements collectés, les paramètres de forfait et l’absence de données saisies ou issues des URL, y compris lors des changements d’historique. Aucun `scroll`, `form_start`, `form_submit`, `click` ou `purchase` parasite observé dans les parcours testés. Recontrôler après tout changement distant.
 4. Vérifier les destinations / balises connectées : uniquement la propriété souhaitée, aucun Google Ads ou ajout inattendu. Vérifier partage des données, conditions contractuelles, destinataires/transferts et valider le texte de confidentialité.
-5. Relire la politique, retirer la mention de brouillon et compléter les faits manquants uniquement après validation. Puis autoriser séparément fusion et publication.
+5. Relire la politique finalisée et valider la PR. Fusion et publication nécessitent toujours une autorisation séparée. La réception en DebugView/Temps réel reste à vérifier après autorisation, car les requêtes de test sont interceptées.
 
 ## Vérification manuelle GA4 après autorisation
 
