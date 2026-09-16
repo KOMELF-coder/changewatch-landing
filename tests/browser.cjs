@@ -40,7 +40,7 @@ async function main() {
     for(const width of [320,375,390,768,1024,1440]){
       await page.setViewportSize({width,height:1000});
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true,'overflow '+width);
-      
+
     }
     console.log('PASS responsive widths 320/375/390/768/1024/1440');
     await page.setViewportSize({width:390,height:844});
@@ -139,7 +139,7 @@ async function main() {
       }
       await page.setViewportSize({width:375,height:900});
       await page.locator('.menu-toggle').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');await page.keyboard.press('Escape');
-      
+
       if(route!='/blog/'){
         const schema=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
         assert.equal(schema['@graph'][0]['@type'],'BlogPosting');assert.equal(schema['@graph'][1]['@type'],'BreadcrumbList');
@@ -188,4 +188,3 @@ async function main() {
   } finally {await browser.close();server.close();}
 }
 main().catch(e=>{console.error(e);server.close();process.exitCode=1;});
-
