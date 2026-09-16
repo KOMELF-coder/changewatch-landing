@@ -70,9 +70,16 @@ Captures : [desktop](consent-desktop.png), [mobile](consent-mobile.png), [person
 
 ## Points bloquants avant publication
 
-Le propriétaire a confirmé la mesure améliorée activée. **Aucune valeur n’est déduite pour les paramètres suivants, qui restent à vérifier dans GA4 :**
+Réglages confirmés par le propriétaire dans GA4 (déclaration du 16 septembre 2026 ; pas de lecture directe du compte par cet agent) :
 
-1. Administration → Conservation des données : durée effective, remise à zéro lors d’une nouvelle activité ; compléter la politique avec le réglage constaté, sans confondre durée des cookies et conservation des données.
+| Réglage | Valeur vérifiée |
+| --- | --- |
+| Conservation des données d’événements | 2 mois |
+| Conservation des données utilisateur | 14 mois |
+| Réinitialisation lors d’une nouvelle activité | Activée |
+| Mesure améliorée | Activée |
+
+1. Conservation : valeurs intégrées dans la politique. Selon la documentation Google, la réinitialisation repousse l’échéance de l’identifiant utilisateur à partir de la nouvelle activité ; elle ne modifie pas la durée des événements. Les rapports agrégés standards ne sont pas limités par ces réglages. Le consentement de six mois et les cookies de 180 jours sont des durées distinctes. Aucun réglage du compte ni du code de suivi n’a été modifié à cette étape.
 2. Google Signals et collecte de données fournies par les utilisateurs : vérifier et laisser désactivés pour cette intégration. Le code ne les active pas.
 3. Flux Web → Mesure améliorée : examiner les événements activés. Désactiver au minimum l’interaction avec les formulaires, les clics sortants et les changements d’historique s’ils n’ont pas d’utilité ; le cloisonnement actuel les empêche d’observer le document commercial. Recontrôler les requêtes après tout changement distant.
 4. Vérifier les destinations / balises connectées : uniquement la propriété souhaitée, aucun Google Ads ou ajout inattendu. Vérifier partage des données, conditions contractuelles, destinataires/transferts et valider le texte de confidentialité.
@@ -95,3 +102,5 @@ Le propriétaire a confirmé la mesure améliorée activée. **Aucune valeur n�
 - [Google : contrôles de confidentialité](https://developers.google.com/tag-platform/security/guides/privacy) : désactivation du tag et des signaux publicitaires.
 - [Google : configuration GA4](https://developers.google.com/analytics/devguides/collection/ga4/reference/config) : page_view, métadonnées de page et paramètres des cookies.
 - [Google : mesure améliorée](https://support.google.com/analytics/answer/9216061) : fonctionnalités automatiques à examiner dans le flux réel.
+
+- [Google : conservation des données](https://support.google.com/analytics/answer/7667196?hl=fr) : portée des durées utilisateur/événement, réinitialisation et rapports agrégés.
