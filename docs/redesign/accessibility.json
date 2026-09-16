@@ -1,0 +1,128 @@
+[
+  {
+    "route": "/",
+    "width": 390,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 252
+    }
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 72
+    }
+  },
+  {
+    "route": "/blog/",
+    "width": 390,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 80
+    }
+  },
+  {
+    "route": "/blog/",
+    "width": 1440,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 52
+    }
+  },
+  {
+    "route": "/blog/veille-concurrentielle-ecommerce/",
+    "width": 390,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 72
+    }
+  },
+  {
+    "route": "/blog/veille-concurrentielle-ecommerce/",
+    "width": 1440,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 56
+    }
+  },
+  {
+    "route": "/cgv.html",
+    "width": 390,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 60
+    }
+  },
+  {
+    "route": "/cgv.html",
+    "width": 1440,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 48
+    }
+  },
+  {
+    "route": "/mentions-legales.html",
+    "width": 390,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 44
+    }
+  },
+  {
+    "route": "/mentions-legales.html",
+    "width": 1440,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 44
+    }
+  },
+  {
+    "route": "/confidentialite.html",
+    "width": 390,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 44
+    }
+  },
+  {
+    "route": "/confidentialite.html",
+    "width": 1440,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 44
+    }
+  },
+  {
+    "route": "/demo-produit.html",
+    "width": 390,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 44
+    }
+  },
+  {
+    "route": "/demo-produit.html",
+    "width": 1440,
+    "violations": [],
+    "localMetrics": {
+      "cls": 0,
+      "lcp": 44
+    }
+  }
+]

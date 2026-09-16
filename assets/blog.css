@@ -1,3 +1,232 @@
-.blog-main{padding-bottom:80px}.breadcrumb{font-size:.8125rem;color:var(--muted);padding-block:28px}.breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px 12px;list-style:none;margin:0;padding:0}.breadcrumb li+li:before{content:'›';margin-right:12px;color:var(--muted)}.breadcrumb a:hover{text-decoration:underline}.blog-heading{max-width:900px;padding-block:35px 50px}.blog-heading h1{font-size:clamp(2.3rem,4.5vw,3.5rem)}.blog-heading>p:last-child{font-size:1.1rem;color:var(--muted);max-width:670px;margin-top:24px}.blog-list{max-width:850px}.post-card{padding:35px;border:1px solid var(--line);border-radius:var(--radius)}.post-card h2{font-size:1.8rem;line-height:1.3;margin-bottom:20px}.post-card h2 a:hover{color:var(--blue)}.post-card>p:not(.eyebrow){color:var(--muted)}.post-meta{display:flex;flex-wrap:wrap;gap:7px 12px;font-size:.8125rem;color:var(--muted);line-height:1.7;margin:22px 0}.article-layout{width:min(820px,calc(100% - 64px));margin-inline:auto}.article-header{padding-block:28px 20px}.article-header h1{font-size:clamp(2.3rem,4vw,3.25rem);line-height:1.15}.article-toc{background:var(--light);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin:15px 0 40px}.article-toc>p{font-weight:650;margin-bottom:12px}.article-toc ol{columns:2;column-gap:28px;padding-left:20px;margin:0}.article-toc li{break-inside:avoid;font-size:.875rem;padding:4px 0}.article-toc a{color:var(--blue)}.article-toc a:hover{text-decoration:underline}.article-body{font-size:1.0625rem;line-height:1.85}.article-intro{font-size:1.18rem;color:var(--ink)}.article-body h2{font-size:2rem;line-height:1.3;margin:52px 0 22px;scroll-margin-top:110px}.article-body h3{font-size:1.28rem;margin:30px 0 15px;line-height:1.4}.article-body p{margin-bottom:22px}.article-body a:not(.button){color:var(--blue);text-decoration:underline;text-underline-offset:3px}.article-body .text-link{font-size:.9375rem}.table-scroll{max-width:100%;overflow-x:auto;margin-block:26px;border:1px solid var(--line);border-radius:9px}.table-scroll:focus-visible{outline:3px solid var(--blue);outline-offset:5px}.table-scroll table{border-collapse:collapse;width:100%;min-width:570px;font-size:.875rem;line-height:1.65;text-align:left}.table-scroll caption{text-align:left;padding:16px 20px;font-weight:650;background:var(--light);caption-side:top}.table-scroll th,.table-scroll td{padding:15px 18px;border-top:1px solid var(--line);vertical-align:top}.table-scroll thead th{background:var(--pale)}.table-scroll tbody th{width:22%;font-weight:650}.article-cta{padding:25px;background:var(--light);border:1px solid var(--line);border-radius:10px;display:flex;align-items:flex-start;flex-direction:column;gap:12px;margin-block:30px}.article-end{border-top:1px solid var(--line);margin-top:40px;padding-top:25px}.article-body a{overflow-wrap:anywhere}
-@media(max-width:800px){.article-layout{width:calc(100% - 40px)}.blog-heading{padding-top:22px}.article-toc ol{columns:1}.article-body h2{font-size:1.8rem}.post-card{padding:25px}.article-header{padding-top:16px}}
-@media(max-width:480px){.article-layout{width:calc(100% - 36px)}.article-header h1{font-size:2.25rem}.article-body{font-size:1rem}.article-intro{font-size:1.1rem}.article-toc{padding:20px}.post-card{padding:22px}.post-card h2{font-size:1.55rem}.post-meta{gap:6px 9px}.article-cta{padding:18px}.article-cta .button{width:100%;padding-inline:12px}}
+/* Editorial layouts share the main design tokens. */
+.blog-main {
+  padding-bottom:90px}
+  .breadcrumb {
+    font-size:.78rem;
+    color:var(--muted);
+    padding-block:26px}
+    .breadcrumb ol {
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px 12px;
+      list-style:none;
+      margin:0;
+      padding:0}
+      .breadcrumb li+li:before {
+        content:'›';
+        margin-right:12px}
+        .breadcrumb a:hover {
+          text-decoration:underline}
+          .article-layout {
+            width:min(820px,calc(100% - 48px));
+            margin-inline:auto}
+            .article-header {
+              padding:48px 0 30px;
+              border-bottom:1px solid var(--line)}
+              .article-header h1 {
+                font-size:clamp(2.5rem,4.6vw,4.3rem);
+                line-height:1.08}
+                .article-deck {
+                  font-size:1.2rem;
+                  color:var(--muted);
+                  margin:26px 0}
+                  .post-meta {
+                    display:flex;
+                    flex-wrap:wrap;
+                    gap:6px 18px;
+                    color:var(--muted);
+                    font-size:.78rem;
+                    margin:25px 0 0}
+                    .article-toc {
+                      padding:28px 0;
+                      border-bottom:1px solid var(--line);
+                      margin-bottom:38px}
+                      .article-toc>p {
+                        font-size:.8rem;
+                        font-weight:700;
+                        text-transform:uppercase;
+                        letter-spacing:.1em}
+                        .article-toc ol {
+                          columns:2;
+                          column-gap:35px;
+                          padding-left:22px;
+                          margin:0}
+                          .article-toc li {
+                            break-inside:avoid;
+                            padding:5px 0;
+                            font-size:.9rem}
+                            .article-toc a {
+                              color:var(--blue)}
+                              .article-toc a:hover {
+                                text-decoration:underline}
+                                .article-body {
+                                  font-size:1.06rem;
+                                  line-height:1.9}
+                                  .article-body p {
+                                    margin:0 0 23px}
+                                    .article-body .article-intro {
+                                      font-size:1.25rem;
+                                      line-height:1.8;
+                                      color:var(--ink)}
+                                      .article-body h2 {
+                                        font-size:clamp(1.8rem,3vw,2.4rem);
+                                        margin:65px 0 24px;
+                                        line-height:1.2;
+                                        scroll-margin-top:115px}
+                                        .article-body h3 {
+                                          font-size:1.45rem;
+                                          margin-bottom:14px}
+                                          .article-body a:not(.button) {
+                                            color:var(--blue);
+                                            text-decoration:underline;
+                                            text-underline-offset:3px;
+                                            overflow-wrap:anywhere}
+                                            .article-takeaway {
+                                              border-left:3px solid var(--blue);
+                                              padding:24px 28px;
+                                              background:#edf2f8;
+                                              margin:35px 0}
+                                              .article-takeaway .eyebrow {
+                                                margin-bottom:12px}
+                                                .article-takeaway p:last-child {
+                                                  margin:0;
+                                                  font-size:1rem}
+                                                  .article-figure {
+                                                    margin:35px 0}
+                                                    .article-figure img {
+                                                      width:100%;
+                                                      height:auto;
+                                                      border:1px solid var(--line);
+                                                      border-radius:8px}
+                                                      .article-figure figcaption {
+                                                        font-size:.78rem;
+                                                        color:var(--muted);
+                                                        line-height:1.6;
+                                                        margin-top:12px}
+                                                        .table-scroll {
+                                                          overflow:auto;
+                                                          max-width:100%;
+                                                          border:1px solid var(--line);
+                                                          border-radius:6px;
+                                                          margin:30px 0}
+                                                          .table-scroll:focus-visible {
+                                                            outline:3px solid var(--blue);
+                                                            outline-offset:5px}
+                                                            table {
+                                                              border-collapse:collapse;
+                                                              min-width:630px;
+                                                              width:100%;
+                                                              font-size:.88rem;
+                                                              line-height:1.65;
+                                                              text-align:left}
+                                                              caption {
+                                                                padding:18px;
+                                                                font-weight:650;
+                                                                background:var(--ink);
+                                                                color:white;
+                                                                text-align:left}
+                                                                th,td {
+                                                                  padding:17px;
+                                                                  border-top:1px solid var(--line);
+                                                                  vertical-align:top}
+                                                                  thead {
+                                                                    background:#e8eef5}
+                                                                    tbody th {
+                                                                      width:31%;
+                                                                      font-weight:600}
+                                                                      .article-cta {
+                                                                        background:#eaf0f7;
+                                                                        border-radius:8px;
+                                                                        padding:32px;
+                                                                        margin:40px 0}
+                                                                        .article-cta p {
+                                                                          font-size:1rem}
+                                                                          .article-cta .eyebrow {
+                                                                            font-size:.7rem;
+                                                                            margin-bottom:18px}
+                                                                            .article-cta p:last-child {
+                                                                              margin-bottom:0}
+                                                                              .article-cta .hero-actions {
+                                                                                margin-bottom:22px}
+                                                                                .article-cta .small {
+                                                                                  font-size:.82rem}
+                                                                                  .article-cta-final {
+                                                                                    border-top:4px solid var(--blue)}
+                                                                                    .editorial-list {
+                                                                                      padding-left:24px}
+                                                                                      .editorial-list li {
+                                                                                        padding-left:8px;
+                                                                                        margin:16px 0}
+                                                                                        .article-end {
+                                                                                          border-top:1px solid var(--line);
+                                                                                          padding-top:24px;
+                                                                                          margin-top:40px}
+                                                                                          .article-end a {
+                                                                                            text-decoration:underline}
+                                                                                            .blog-heading {
+                                                                                              max-width:950px;
+                                                                                              padding-block:45px 55px}
+                                                                                              .blog-heading h1 {
+                                                                                                font-size:clamp(2.5rem,4.6vw,4.2rem)}
+                                                                                                .blog-heading>p:last-child {
+                                                                                                  max-width:640px;
+                                                                                                  color:var(--muted);
+                                                                                                  font-size:1.1rem;
+                                                                                                  margin:25px 0 0}
+                                                                                                  .blog-list {
+                                                                                                    max-width:900px}
+                                                                                                    .post-card {
+                                                                                                      border:1px solid var(--line);
+                                                                                                      border-radius:10px;
+                                                                                                      padding:35px;
+                                                                                                      background:white}
+                                                                                                      .post-illustration {
+                                                                                                        width:100%;
+                                                                                                        height:auto;
+                                                                                                        border-radius:6px;
+                                                                                                        margin-bottom:32px}
+                                                                                                        .post-card h2 {
+                                                                                                          font-size:2rem;
+                                                                                                          line-height:1.25;
+                                                                                                          margin-bottom:18px}
+                                                                                                          .post-card>p:not(.eyebrow) {
+                                                                                                            color:var(--muted)}
+                                                                                                            .post-card .text-link {
+                                                                                                              margin-top:20px}
+                                                                                                              .post-card h2 a:hover {
+                                                                                                                color:var(--blue)}
+                                                                                                                @media(max-width:600px) {
+                                                                                                                  .article-layout {
+                                                                                                                    width:calc(100% - 36px)}
+                                                                                                                    .article-header {
+                                                                                                                      padding-top:25px}
+                                                                                                                      .article-header h1 {
+                                                                                                                        font-size:2.55rem}
+                                                                                                                        .article-deck {
+                                                                                                                          font-size:1.08rem}
+                                                                                                                          .article-toc ol {
+                                                                                                                            columns:1}
+                                                                                                                            .article-body {
+                                                                                                                              font-size:1rem}
+                                                                                                                              .article-body .article-intro {
+                                                                                                                                font-size:1.12rem}
+                                                                                                                                .article-body h2 {
+                                                                                                                                  margin-top:45px;
+                                                                                                                                  font-size:1.85rem}
+                                                                                                                                  .article-takeaway,.article-cta {
+                                                                                                                                    padding:23px 20px}
+                                                                                                                                    .article-figure {
+                                                                                                                                      margin-inline:0}
+                                                                                                                                      .article-figure img {
+                                                                                                                                        min-height:0}
+                                                                                                                                        .post-card {
+                                                                                                                                          padding:22px}
+                                                                                                                                          .post-card h2 {
+                                                                                                                                            font-size:1.65rem}
+                                                                                                                                            .post-meta {
+                                                                                                                                              gap:6px 14px}
+                                                                                                                                              .blog-heading {
+                                                                                                                                                padding-top:20px}
+                                                                                                                                                .article-cta .button {
+                                                                                                                                                  width:100%}
+                                                                                                                                                }
