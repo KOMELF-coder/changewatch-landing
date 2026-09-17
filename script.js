@@ -1,5 +1,7 @@
 'use strict';
 
+const formText = (fr, en) => document.documentElement.lang === 'en' ? en : fr;
+
 // The only form configuration location. These values are public, never add secrets.
 const CONTACT_CONFIG = Object.freeze({
   CONTACT_EMAIL: 'changewatch@cybersignal.fr',
@@ -51,7 +53,7 @@ if (form) {
       const url = new URL(input.value);
       if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password) throw new Error('invalid');
     } catch {
-      input.setCustomValidity('Indiquez une URL publique complète en https:// ou http://, sans identifiant ni mot de passe.');
+      input.setCustomValidity(formText("Indiquez une URL publique complète en https:// ou http://, sans identifiant ni mot de passe.", "Enter a full public URL starting with https:// or http://, without a username or password."));
     }
   }
   urls.forEach((input) => input.addEventListener('input', () => validateUrl(input)));
@@ -64,17 +66,17 @@ if (form) {
     const turnstileToken = formData.get('cf-turnstile-response');
     if (typeof turnstileToken !== 'string' || !turnstileToken.trim()) {
       status.dataset.state = 'error';
-      status.textContent = 'Veuillez patienter quelques secondes pendant la vérification anti-spam.';
+      status.textContent = formText("Veuillez patienter quelques secondes pendant la vérification anti-spam.", "Please wait a few seconds while the anti-spam check completes.");
       return;
     }
     const data = Object.fromEntries(formData);
     Object.keys(data).forEach((key) => { data[key] = data[key].trim(); });
     sending = true;
     submit.disabled = true;
-    submit.textContent = 'Envoi en cours…';
+    submit.textContent = formText("Envoi en cours…", "Sending…");
     form.setAttribute('aria-busy', 'true');
     status.dataset.state = 'info';
-    status.textContent = 'Envoi de votre demande en cours…';
+    status.textContent = formText("Envoi de votre demande en cours…", "Sending your request…");
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
@@ -85,12 +87,12 @@ if (form) {
       // Formspree confirms acceptance with an HTTP 2xx response to an AJAX request.
       if (!response.ok) throw new Error('Formspree rejected the request');
       status.dataset.state = 'success';
-      status.textContent = 'Votre demande a bien été reçue. Nous vous recontactons rapidement pour finaliser la configuration de ChangeWatch.';
+      status.textContent = formText("Votre demande a bien été reçue. Nous vous recontactons rapidement pour finaliser la configuration de ChangeWatch.", "Your request has been received. We will be in touch shortly to finalise your ChangeWatch setup.");
       form.reset();
       document.dispatchEvent(new Event('cw:lead-confirmed'));
     } catch {
       status.dataset.state = 'error';
-      status.textContent = 'Impossible d’envoyer votre demande pour le moment. Vous pouvez nous écrire directement à ' + CONTACT_CONFIG.CONTACT_EMAIL + '.';
+      status.textContent = formText("Impossible d’envoyer votre demande pour le moment. Vous pouvez nous écrire directement à ", "We could not send your request right now. You can email us directly at ") + CONTACT_CONFIG.CONTACT_EMAIL + '.';
     } finally {
       clearTimeout(timeout);
       sending = false;

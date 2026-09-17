@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://changewatch.cybersignal.fr/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://changewatch.cybersignal.fr/</loc><lastmod>2026-09-17</lastmod></url>
   <url><loc>https://changewatch.cybersignal.fr/mentions-legales.html</loc></url>
   <url><loc>https://changewatch.cybersignal.fr/cgv.html</loc></url>
   <url><loc>https://changewatch.cybersignal.fr/confidentialite.html</loc></url>
   <url><loc>https://changewatch.cybersignal.fr/blog/</loc><lastmod>2026-09-16</lastmod></url>
   <url><loc>https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://changewatch.cybersignal.fr/en/</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://changewatch.cybersignal.fr/en/terms.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://changewatch.cybersignal.fr/en/legal-notice.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://changewatch.cybersignal.fr/en/privacy.html</loc><lastmod>2026-09-17</lastmod></url>
 </urlset>
