@@ -1,6 +1,7 @@
 /* Illustrative frontend story only. No monitoring, checkout or contact requests. */
 'use strict';
 (() => {
+  const text = (fr, en) => document.documentElement.lang === 'en' ? en : fr;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const hero = document.querySelector('.hero-system');
   const bench = document.querySelector('#story-workbench');
@@ -11,10 +12,10 @@
   const price = document.querySelector('#scene-price');
   const status = document.querySelector('#demo-status');
   const captions = [
-    'Une page compatible, un prix de référence. Vous définissez le périmètre ; ChangeWatch prend en charge les vérifications.',
-    'Le prix passe de 99 € à 79 €. La prochaine vérification planifiée permettra de repérer ce changement.',
-    'La variation est détectée et confirmée : −20 €, soit environ −20,2 %. La source accompagne le signal.',
-    'L’alerte réunit le changement, son contexte et la source. Vous décidez de la suite.',
+    text("Une page compatible, un prix de référence. Vous définissez le périmètre ; ChangeWatch prend en charge les vérifications.", "A compatible page and a reference price. You define the scope; ChangeWatch handles the checks."),
+    text("Le prix passe de 99 € à 79 €. La prochaine vérification planifiée permettra de repérer ce changement.", "The price drops from €99 to €79. The next scheduled check will detect the change."),
+    text("La variation est détectée et confirmée : −20 €, soit environ −20,2 %. La source accompagne le signal.", "The change is detected and confirmed: −€20, or approximately −20.2%. The source is included."),
+    text("L’alerte réunit le changement, son contexte et la source. Vous décidez de la suite.", "The alert brings together the change, its context and the source. You decide what happens next."),
   ];
   let phase = 3;
   let timer;
@@ -32,12 +33,12 @@
     bench.dataset.phase = String(next);
     stops.forEach((button, i) => button.setAttribute('aria-pressed', String(i === next)));
     panels.forEach((panel, i) => { panel.hidden = i !== next; });
-    price.textContent = next === 0 ? '99 €' : '79 €';
+    price.textContent = next === 0 ? text("99 €", "€99") : text("79 €", "€79");
     bench.querySelector('.scene-result .scene-panel-label > span').textContent = [
-      'LA VEILLE EST CONFIGURÉE', 'LA PAGE A CHANGÉ', 'CHANGEWATCH COMPARE', 'CE QUE VOUS RECEVEZ',
+      text("LA VEILLE EST CONFIGURÉE", "MONITORING IS SET UP"), text("LA PAGE A CHANGÉ", "THE PAGE HAS CHANGED"), text("CHANGEWATCH COMPARE", "CHANGEWATCH COMPARES"), text("CE QUE VOUS RECEVEZ", "WHAT YOU RECEIVE"),
     ][next];
-    bench.querySelector('.result-channel').textContent = ['RÉFÉRENCE', 'EN ATTENTE', 'COMPARAISON', 'PAR EMAIL'][next];
-    bench.querySelector('.observation-label').textContent = next === 0 ? 'Observation initiale' : next === 1 ? 'Page modifiée' : 'Vérification suivante';
+    bench.querySelector('.result-channel').textContent = [text("RÉFÉRENCE", "BASELINE"), text("EN ATTENTE", "PENDING"), text("COMPARAISON", "COMPARISON"), text("PAR EMAIL", "BY EMAIL")][next];
+    bench.querySelector('.observation-label').textContent = next === 0 ? text("Observation initiale", "Initial observation") : next === 1 ? text("Page modifiée", "Updated page") : text("Vérification suivante", "Next check");
     bench.querySelector('.caption-index').textContent = '0' + (next + 1) + ' / 04';
     status.textContent = captions[next];
   }
@@ -45,7 +46,7 @@
     clearTimeout(timer);
     running = false;
     bench.classList.remove('is-playing');
-    play.textContent = motion.matches ? 'Voir le résultat ↗' : phase === 3 ? 'Rejouer la scène ↻' : 'Reprendre la scène ▶';
+    play.textContent = motion.matches ? text("Voir le résultat ↗", "See the result ↗") : phase === 3 ? text("Rejouer la scène ↻", "Replay the scene ↻") : text("Reprendre la scène ▶", "Resume the scene ▶");
   }
   function schedule() {
     if (phase === 3) { pause(); return; }
@@ -58,7 +59,7 @@
     if (phase === 3) show(0);
     running = true;
     bench.classList.add('is-playing', 'is-animated');
-    play.textContent = 'Mettre en pause Ⅱ';
+    play.textContent = text("Mettre en pause Ⅱ", "Pause Ⅱ");
     schedule();
   }
   stops.forEach((button, i) => {
@@ -80,7 +81,7 @@
     });
   });
   play.hidden = false;
-  if (motion.matches) play.textContent = 'Voir le résultat ↗';
+  if (motion.matches) play.textContent = text("Voir le résultat ↗", "See the result ↗");
   play.addEventListener('click', () => { if (running) pause(); else start(true); });
   // Stop progression when keyboard users explore a step or the email source.
   bench.addEventListener('focusin', event => {
