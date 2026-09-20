@@ -91,11 +91,11 @@ sitemap.xml référence les accueils et pages juridiques français/anglais, ains
 
 La direction visuelle, les captures avant/après, les contrôles et leurs limites sont documentés dans [docs/redesign/README.md](docs/redesign/README.md). Les interactions de démonstration sont isolées dans assets/experience.js ; script.js conserve le parcours Formspree/Turnstile. Tests fonctionnels reproductibles : node tests/browser.cjs (Playwright et Edge requis uniquement pour le développement).
 
-## Version anglaise — revue avant publication
+## Version anglaise
 
-Le français reste à `/` ; le parcours anglais proposé est à `/en/`, avec `terms.html`, `legal-notice.html`, `privacy.html` et `demo-product.html`. Les textes HTML sont rédigés et maintenus séparément ; CSS, images, formulaire, consentement et interactions restent partagés. La langue des messages JavaScript vient de `html[lang]`, sans détection ni redirection automatique. Le choix de consentement est commun aux deux langues.
+Le français reste à `/` ; le parcours anglais est à `/en/`, avec `terms.html`, `legal-notice.html`, `privacy.html` et `demo-product.html`. Les textes HTML sont rédigés et maintenus séparément ; CSS, images, formulaire, consentement et interactions restent partagés. La langue des messages JavaScript vient de `html[lang]`, sans détection ni redirection automatique. Le choix de consentement est commun aux deux langues.
 
-Les trois Payment Links Stripe et les paramètres Formspree/Turnstile sont identiques. Le blog français reste inchangé et ses liens anglais portent la mention « French ». Il n’existe pas de traduction partielle du blog.
+Les trois Payment Links Stripe et les paramètres Formspree/Turnstile sont identiques. Le blog est disponible à `/blog/` et `/en/blog/`, avec un guide complet dans chaque langue et des sélecteurs réciproques. Les anciennes URL françaises sont conservées.
 
 Audit, matrice des pages, validations, captures et points à approuver : [docs/i18n/README.md](docs/i18n/README.md). **Ne pas fusionner ou publier cette branche sans validation explicite du propriétaire, notamment des trois traductions juridiques.**
 
@@ -106,6 +106,13 @@ node tests/browser.cjs
 node tests/consent.cjs
 node tests/consent-ux.cjs
 node tests/i18n.cjs
+node tests/blog-launch.cjs
 ```
 
 `CW_AXE_PATH` active les audits axe-core disponibles dans l’environnement. `CW_REAL_GA=1 node --use-system-ca tests/consent.cjs` vérifie aussi le véritable script Google, avec toutes les collectes interceptées localement. Ne jamais désactiver TLS. Les captures bilingues sont écrites dans le dossier temporaire `cw-i18n` (ou `CW_SCREENSHOT_DIR`). Aucun test ne doit réaliser de paiement ni envoyer de demande de contact réelle.
+
+## Blog bilingue et offre de lancement Business
+
+L’offre publique pour nouveaux clients utilise le code `CWBUSINESS3MOIS` : 14,90 €/mois pendant trois mois, puis 29,90 €/mois dès le quatrième mois (45 € économisés sur trois mois). Le lien promotionnel prérempli est distinct des trois liens classiques conservés. Aucun paramètre Stripe n’est modifié par le site. Après consentement, le clic promotionnel émet `stripe_click` avec `plan: Business`, jamais `purchase` ; aucun code ni paramètre de navigation n’est envoyé.
+
+Inventaire, stratégie SEO, contrôles et captures : [docs/blog-launch/README.md](docs/blog-launch/README.md). Cette évolution doit rester en PR brouillon jusqu’à validation explicite. Pour `tests/blog-launch.cjs`, renseigner `CW_AXE_PATH` vers axe-core ; les services externes y sont simulés.

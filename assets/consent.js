@@ -5,6 +5,9 @@
   const ID = 'G-RB6NSRRM9L';
   const base = new URL('../', document.currentScript.src);
   const paths = new Map([
+    ['/en/blog/', 'Blog'], ['/en/blog/index.html', 'Blog'],
+    ['/en/blog/ecommerce-competitor-monitoring/', 'Ecommerce competitor monitoring'],
+    ['/en/blog/ecommerce-competitor-monitoring/index.html', 'Ecommerce competitor monitoring'],
     ['/en/', 'Home'], ['/en/index.html', 'Home'], ['/en/terms.html', 'Terms of sale'],
     ['/en/legal-notice.html', 'Legal notice'], ['/en/privacy.html', 'Privacy'], ['/en/demo-product.html', 'Demo'],
     ['/', 'Accueil'], ['/index.html', 'Accueil'], ['/blog/', 'Blog'], ['/blog/index.html', 'Blog'],
@@ -117,6 +120,7 @@
     const link = e.target.closest('a[href]');
     if (!link) return;
     const plans = {
+      'https://buy.stripe.com/dRm3cu78w4TdbNMdFs4gg05?prefilled_promo_code=CWBUSINESS3MOIS':'Business',
       'https://buy.stripe.com/dRm5kC8cA3P93hg9pc4gg02':'Starter',
       'https://buy.stripe.com/dRm28q50o2L5aJI58W4gg03':'Business',
       'https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04':'Pro',
