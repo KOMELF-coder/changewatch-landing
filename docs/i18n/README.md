@@ -1,6 +1,10 @@
 # ChangeWatch FR / EN — dossier de revue
 
-**Branche prête pour revue. Aucune fusion ni publication autorisée par cette mission.**
+**Dernière revue : 20 septembre 2026 — contrôles techniques réussis, publication en attente des points juridiques et de l’accord du propriétaire.**
+
+Voir le [rapport final actualisé](FINAL_VALIDATION_2026-09-20.md) : suites relancées indépendamment, test de double soumission fiabilisé, vérification du français public, confirmations Stripe et description promotionnelle manquante, comparaison juridique FR/EN et coordonnées téléphoniques à résoudre. Aucune fusion ni publication.
+
+## Dossier initial du 17 septembre 2026
 
 Audit et contrôles locaux : 17 septembre 2026. Base : `main` au commit `f83234103c4deb184d93889548d837a9c46e2b69`. Les trois traductions juridiques doivent être validées explicitement par le propriétaire avant publication.
 
