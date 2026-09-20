@@ -1,0 +1,7 @@
+/* A quiet, static announcement; all conditions remain visible without JavaScript. */
+.launch-banner{background:#e8f2ed;color:#163b2c;border-bottom:1px solid #c7ddd1;font-size:.8125rem;line-height:1.6}
+.launch-banner>.container{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.launch-banner p{margin:0}.launch-banner p span{margin-left:10px}.launch-banner a{color:inherit;font-weight:750;flex-shrink:0;text-underline-offset:3px;padding:5px 0}
+.business-offer{background:#edf6ef;border:1px solid #b2d1bc;border-radius:12px;margin-top:24px;padding:18px;color:#173728;scroll-margin-top:100px}
+.business-offer p{font-size:.8125rem;line-height:1.6;margin:0 0 10px}.business-offer .offer-label{font-weight:750}.business-offer .offer-price{font-size:1rem;font-weight:700}.business-offer .offer-code{font-size:.75rem;overflow-wrap:anywhere}.business-offer .button{width:100%;white-space:normal;text-align:center;font-size:.8125rem}
+@media(max-width:600px){.launch-banner>.container{align-items:flex-start;gap:8px;padding-block:10px}.launch-banner p span{display:block;margin-left:0}.launch-banner a{font-size:.75rem}.business-offer{padding:16px}}

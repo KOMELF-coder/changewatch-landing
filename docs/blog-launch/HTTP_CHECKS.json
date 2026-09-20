@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://buy.stripe.com/dRm5kC8cA3P93hg9pc4gg02",
+    "status": 200,
+    "finalURL": "https://buy.stripe.com/dRm5kC8cA3P93hg9pc4gg02"
+  },
+  {
+    "url": "https://buy.stripe.com/dRm28q50o2L5aJI58W4gg03",
+    "status": 200,
+    "finalURL": "https://buy.stripe.com/dRm28q50o2L5aJI58W4gg03"
+  },
+  {
+    "url": "https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04",
+    "status": 200,
+    "finalURL": "https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04"
+  },
+  {
+    "url": "https://buy.stripe.com/dRm3cu78w4TdbNMdFs4gg05?prefilled_promo_code=CWBUSINESS3MOIS",
+    "status": 200,
+    "finalURL": "https://buy.stripe.com/dRm3cu78w4TdbNMdFs4gg05?prefilled_promo_code=CWBUSINESS3MOIS"
+  },
+  {
+    "url": "https://support.google.com/merchants/answer/7052112?hl=en",
+    "status": 200,
+    "finalURL": "https://support.google.com/merchants/answer/7052112?hl=en"
+  },
+  {
+    "url": "https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/veille-et-etudes-de-marche",
+    "status": 200,
+    "finalURL": "https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/veille-et-etudes-de-marche"
+  },
+  {
+    "url": "https://www.cnil.fr/fr/recommandations-reutilisateurs-donnees-internet",
+    "status": 200,
+    "finalURL": "https://www.cnil.fr/fr/recommandations-reutilisateurs-donnees-internet"
+  }
+]
