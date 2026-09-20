@@ -8,7 +8,7 @@ Site statique HTML/CSS/JavaScript, sans dépendance de production ni serveur. Le
 
 ## Infrastructure
 
-GitHub Pages est configuré sur main / racine. Le domaine personnalisé et son DNS sont configurés ; CNAME contient uniquement changewatch.cybersignal.fr. Préserver ce fichier. Les poussées sur main déclenchent la publication ; vérifier le résultat dans Actions puis Settings → Pages. Le certificat HTTPS était en cours d’émission lors de la demande : vérifier sa disponibilité et activer Enforce HTTPS dès que possible. Ne jamais contourner un avertissement de certificat.
+GitHub Pages est configuré sur main / racine. Le domaine personnalisé et son DNS sont configurés ; CNAME contient uniquement changewatch.cybersignal.fr. Préserver ce fichier. Les poussées sur main déclenchent la publication ; vérifier le résultat dans Actions puis Settings → Pages. Conserver la vérification HTTPS et contrôler le domaine après chaque publication. Ne jamais contourner un avertissement de certificat.
 
 Canonical et og:url : https://changewatch.cybersignal.fr/ ; favicon local conservé. Aucun ancien domaine github.io n’est utilisé comme URL publique canonique.
 
@@ -44,17 +44,17 @@ Après déploiement et validation HTTPS, ouvrir le domaine public, remplir une d
 
 ## Juridique et confidentialité
 
-Les mentions légales identifient Flavian Combes, entrepreneur individuel / Cybersignal, et l’hébergeur GitHub. cgv.html contient les conditions de vente exclusivement professionnelles. La politique de confidentialité couvre Stripe, Formspree, Apify, Resend et GitHub, les finalités, droits, critères de conservation et transferts éventuels. Aucun contenu provisoire ne reste dans ces pages.
+Les mentions légales identifient Flavian Combes, entrepreneur individuel / Cybersignal, et l’hébergeur GitHub. cgv.html contient les conditions de vente exclusivement professionnelles. La politique de confidentialité couvre Stripe, Formspree, Apify, Resend et GitHub, les finalités, droits, critères de conservation et transferts éventuels. Les traductions anglaises proposées dans cette branche nécessitent la validation du propriétaire avant publication ; les dispositions françaises sont conservées.
 
 L’offre est réservée aux professionnels. Les CGV prévoient l’arrêt des renouvellements après résiliation, la fin de service au terme de la période payée et l’absence de remboursement automatique, sous réserve de la loi ou d’un accord explicite. Les informations d’identité et le régime de TVA proviennent du propriétaire. Consulter docs/LEGAL_REQUIREMENTS.md pour les vérifications de mise en œuvre et de revue juridique ; la rédaction ne constitue pas une certification de conformité.
 
-Le site n’intègre ni analytics, ni publicité, ni cookie de suivi ; pas de bandeau cookies ajouté.
+GA4 (`G-RB6NSRRM9L`) est chargé uniquement après consentement via `assets/consent.js` et son document Analytics isolé. Accepter, refuser et personnaliser sont accessibles dès le bandeau ; le pied de page permet le retrait. Aucun suivi publicitaire ni donnée de formulaire dans les événements. Voir [docs/analytics/README.md](docs/analytics/README.md).
 
 ## Maintenance et contrôles
 
 index.html, styles.css, script.js : page, présentation et interactions. demo-produit.html : exemple fictif. assets/favicon.svg : favicon. Les supports commerciaux restent dans docs/. Voir docs/VALIDATION.md et docs/LAUNCH_CHECKLIST.md.
 
-Prévisualisation : ouvrir index.html ou servir le dossier avec un serveur HTTP statique. Vérification JavaScript : node --check script.js. Après toute modification, contrôler menu, CTA, formulaire, liens, mobile et clavier. Ne pas enregistrer de données de prospects dans ce dépôt.
+Prévisualisation : servir la racine du dépôt avec un serveur HTTP statique (par exemple `python -m http.server 8000`) puis ouvrir `/` ou `/en/`. Les chemins absolus du parcours anglais nécessitent une racine HTTP ; ne pas utiliser `file://`. Vérification JavaScript : node --check script.js. Après toute modification, contrôler menu, CTA, formulaire, liens, mobile et clavier. Ne pas enregistrer de données de prospects dans ce dépôt.
 
 ## Achat public via Stripe
 
@@ -85,8 +85,27 @@ Article publié le 15 septembre 2026, auteur ChangeWatch — Cybersignal. Articl
 
 Pour un nouvel article : créer blog/<slug>/index.html, adapter le contenu et les métadonnées, ajouter la carte sur l’index et l’URL au sitemap. Ne modifier dateModified qu’après une modification éditoriale effective ; conserver la date de publication initiale. Vérifier les chemins relatifs depuis le sous-dossier et actualiser le temps de lecture.
 
-sitemap.xml référence l’accueil, les trois pages juridiques et les deux pages du blog. La démonstration non indexable est exclue. robots.txt autorise l’exploration et indique le sitemap. Une soumission du sitemap dans Search Console peut être effectuée par le propriétaire après déploiement ; elle ne garantit pas l’indexation.
+sitemap.xml référence les accueils et pages juridiques français/anglais, ainsi que les deux pages du blog français. La démonstration non indexable est exclue. robots.txt autorise l’exploration et indique le sitemap. Une soumission du sitemap dans Search Console peut être effectuée par le propriétaire après déploiement ; elle ne garantit pas l’indexation.
 
 ## Refonte premium — revue avant publication
 
 La direction visuelle, les captures avant/après, les contrôles et leurs limites sont documentés dans [docs/redesign/README.md](docs/redesign/README.md). Les interactions de démonstration sont isolées dans assets/experience.js ; script.js conserve le parcours Formspree/Turnstile. Tests fonctionnels reproductibles : node tests/browser.cjs (Playwright et Edge requis uniquement pour le développement).
+
+## Version anglaise — revue avant publication
+
+Le français reste à `/` ; le parcours anglais proposé est à `/en/`, avec `terms.html`, `legal-notice.html`, `privacy.html` et `demo-product.html`. Les textes HTML sont rédigés et maintenus séparément ; CSS, images, formulaire, consentement et interactions restent partagés. La langue des messages JavaScript vient de `html[lang]`, sans détection ni redirection automatique. Le choix de consentement est commun aux deux langues.
+
+Les trois Payment Links Stripe et les paramètres Formspree/Turnstile sont identiques. Le blog français reste inchangé et ses liens anglais portent la mention « French ». Il n’existe pas de traduction partielle du blog.
+
+Audit, matrice des pages, validations, captures et points à approuver : [docs/i18n/README.md](docs/i18n/README.md). **Ne pas fusionner ou publier cette branche sans validation explicite du propriétaire, notamment des trois traductions juridiques.**
+
+Tests de développement (Playwright avec Edge ; `PLAYWRIGHT_MODULE` peut indiquer le module installé dans l’environnement) :
+
+```text
+node tests/browser.cjs
+node tests/consent.cjs
+node tests/consent-ux.cjs
+node tests/i18n.cjs
+```
+
+`CW_AXE_PATH` active les audits axe-core disponibles dans l’environnement. `CW_REAL_GA=1 node --use-system-ca tests/consent.cjs` vérifie aussi le véritable script Google, avec toutes les collectes interceptées localement. Ne jamais désactiver TLS. Les captures bilingues sont écrites dans le dossier temporaire `cw-i18n` (ou `CW_SCREENSHOT_DIR`). Aucun test ne doit réaliser de paiement ni envoyer de demande de contact réelle.

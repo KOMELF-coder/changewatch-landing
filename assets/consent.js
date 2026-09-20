@@ -1,9 +1,12 @@
 'use strict';
 (() => {
+  const english = document.documentElement.lang === 'en';
   const KEY = 'cw-consent-v1';
   const ID = 'G-RB6NSRRM9L';
   const base = new URL('../', document.currentScript.src);
   const paths = new Map([
+    ['/en/', 'Home'], ['/en/index.html', 'Home'], ['/en/terms.html', 'Terms of sale'],
+    ['/en/legal-notice.html', 'Legal notice'], ['/en/privacy.html', 'Privacy'], ['/en/demo-product.html', 'Demo'],
     ['/', 'Accueil'], ['/index.html', 'Accueil'], ['/blog/', 'Blog'], ['/blog/index.html', 'Blog'],
     ['/blog/veille-concurrentielle-ecommerce/', 'Guide veille concurrentielle'],
     ['/blog/veille-concurrentielle-ecommerce/index.html', 'Guide veille concurrentielle'],
@@ -53,7 +56,7 @@
     // Keep a layout viewport so enhanced measurement cannot interpret a zero-size document as fully scrolled.
     frame.style.cssText = 'position:fixed;left:-10000px;top:0;width:1px;height:1px;border:0;visibility:hidden';
     frame.setAttribute('aria-hidden', 'true');
-    frame.title = 'Mesure d’audience consentie'; frame.tabIndex = -1;
+    frame.title = english ? 'Consented analytics' : 'Mesure d’audience consentie'; frame.tabIndex = -1;
     frame.referrerPolicy = 'no-referrer';
     frame.src = new URL('assets/analytics-frame.html', base).href;
     document.body.append(frame);
@@ -74,11 +77,11 @@
   });
   const banner = document.createElement('section');
   banner.className = 'cookie-banner'; banner.setAttribute('aria-labelledby', 'cookie-title');
-  banner.innerHTML = `<div><h2 id="cookie-title">Vos choix de confidentialité</h2><p>Avec votre accord, Google Analytics mesure les visites et les actions commerciales (clics et demandes reçues). Le suivi est facultatif. Le formulaire et sa protection anti-spam restent disponibles sans Analytics.</p><a href="${new URL('confidentialite.html#cookies', base).pathname}">En savoir plus</a></div><div class="cookie-actions"><button type="button" data-consent="accept">Tout accepter</button><button type="button" data-consent="reject">Tout refuser</button><button type="button" data-consent="customize">Personnaliser</button></div>`;
+  banner.innerHTML = english ? `<div><h2 id="cookie-title">Your privacy choices</h2><p>With your permission, Google Analytics measures visits and commercial actions (clicks and received enquiries). Tracking is optional. The form and its anti-spam protection remain available without Analytics.</p><a href="${new URL('en/privacy.html#cookies', base).href}">Learn more</a></div><div class="cookie-actions"><button type="button" data-consent="accept">Accept all</button><button type="button" data-consent="reject">Reject all</button><button type="button" data-consent="customize">Customise</button></div>` : `<div><h2 id="cookie-title">Vos choix de confidentialité</h2><p>Avec votre accord, Google Analytics mesure les visites et les actions commerciales (clics et demandes reçues). Le suivi est facultatif. Le formulaire et sa protection anti-spam restent disponibles sans Analytics.</p><a href="${new URL('confidentialite.html#cookies', base).href}">En savoir plus</a></div><div class="cookie-actions"><button type="button" data-consent="accept">Tout accepter</button><button type="button" data-consent="reject">Tout refuser</button><button type="button" data-consent="customize">Personnaliser</button></div>`;
   document.body.append(banner);
   const dialog = document.createElement('dialog');
   dialog.className = 'cookie-dialog'; dialog.setAttribute('aria-labelledby', 'cookie-dialog-title');
-  dialog.innerHTML = `<h2 id="cookie-dialog-title">Gérer les cookies</h2><p>Les fonctions nécessaires au formulaire, dont Turnstile, ne dépendent pas du choix Analytics.</p><label class="cookie-option"><input type="checkbox" id="cookie-analytics"> <span><strong>Mesure d’audience et de conversion</strong><br>Google Analytics : visites, clics sur les offres et demandes confirmées. Aucun champ du formulaire n’est transmis.</span></label><p>Votre choix est conservé six mois sur ce navigateur. Vous pouvez le modifier à tout moment.</p><div class="cookie-actions"><button type="button" data-consent="accept">Tout accepter</button><button type="button" data-consent="reject">Tout refuser</button><button type="button" data-consent="save">Enregistrer mes choix</button><button type="button" data-consent="close">Fermer sans modifier</button></div>`;
+  dialog.innerHTML = english ? `<h2 id="cookie-dialog-title">Manage cookies</h2><p>The features needed by the form, including Turnstile, do not depend on your Analytics choice.</p><label class="cookie-option"><input type="checkbox" id="cookie-analytics"> <span><strong>Audience and conversion measurement</strong><br>Google Analytics: visits, clicks on plans and confirmed enquiries. No form fields are shared.</span></label><p>Your choice is saved for six months in this browser. You can change it at any time.</p><div class="cookie-actions"><button type="button" data-consent="accept">Accept all</button><button type="button" data-consent="reject">Reject all</button><button type="button" data-consent="save">Save my choices</button><button type="button" data-consent="close">Close without changes</button></div>` : `<h2 id="cookie-dialog-title">Gérer les cookies</h2><p>Les fonctions nécessaires au formulaire, dont Turnstile, ne dépendent pas du choix Analytics.</p><label class="cookie-option"><input type="checkbox" id="cookie-analytics"> <span><strong>Mesure d’audience et de conversion</strong><br>Google Analytics : visites, clics sur les offres et demandes confirmées. Aucun champ du formulaire n’est transmis.</span></label><p>Votre choix est conservé six mois sur ce navigateur. Vous pouvez le modifier à tout moment.</p><div class="cookie-actions"><button type="button" data-consent="accept">Tout accepter</button><button type="button" data-consent="reject">Tout refuser</button><button type="button" data-consent="save">Enregistrer mes choix</button><button type="button" data-consent="close">Fermer sans modifier</button></div>`;
   document.body.append(dialog);
   let opener;
   function customize(source) { opener = source; dialog.querySelector('input').checked = allowed(); dialog.showModal(); }
