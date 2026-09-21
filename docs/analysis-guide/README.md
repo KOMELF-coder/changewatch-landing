@@ -1,171 +1,144 @@
-# Validation éditoriale et technique — PR #6
+# PR #6 — Deux articles indépendants et parcours commercial
 
-Contrôles exécutés le 21 septembre 2026. **Brouillon : aucune fusion, aucun déploiement.**
-Le travail rejeté a été annulé par `c021b3df78645ae3c0d649dc51d010c174b5a45d` : son arbre était identique à main. Ce nouveau travail conserve la branche existante.
+Validation du 21 septembre 2026, publication autorisée par le propriétaire sous réserve des contrôles. Ce rapport remplace celui du brouillon bilingue. État pré-fusion : contrôles ci-dessous réussis ; le résultat du déploiement sera consigné dans la PR.
 
-## Décision éditoriale prise avant rédaction
+## Sujets et recherche
 
-| Langue | Requête | Volume mensuel | Provenance et limites |
+| Article | Mot-clé principal | Volume fourni | Intention |
 |---|---|---:|---|
-| FR | analyser la concurrence | 110 | Relevé Semrush fourni par le propriétaire ; pays et date non transmis |
-| EN | competitor price analysis | 260 | Même provenance ; pays et date non transmis |
+| FR : étude stratégique | étude de concurrence | 110/mois | Comparer les offres et choisir un positionnement / une action |
+| EN : analyse tarifaire | competitor price analysis | 260/mois | Normaliser les prix, calculer les écarts, interpréter et décider |
 
-Ces chiffres n'ont pas été mesurés ou vérifiés indépendamment. Ils dépassent numériquement 50, sans prouver un volume en France ou aux États-Unis. Les recherches web réalisées ne constituent pas un classement Google géolocalisé reproductible.
+Chiffres issus du relevé Semrush du propriétaire. Pas de mesure indépendante ; pays et date inconnus. Aucune demande d'accès Semrush. L'exemple EN utilise le marché américain, USD avant sales tax : choix éditorial et non déduction sur l'origine du volume. Les articles ne sont pas des traductions et aucun périmètre commun artificiel n'est imposé.
 
-La requête française est plus large : étude de marché, benchmark, forces/faiblesses, tableau comparatif. La requête anglaise porte sur la comparaison et l'interprétation des prix. Leur intersection est exploitable à condition de délimiter explicitement le guide FR au **positionnement prix e-commerce**. Il ne prétend pas couvrir toute l'analyse concurrentielle. L'exemple EN en USD avant sales tax est un choix éditorial américain, pas une déduction sur le marché du relevé Semrush.
+Recherches web réellement réalisées : « étude de concurrence méthode matrice analyse offres positionnement », « étude de concurrence méthode », « competitor price analysis method shipping discounts median ». Elles ne sont pas un classement Google géolocalisé certifié.
 
-## Résultats consultés et valeur ajoutée
+### Sources et résultats examinés
 
-Recherches : expressions exactes FR/EN, puis « analyser la concurrence étude méthode Bpifrance » et « analyser la concurrence méthode tableau ». Pages effectivement ouvertes et lues :
+- [Bpifrance — étapes de l'étude de marché](https://bpifrance-creation.fr/moment-de-vie/4-etapes-bien-realiser-votre-etude-marche) : marché/demande/offre/environnement ; aide à délimiter l'étude de concurrence comme une partie de l'étude de marché.
+- [Bpifrance — concurrence indirecte](https://bpifrance-creation.fr/concurrence-indirecte) : substitution au besoin même avec des produits éloignés.
+- [IntoTheMinds — méthode d'analyse concurrentielle](https://www.intotheminds.com/blog/white-paper-etude-de-marche/4-etapes-pour-analyser-la-concurrence-et-reussir-votre-etude-de-marche/) : sélection des concurrents, critères, informations et synthèse ; publié 18 mai 2018, mise à jour 25 octobre 2023 selon la page.
+- [Shopify — competitive pricing](https://www.shopify.com/blog/competitive-pricing) : stratégies, coûts, valeur et groupe concurrentiel ; source de l'article EN.
 
-| Source | Intention / couverture | Différence de notre guide |
-|---|---|---|
-| [Bpifrance : benchmark](https://bpifrance-creation.fr/moment-de-vie/benchmark-comment-analyser-vos-concurrents) | Benchmark général, concurrents directs/indirects, critères et tableau | Huit observations fictives, calculs et conclusion explicite |
-| [Bpifrance : matrice](https://bpifrance-creation.fr/boiteaoutils/matrice-analyser-principaux-concurrents) | Synthèse structurée des concurrents | Passage chiffré de la normalisation à une décision ; seule la page de présentation a été consultée, pas le fichier téléchargeable |
-| [Shopify : competitive pricing](https://www.shopify.com/blog/competitive-pricing) | Stratégies, coûts, valeur et choix des concurrents ; 4 juin 2025 | Cas limité reproductible et distinction constat/hypothèse |
-| [Competera : competitive pricing analysis](https://competera.ai/resources/articles/competitive-pricing-analysis) | Étapes, SKU, données, indices, règles ; 5 juin 2025 | Méthode manuelle accessible sans promesse d'automatisation du catalogue |
-| [Competitive Intelligence Alliance](https://www.competitiveintelligencealliance.io/how-to-do-competitive-pricing-analysis/) | Analyse tarifaire large, comparaison et contexte commercial ; 11 juin 2026 | Petit cas e-commerce et ressource vierge directement alignée |
+Pages ouvertes et consultées. Ces quatre liens présents dans les articles ont répondu HTTP 200, TLS vérifié avec la confiance système Node. Autres résultats repérés : supports pédagogiques CRCM sur l'étude concurrentielle et Qualtrics sur l'analyse stratégique côté FR ; PriceRest et AFCommerce sur le benchmark, la médiane et les coûts comparables côté EN. Ces derniers résultats servent à qualifier la couverture concurrentielle, pas de preuves de statistiques ou de performances.
 
-Les trois liens externes présents dans les articles (deux Bpifrance, Shopify) ont également répondu HTTP 200 avec Node `--use-system-ca`, vérification TLS active. Aucun texte cité ni statistique propriétaire repris. La valeur ajoutée n'est pas l'invention de la médiane : c'est l'explication suivie d'une comparaison normalisée, de ses limites et de la décision testable qui en découle.
+Valeur ajoutée FR : exemple continu de boutique, matrice multi-critères, distinction promesse/preuve, synthèse forces/faiblesses/opportunités/menaces puis action avec validation. EN : huit offres fictives, inversion du classement par la livraison, médianes, dénominateur et distinction constat/hypothèse/conclusion. Aucun test logiciel ou relevé réel de prix revendiqué.
 
-## Matrice de cannibalisation (FR et EN)
+## Matrice de cannibalisation établie avant rédaction
 
-| Dimension / question | Guides publiés FR et EN | Nouveaux guides FR et EN | Chevauchement et traitement |
+| Dimension | Guide publié FR/EN | Nouveau FR | EN conservé |
 |---|---|---|---|
-| Intention centrale | Organiser une veille concurrentielle e-commerce | Transformer des offres comparables en analyse du positionnement prix | Deux livrables différents : routine de veille / note de décision |
-| Mots-clés principaux | veille concurrentielle e-commerce / ecommerce competitor monitoring | analyser la concurrence / competitor price analysis | Différence lexicale insuffisante seule ; séparation par problème traité |
-| Concepts secondaires | pages, changements, alertes, fréquence, limites d'extraction | tableau, prix comparable, médiane, écarts, hypothèses, décision | Vocabulaire prix/concurrents partagé, périmètre différent |
-| Quels concurrents / produits comparer ? | Choix du périmètre à surveiller | Groupe de comparaison au service d'une question précise | Moyen : prérequis partagé, aucune prétention à zéro chevauchement |
-| Comment comparer les offres ? | Précautions de comparaison | Normalisation détaillée variantes, réduction, livraison, taxes, date | Moyen : développé par des calculs et deux références |
-| Comment collecter / automatiser ? | Sujet central, pages compatibles et alertes | Bref contexte avec lien vers le premier guide | Faible : aucune section de sélection de logiciel ou configuration d'alertes |
-| Comment interpréter un écart ? | Contexte de la veille | Médiane, dénominateur, causalité, limites et hypothèses | Faible, valeur ajoutée centrale |
-| Quelle décision prendre ? | Exploiter la veille dans une routine | Conclusion limitée, action et critère de validation | Faible, note de décision explicite |
-| Exemples | Organisation d'une veille | Vêtements fictifs, huit lignes, inversion du classement avec livraison | Nouveau cas, aucune observation réelle revendiquée |
-| Résultats recherchés | Guides de veille et monitoring | Benchmark / méthode d'analyse des prix | Recoupement partiel possible sur la comparaison ; aucun résultat SEO garanti |
+| Question centrale | Organiser une veille e-commerce | Quelle place défendre face aux offres ? | Que signifient les écarts de prix ? |
+| Livrable | Périmètre et routine de surveillance | Matrice stratégique et plan d'action | Tableau normalisé et décision tarifaire |
+| Choix des concurrents | Pages pertinentes à surveiller | Alternatives directes et indirectes | Vendeurs d'articles identiques |
+| Comparabilité | Précautions de veille | Différences d'offre et de valeur à conserver | Taxes, remise, livraison, variante normalisées |
+| Surveillance / alertes | Cœur du guide | Bref lien de continuité et CTA | Bref lien de continuité et CTA |
+| Interprétation | Exploiter les signaux | Forces/faiblesses, preuves, opportunités à tester | Écarts, causalité et limites |
+| Exemple | Organisation d'une veille | Trois alternatives, matrice qualitative | Deux références, trois concurrents et boutique |
+| Risque résiduel | — | Pré-requis concurrents/prix partagés | Pré-requis de comparaison partagés |
 
-## Exemple, calculs et CSV
+Des concepts communs restent nécessaires ; ils ne suffisent pas à conclure à une intention identique. Le nouveau FR ne développe aucun mode d'emploi de logiciel ou de surveillance. L'anglais garde son angle spécifique, pas une analyse stratégique générale.
 
-Tout est fictif, y compris la date d'observation du 1 septembre 2026 : elle n'est pas une date de publication. Même article, variante, destination et commande d'un article ; livraison et retours supposés comparables uniquement dans l'exemple. FR EUR TTC ; EN USD avant sales tax, donc pas un total final de checkout.
+## Parcours vers l'abonnement
 
-| Référence | Boutique | A | B | C | Médiane concurrents | Écart boutique |
-|---|---:|---:|---:|---:|---:|---:|
-| T01 | 30 + 5 = 35 | 28 + 8 = 36 | 32 + 0 = 32 | 35 × 0,8 + 6 = 34 | 34 | +1 ; +2,94 % |
-| S01 | 60 + 5 = 65 | 58 + 8 = 66 | 64 + 0 = 64 | 70 × 0,8 + 6 = 62 | 64 | +1 ; +1,56 % |
+Chaque article cible un professionnel, résout le problème puis identifie la vérification répétitive des pages qui sous-tendent l'étude. Un encart contextuel propose de vérifier trois pages ; la conclusion donne la priorité à la demande de compatibilité et un second bouton vers les forfaits. Ces liens rejoignent la langue correspondante de l'accueil.
 
-Écart relatif = (prix boutique − médiane) / médiane × 100. A affiche moins que B sur T01 mais revient à 4 de plus avec livraison. Aucun vendeur universellement moins cher ; pas de moyenne ou panier construit en additionnant artificiellement les frais d'envois unitaires.
+- FR : `/#demande` et `/#tarifs`.
+- EN : `/en/#demande` et `/en/#tarifs`.
+- Les formulaires demandent déjà trois URL : le texte prépare le lecteur à ce besoin.
+- Starter cité : 14,90 €/mois, cinq URL, une surveillance/jour, configuration incluse. Aucun tarif ou lien de paiement modifié.
+- La demande avant abonnement est facultative, comme sur l'accueil ; pas de promesse de réponse automatisée ou de souscription déclenchée par le formulaire.
+- ChangeWatch détecte des changements sur pages compatibles et envoie des emails. Il ne produit pas l'étude, les métriques, le CSV, des recommandations ni du repricing. Pagination, extraction et absence de temps réel restent explicites.
+- Événements commerciaux existants, sans changement de logique : CTA → commercial_cta_click ; forfait → stripe_click ; jamais purchase sur simple clic. Pas de collecte avant consentement/refus.
 
-CSV FR et EN : 29 colonnes, en-tête et ligne vide, UTF-8 BOM, aucun calcul automatisé. Les champs couvrent question, scénario, vendeur, référence/variante, devise/taxes, prix/remise/conditions, livraison/frais, prix comparable, date/source/vérification, conditions, référence/médiane/écarts, constat/hypothèse/limites, action/responsable/critère/date de revue. Ressource éditoriale manuelle, pas export ni fonctionnalité de ChangeWatch.
+## URLs et ressources
+
+| Avant | Après | Statut |
+|---|---|---|
+| /blog/analyser-la-concurrence/ (brouillon non publié) | /blog/etude-de-concurrence/ | Brouillon remplacé, aucune redirection nécessaire |
+| /en/blog/competitor-price-analysis/ (brouillon) | Identique | Finalisé, indépendant |
+| /blog/ | Identique | Ancien et nouvel article présents |
+| /en/blog/ | Identique | Ancien et nouvel article présents |
+| /blog/veille-concurrentielle-ecommerce/ | Identique | Contenu intégralement inchangé |
+| /en/blog/ecommerce-competitor-monitoring/ | Identique | Contenu intégralement inchangé |
+
+Les anciens brouillons outil-veille-tarifaire et price-monitoring-software restent absents. Aucun lien actif vers les routes abandonnées. Illustration et image sociale FR remplacées par etude-decision-fr.svg et etude-concurrence-social-fr.svg/png. Illustration EN conservée. Les captures de l'ancien brouillon sont remplacées par les captures finales.
+
+Canonical propre à chaque article. Aucun link hreflang ni translationOfWork entre les nouveaux articles. Les liens FR/EN de navigation vont aux accueils du site, avec libellés explicites. Les hreflang des anciens articles ne changent pas. Sitemap : 14 routes dont les deux nouvelles, anciennes entrées préservées. Publication/modification : 21 septembre 2026, sans mention Brouillon/Draft. FR : 1 982 mots, 10 min ; EN : 1 786 mots, 9 min, comptage de la zone article et arrondi à 200 mots/min.
+
+## Calculs et téléchargements
+
+FR : 30+5=35 ; 24+6=30 ; 32+0=32 ; 18+4=22. Écart 35−30=5. Offres alternatives différentes, donc pas d'indice homogène ni objectif de prix basé sur l'occasion.
+
+EN : T01 [35,36,32,34], S01 [65,66,64,62] ; remise C 20 %, médianes concurrentes 34/64, écarts relatifs +2.94 % / +1.56 %. Montants avant sales tax ; pas des totaux finaux de checkout. Tous noms/données/dates d'observation fictifs.
+
+CSV FR : 26 colonnes, une ligne par concurrent/critère. CSV EN : 29 colonnes, une ligne par référence/vendeur. En-têtes plus ligne vide, UTF-8 BOM, aucune formule/macro/connexion. Les champs suivent les méthodes exposées. Ressources éditoriales manuelles, pas une fonctionnalité de ChangeWatch.
 
 ## Neuf critères SEO/GEO
 
-1. Intention explicitement limitée au positionnement prix.
-2. Recherche et comparaison ci-dessus ; bénéfice pédagogique identifié.
-3. H1 descriptif, sept H2 et sous-sections logiques (inventaire ci-dessous).
-4. Réponse autonome dès le premier paragraphe.
-5. Concurrents, normalisation, médiane, incertitudes et décision traités naturellement.
-6. Sources primaires citées, exemple fictif identifié, volumes attribués au propriétaire.
-7. Title/description propres à chaque langue, URLs courtes, illustrations locales et images sociales PNG.
-8. HTTP local 200, indexabilité, canonical/hreflang réciproques, BlogPosting/BreadcrumbList, accessibilité testée.
-9. Liens contextuels vers le guide existant, les sections commerciales, index FR/EN et sitemap.
+1. Intentions distinctes annoncées dès le début.
+2. Analyse des résultats et valeur ajoutée décrites ci-dessus.
+3. H1 propres, sept H2 avec sommaire, H3 pédagogiques.
+4. Réponse directe et autonome à l'ouverture.
+5. Concepts associés couverts sans accumulation de mots-clés.
+6. Sources vérifiables ; exemples fictifs explicités ; volumes attribués.
+7. Titles, descriptions, URL, illustrations et images sociales propres.
+8. Pages indexables, accessibles et structurées ; canonical et schémas valides.
+9. Liens contextuels vers les premiers guides, CTA commerciaux, index et sitemap.
 
-Aucune datePublished/dateModified ni date sociale de publication sur les nouveaux articles. Les mentions Brouillon/Draft devront être retirées et les vraies dates ajoutées uniquement au moment d'une publication autorisée. FR : 1 832 mots / 10 min ; EN : 1 613 mots / 9 min, calcul à 200 mots/min arrondi au supérieur.
+## Tests réellement exécutés avant fusion
 
-## URL avant / après
-
-| Avant | Après | État |
+| Suite | Résultat final | Couverture |
 |---|---|---|
-| /blog/ | identique | Carte ajoutée |
-| /en/blog/ | identique | Carte ajoutée |
-| /blog/veille-concurrentielle-ecommerce/ | identique | Fichier intégralement préservé |
-| /en/blog/ecommerce-competitor-monitoring/ | identique | Fichier intégralement préservé |
-| — | /blog/analyser-la-concurrence/ | Nouveau brouillon |
-| — | /en/blog/competitor-price-analysis/ | Nouveau brouillon |
-| /blog/outil-veille-tarifaire/ (ancien brouillon rejeté) | absent | Ni publication ni redirection |
-| /en/blog/price-monitoring-software/ (ancien brouillon rejeté) | absent | Ni publication ni redirection |
+| browser.cjs | PASS, code 0 | Site FR, tarifs/Stripe, formulaire simulé, démo, clavier, responsive, liens |
+| consent.cjs | PASS, code 0 en relance isolée | Refus, acceptation, retrait/cookies, événements, absence de données privées |
+| consent-ux.cjs | PASS, code 0 | 320/375/390/1440, boutons et défilement ; comportement historique du bandeau à 320 préservé |
+| i18n.cjs | PASS, code 0 en relance isolée | FR/EN, formulaires simulés, démo, accessibilité, tarifs |
+| blog-launch.cjs | PASS, code 0 | 14 routes du sitemap, liens/ancres/ressources, anciens hreflang, offre Business |
+| analysis-guide.cjs | PASS, code 0 | Deux nouveaux articles, calculs, CSV, SEO indépendant, dates, clavier, CTA et consentement |
 
-Toutes les autres routes publiées sont conservées. Aucun changement des pages commerciales, juridiques, Stripe, Formspree, Turnstile, CNAME, robots ou moteur. Consentement : seuls les nouveaux chemins et libellés fixes sont ajoutés aux listes autorisées ; logique inchangée.
+Deux échecs initiaux en exécution parallèle sont documentés : consent.cjs attendait quatre événements stripe_click simulés et en a observé trois ; i18n.cjs a reçu ECONNRESET sur une requête localhost. Les deux suites ont réussi séparément, sans modification de leurs assertions ni du code de production. Instabilité transitoire non reproduite ; origine exacte non prouvée.
 
-## Tests réellement exécutés
+Nouveaux articles : 320, 375, 390, 768, 1024, 1440 px ; axe-core 4.10.3 à 320/1440 ; navigation clavier, tableau défilant, texte 200 % à 320, zoom CSS 200 % desktop (pas zoom natif), mode sans JS. Liens CTA réellement cliqués en local : arrivée sur formulaire correct / tarifs ; destinations Stripe comparées aux liens existants. Trois événements CTA par article et alias index.html vérifiés après consentement ; aucun purchase, aucune donnée privée dans les chemins transmis. Toutes les intégrations externes sont simulées dans ces tests locaux. Aucun paiement ni véritable demande.
 
-Six processus indépendants, tous terminés avec code 0 :
+Captures finales : [FR mobile](screenshots/fr-390-header.png), [EN desktop](screenshots/en-1440-header.png), [CTA FR](screenshots/fr-390-cta.png), [CTA EN](screenshots/en-390-cta.png). Inspection visuelle des en-têtes FR390/EN1440, illustration FR390 et CTA des deux langues à 390. Les versions intégrales 375/390/1440 sont également enregistrées.
 
-| Commande | Résultat |
-|---|---|
-| node --use-system-ca tests/browser.cjs | PASS : navigation, formulaires simulés succès/erreur/réseau/timeout, Turnstile simulé, démo/clavier/mouvement réduit, responsive, liens |
-| node --use-system-ca tests/consent.cjs | PASS : aucun Analytics avant consentement/refus, événements contrôlés, retrait/cookies, synchronisation, stockage |
-| node --use-system-ca tests/consent-ux.cjs | PASS : 320/375/390/1440, disposition et absence de débordement |
-| node --use-system-ca tests/i18n.cjs | PASS : FR/EN, navigation, SEO, formulaire et consentement simulés, axe, démo |
-| node --use-system-ca tests/blog-launch.cjs | PASS : sitemap/liens/ressources, anciens articles, offres et consentement ; journal « 12 pages » historique, boucle sur les 14 entrées effectives |
-| node --use-system-ca tests/analysis-guide.cjs | PASS : deux articles, huit calculs, deux médianes/écarts, CSV29, SEO/schema sans dates, images, liens, navigation sans JS, consentement et chemins nettoyés |
+## Préservation et publication
 
-Runtime Node avec confiance système et Edge headless / Playwright. Variables requises : PLAYWRIGHT_MODULE vers le module Playwright installé ; CW_AXE_PATH vers axe-core 4.10.3. Aucun contournement TLS.
+GitHub Pages vérifié par API : source main, racine /, domaine changewatch.cybersignal.fr, build_type legacy. Aucun changement d'infrastructure, DNS ou services externes. Les anciens articles, accueils, démonstrations, pages juridiques, CNAME, robots et formulaire/script sont comparés au contenu Git de main. Seules les listes de routes Analytics ajoutent les nouveaux chemins ; le mécanisme de consentement est inchangé.
 
-Nouveaux articles contrôlés à 320, 375, 390, 768, 1024 et 1440 px : pas de débordement de page, tableau défilant au clavier, skip link, alternatives d'images. Axe à 320 et 1440. Texte à 200 % sur 320 et zoom CSS à 200 % sur desktop (pas un test du zoom natif). Captures générées à 375/390/1440 et 320 texte agrandi. Inspection visuelle des en-têtes FR390/EN375/EN1440 et illustrations FR1440/EN390 : lisibles sans texte tronqué.
+Restent hors de ces tests : lecteur d'écran manuel, Safari/iOS/Firefox, performances Lighthouse, résultats commerciaux et réception effective des événements dans GA4. Aucun taux de conversion garanti. Le contrôle public post-déploiement doit être distingué des simulations locales et consigné dans la PR.
 
-Tous les services externes sont simulés dans les tests navigateur (GA4, Formspree, Turnstile). Aucun paiement ni demande de contact réelle. Les événements observés dans ces tests ne prouvent pas leur réception dans GA4. Aucun contrôle en production des nouvelles URL, puisqu'elles ne sont pas publiées. Pas de certification juridique, audit manuel lecteur d'écran, Safari/iOS/Firefox ou Lighthouse.
+## Plans exacts
 
-## Captures
+### blog/etude-de-concurrence/index.html
 
-Voir [FR mobile](screenshots/fr-390-header.png), [EN mobile](screenshots/en-375-header.png), [FR desktop](screenshots/fr-1440-header.png), [EN desktop](screenshots/en-1440-header.png), [illustration FR](screenshots/fr-1440-diagram.png), [illustration EN](screenshots/en-390-diagram.png). Les captures intégrales mobiles/desktop sont dans le même dossier.
-
-## À valider avant publication
-
-Validation propriétaire du sujet et des deux textes ; pays/date du relevé Semrush restent inconnus. Relire le choix éditorial EN américain. À autorisation seulement : remplacer les mentions de brouillon, ajouter la vraie date et contrôler les services réels ainsi que les nouvelles URL après déploiement. PR #6 doit rester en brouillon jusque-là.
-
-## Inventaire exact des titres
-
-### blog/veille-concurrentielle-ecommerce/index.html
-
-- H1 : Veille concurrentielle e-commerce : une méthode pour décider
-- H2 : 01. Partez de vos décisions, pas d’une liste de concurrents
-- H2 : 02. Construisez un périmètre que vous pouvez expliquer
-- H2 : 03. Comparez la même offre, pas seulement deux nombres
-- H2 : 04. Choisissez ce qui reste manuel et ce qui peut être automatisé
-- H3 : À quoi ressemble un changement détecté ?
-- H2 : 05. De la page surveillée à l’alerte ChangeWatch
-- H2 : 06. Vérifiez la couverture réelle et ses limites
-- H2 : 07. Transformez chaque alerte en une petite routine de décision
-- H2 : Commencez avec un périmètre clair
-- H3 : Gardez votre temps pour l’analyse.
-
-### en/blog/ecommerce-competitor-monitoring/index.html
-
-- H1 : Ecommerce competitor monitoring: a practical guide
-- H2 : 01. What decisions should competitor monitoring support?
-- H2 : 02. Which competitor pages should you monitor?
-- H2 : 03. How do you compare competitor prices fairly?
-- H2 : 04. Manual checks or automated competitor monitoring?
-- H3 : What does a detected change look like?
-- H2 : 05. How does ChangeWatch turn a page change into an alert?
-- H2 : 06. What are the limits of automated page monitoring?
-- H2 : 07. What should you do after a competitor alert?
-- H2 : Start with a clearly defined set of pages
-- H3 : Keep your time for analysis.
-
-### blog/analyser-la-concurrence/index.html
-
-- H1 : Analyser la concurrence : tableau et exemple e-commerce
-- H2 : 01. Définir la question que l'analyse doit trancher
-- H2 : 02. Choisir un groupe de comparaison défendable
-- H2 : 03. Construire un tableau où chaque ligne se vérifie
-- H3 : Normaliser sans effacer les différences
-- H2 : 04. Mesurer les écarts, produit par produit
-- H3 : Choisir et nommer son point de référence
-- H2 : 05. Séparer constat, hypothèse et conclusion
-- H2 : 06. Formuler une décision et une manière de la vérifier
-- H3 : Reproduire la méthode avec vos données
-- H2 : Du relevé à une conclusion défendable
+- H1 : Étude de concurrence : méthode complète, matrice et exemple concret
+- H2 : 01. Cadrer l'objectif de l'étude de concurrence
+- H2 : 02. Identifier les concurrents directs et indirects
+- H2 : 03. Choisir des critères qui éclairent la décision
+- H3 : Distinguer promesse, preuve et information manquante
+- H2 : 04. Construire une matrice comparative exploitable
+- H3 : Éviter le faux classement scientifique
+- H3 : Évitez de rouvrir chaque page pour chercher un changement
+- H2 : 05. Identifier forces, faiblesses et opportunités
+- H2 : 06. Transformer l'étude en décisions concrètes
+- H3 : Télécharger la matrice d'étude de concurrence
+- H2 : Une étude utile débouche sur un choix, puis reste à jour
+- H3 : Gardez un œil sur les pages qui comptent pour votre stratégie
 
 ### en/blog/competitor-price-analysis/index.html
 
-- H1 : Competitor price analysis: a method with a worked example
+- H1 : Competitor price analysis: a practical method with a worked example
 - H2 : 01. Start with a pricing question you can answer
 - H2 : 02. Build a defensible comparison group
 - H2 : 03. Keep the raw offer separate from the comparable price
 - H3 : Normalize only what you can justify
 - H2 : 04. Calculate gaps for each item
 - H3 : Name the reference before quoting a percentage
+- H3 : Know when a page behind your analysis changes
 - H2 : 05. Separate the observation from the explanation
 - H2 : 06. Write a decision brief with a validation step
 - H3 : A blank template that follows the method
 - H2 : Turn a price table into a defensible conclusion
+- H3 : Keep track of the pages behind your pricing decisions
