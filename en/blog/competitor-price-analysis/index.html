@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Competitor price analysis: a method with a worked example | ChangeWatch</title>
+  <meta name="description" content="Turn competitor prices into a decision brief. Follow a worked example with shipping, discounts, median price gaps and a blank CSV analysis template.">
+  <link rel="canonical" href="https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="ChangeWatch">
+  <meta property="og:title" content="Competitor price analysis: a method with a worked example | ChangeWatch">
+  <meta property="og:description" content="Turn competitor prices into a decision brief. Follow a worked example with shipping, discounts, median price gaps and a blank CSV analysis template.">
+  <meta property="og:url" content="https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Competitor price analysis: a method with a worked example | ChangeWatch">
+  <meta name="twitter:description" content="Turn competitor prices into a decision brief. Follow a worked example with shipping, discounts, median price gaps and a blank CSV analysis template.">
+  <meta name="theme-color" content="#102645">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/blog.css">
+  <script src="/script.js" defer></script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/#article",
+      "headline": "Competitor price analysis: a method with a worked example",
+      "description": "Turn competitor prices into a decision brief. Follow a worked example with shipping, discounts, median price gaps and a blank CSV analysis template.",
+      "inLanguage": "en-US",
+      "author": {
+        "@type": "Organization",
+        "name": "ChangeWatch — Cybersignal",
+        "url": "https://changewatch.cybersignal.fr/en/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Cybersignal",
+        "url": "https://changewatch.cybersignal.fr/en/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/"
+      },
+      "wordCount": 1613,
+      "timeRequired": "PT9M",
+      "image": "https://changewatch.cybersignal.fr/assets/analysis-social-en.png",
+      "translationOfWork": {
+        "@id": "https://changewatch.cybersignal.fr/blog/analyser-la-concurrence/#article"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://changewatch.cybersignal.fr/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://changewatch.cybersignal.fr/en/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Competitor price analysis: a method with a worked example",
+          "item": "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/"
+        }
+      ]
+    }
+  ]
+}</script>
+  <meta property="og:image" content="https://changewatch.cybersignal.fr/assets/analysis-social-en.png">
+  <meta property="og:image:alt" content="Analyze: calculate, interpret, decide.">
+  <meta name="twitter:image" content="https://changewatch.cybersignal.fr/assets/analysis-social-en.png">
+  <link rel="stylesheet" href="/assets/consent.css">
+  <script src="/assets/consent.js" defer></script>
+  <link rel="alternate" hreflang="fr" href="https://changewatch.cybersignal.fr/blog/analyser-la-concurrence/">
+  <link rel="alternate" hreflang="en" href="https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/">
+  <link rel="alternate" hreflang="x-default" href="https://changewatch.cybersignal.fr/blog/analyser-la-concurrence/">
+  <link rel="stylesheet" href="/assets/languages.css">
+<link rel="stylesheet" href="/assets/analysis-guide.css">
+</head>
+<body><a class="skip-link" href="#contenu">Skip to content</a><header class="header">
+  <nav class="container nav" aria-label="Main navigation">
+    <a class="brand" href="/en/" aria-label="ChangeWatch, home"><img src="/assets/favicon.svg" width="30" height="30" alt="">ChangeWatch<span class="brand-period">.</span></a>
+    <div role="group" class="language-switch" aria-label="Language"><a href="/blog/analyser-la-concurrence/" lang="fr" hreflang="fr" aria-label="Français">FR</a><a href="/en/blog/competitor-price-analysis/" lang="en" hreflang="en" aria-label="English" aria-current="page">EN</a></div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
+    <div class="nav-links" id="navigation">
+      <a href="/en/#fonctionnement">How it works</a><a href="/en/#alertes">Alerts</a><a href="/en/#tarifs">Pricing</a><a href="/en/#faq">FAQ</a><a href="/en/blog/">Blog</a>
+      <a class="button button-small" href="/en/#tarifs">Get started <span aria-hidden="true">↗</span></a>
+    </div>
+  </nav>
+</header><main id="contenu" class="blog-main"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/en/">Home</a></li><li><a href="/en/blog/">Blog</a></li><li aria-current="page">Competitor price analysis</li></ol></nav></div><article class="article-layout analysis-guide"><header class="article-header"><p class="eyebrow">THE CHANGEWATCH GUIDE / ECOMMERCE</p><h1>Competitor price analysis: a method with a worked example</h1><p class="article-deck">From a price table to a decision: calculations, interpretation and limits.</p><p class="post-meta"><span>By ChangeWatch — Cybersignal</span><span>Draft — publication pending approval</span><span>9 min read</span></p></header><nav class="article-toc" aria-label="Contents"><p>In this guide</p><ol><li><a href="#question">Define the question</a></li><li><a href="#concurrents">Choose the comparison group</a></li><li><a href="#tableau">Build the table</a></li><li><a href="#ecarts">Calculate price gaps</a></li><li><a href="#interpretation">Interpret the evidence</a></li><li><a href="#actions">Write the decision brief</a></li><li><a href="#synthese">Key takeaways</a></li></ol></nav><div class="article-body">
+<p class="article-intro"><strong>A competitor price analysis turns comparable offer data into a reasoned pricing decision.</strong> Define the purchase scenario, normalize the figures, calculate gaps against a named reference, then separate observations from explanations you still need to test. The output is a decision brief, not simply a list of cheaper sellers.</p>
+<p>This guide works through a fictional US apparel example, with dollar amounts compared <strong>before sales tax</strong>. It focuses on interpreting a small dataset, not choosing monitoring software. The same reasoning can support a broader competitive analysis, but prices alone cannot explain a competitor's market share, profitability or customers' preferences.</p>
+<div class="article-takeaway"><p class="eyebrow">THE WORKFLOW</p><p>Decision question → comparison group → normalized table → price gaps → interpretation → action to evaluate.</p></div>
+<h2 id="question">01. Start with a pricing question you can answer</h2>
+<p>“What are our competitors doing?” is too broad for a useful calculation. Ask something specific: “Is our delivered price higher for these two items when a customer buys one at a time?” Define the customer, destination, order contents and observation period before looking at the outcome.</p>
+<p>Competitive analysis can also cover product value, service, positioning and customer perceptions. This example isolates price and shipping rather than claiming to assess the whole business. Shopify's <a href="https://www.shopify.com/blog/competitive-pricing">competitive pricing guide</a> connects price comparisons with product value and internal costs. Your own question determines which comparisons are relevant.</p>
+<div class="article-takeaway"><p class="eyebrow">WORKED EXAMPLE — ALL DATA IS FICTIONAL</p><p>Example Apparel is considering a pricing change for a T-shirt and a sweatshirt. A customer buys one item for delivery to the same fictional US destination, without a membership or personal coupon. The stores, products, amounts, conditions and observation dates below are invented solely to explain the method.</p></div>
+<h2 id="concurrents">02. Build a defensible comparison group</h2>
+<p>Include sellers your customer could realistically choose instead of you. A direct competitor offers the same product or a close substitute. An indirect competitor meets the underlying need differently. A secondhand marketplace can matter commercially without providing a like-for-like price for a new garment.</p>
+<p>Our fictional retailers A, B and C sell identical references from the fictional brand Example Thread: T-shirt T01, cotton, medium, navy; and sweatshirt S01, cotton, medium, gray. A different fabric, fit, brand or multipack belongs in a separate value comparison unless you can justify equivalence.</p>
+<p>This is a deliberately small comparison group, not a representative market sample. A seller's public prices do not reveal its purchasing costs, margins or service quality. Record missing evidence rather than filling gaps with a score that looks authoritative.</p>
+<h2 id="tableau">03. Keep the raw offer separate from the comparable price</h2>
+<p>Use one row per product, seller and purchase scenario. Keep list price, eligible discount and shipping in separate columns so another person can reconstruct the calculation. For real observations, retain the source, date, conditions and verification status. A blank field is not zero.</p>
+<p><strong>Example convention:</strong> USD, new items in stock, one unit per order, the same destination and no other mandatory fees in the fictional scenario. C's 20% promotion is public and immediate, with no minimum spend. Delivery speed and return terms are assumed equal to isolate price; verify them in a real analysis. Sales tax is excluded consistently, so these are <strong>not final checkout totals</strong>.</p>
+<p class="table-hint">On small screens, scroll the table horizontally. Keyboard users can focus the table region and use the arrow keys.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Fictional price dataset, scroll horizontally"><table class="analysis-data"><caption>Entirely fictional dataset — one item per order, USD before tax</caption><thead><tr><th scope="col">Seller</th><th scope="col">Product / variant</th><th scope="col">Displayed price</th><th scope="col">Eligible promotion</th><th scope="col">Shipping</th><th scope="col">Comparable pre-tax price</th><th scope="col">Fictional date</th></tr></thead><tbody><tr data-sku="T01" data-price="30" data-discount="0" data-shipping="5" data-total="35"><th scope="row">Example Apparel</th><td>T01 — T-shirt, cotton, M, navy</td><td>$30</td><td>None</td><td>$5</td><td><strong>$35</strong></td><td>2026-09-01</td></tr><tr data-sku="T01" data-price="28" data-discount="0" data-shipping="8" data-total="36"><th scope="row">A</th><td>T01 — T-shirt, cotton, M, navy</td><td>$28</td><td>None</td><td>$8</td><td><strong>$36</strong></td><td>2026-09-01</td></tr><tr data-sku="T01" data-price="32" data-discount="0" data-shipping="0" data-total="32"><th scope="row">B</th><td>T01 — T-shirt, cotton, M, navy</td><td>$32</td><td>None</td><td>$0</td><td><strong>$32</strong></td><td>2026-09-01</td></tr><tr data-sku="T01" data-price="35" data-discount="20" data-shipping="6" data-total="34"><th scope="row">C</th><td>T01 — T-shirt, cotton, M, navy</td><td>$35</td><td>20% off, public, no minimum</td><td>$6</td><td><strong>$34</strong></td><td>2026-09-01</td></tr><tr data-sku="S01" data-price="60" data-discount="0" data-shipping="5" data-total="65"><th scope="row">Example Apparel</th><td>S01 — Sweatshirt, cotton, M, gray</td><td>$60</td><td>None</td><td>$5</td><td><strong>$65</strong></td><td>2026-09-01</td></tr><tr data-sku="S01" data-price="58" data-discount="0" data-shipping="8" data-total="66"><th scope="row">A</th><td>S01 — Sweatshirt, cotton, M, gray</td><td>$58</td><td>None</td><td>$8</td><td><strong>$66</strong></td><td>2026-09-01</td></tr><tr data-sku="S01" data-price="64" data-discount="0" data-shipping="0" data-total="64"><th scope="row">B</th><td>S01 — Sweatshirt, cotton, M, gray</td><td>$64</td><td>None</td><td>$0</td><td><strong>$64</strong></td><td>2026-09-01</td></tr><tr data-sku="S01" data-price="70" data-discount="20" data-shipping="6" data-total="62"><th scope="row">C</th><td>S01 — Sweatshirt, cotton, M, gray</td><td>$70</td><td>20% off, public, no minimum</td><td>$6</td><td><strong>$62</strong></td><td>2026-09-01</td></tr></tbody></table></div>
+<p>The fictional observation date is September 1, 2026. Shipping is calculated for <strong>one item in one order</strong>. Do not add these totals together to describe a two-item basket: shared shipping, thresholds and discounts need to be recalculated at the order level.</p>
+<h3>Normalize only what you can justify</h3>
+<p>For this example: <strong>comparable pre-tax price = displayed price − eligible discount + shipping + other known mandatory fees</strong>. C's T-shirt is $35 × (1 − 20%) + $6 = $34 before tax. A members-only offer would not qualify for this customer scenario; analyze it separately if members are your intended audience.</p>
+<p>If tax treatment, destination charges or mandatory conditions are unknown, flag the row for verification rather than ranking it as a known final cost. An annual subscription shown as a monthly equivalent still carries its commitment. Normalization makes differences explicit; it should not erase them.</p>
+<h2 id="ecarts">04. Calculate gaps for each item</h2>
+<p>A's T-shirt has a $28 displayed price, below B's $32. After shipping, A reaches $36 while B stays at $32 before tax. A is therefore $4 more expensive on the chosen basis. The lowest product price does not produce the lowest comparable delivered amount.</p>
+<figure class="article-figure analysis-figure"><img src="/assets/analysis-cost-en.svg" width="440" height="600" loading="lazy" decoding="async" alt="Fictional example: A lists $28 but costs $36 with shipping; B lists and costs $32 with shipping. B is $4 cheaper before tax."><figcaption>Shipping changes the ranking. Fictional example, USD before sales tax.</figcaption></figure>
+<h3>Name the reference before quoting a percentage</h3>
+<p>We use the <strong>median</strong> of the three competitors: the middle value after sorting. It describes this sample, not an established market-wide price. The T-shirt totals are $32, $34 and $36, giving a median of $34. The sweatshirt totals are $62, $64 and $66, giving a median of $64.</p>
+<div class="article-takeaway"><p class="eyebrow">CHECK THE ARITHMETIC</p><p>Relative gap = (our comparable price − competitor median) ÷ competitor median × 100.<br>T-shirt: (35 − 34) ÷ 34 × 100 ≈ <strong>+2.94%</strong>.<br>Sweatshirt: (65 − 64) ÷ 64 × 100 ≈ <strong>+1.56%</strong>.</p></div>
+<p>A positive sign means our offer is above that reference. Keep the denominator consistent: dividing by our own price instead would answer a different question. Round at the end and retain the dollar gap too. Both items have a $1 difference from the median, but different percentage gaps.</p>
+<p>Do not average these percentages and call the result the store's overall price disadvantage. An unweighted average treats both products as equally important. A basket index needs explicit quantities, order-level shipping calculations and a stated weighting method. It also needs coverage good enough to support the conclusion you intend to draw.</p>
+<h2 id="interpretation">05. Separate the observation from the explanation</h2>
+<p><strong>Observation:</strong> our comparable delivered price is $1 above the competitor median on both items. B is cheapest for the T-shirt; C is cheapest for the sweatshirt. No retailer is cheapest on every item in this dataset.</p>
+<p><strong>Hypothesis:</strong> the gap might contribute to some customers leaving without buying. The table does not prove that. It contains no visitor behavior, purchase reasons or measured response to delivery speed. A conversion change could have other causes.</p>
+<p><strong>Proportionate conclusion:</strong> there is a delivered-price gap worth examining for these two items, this purchase scenario and this fictional date. The data does not establish a revenue loss, a lasting competitor strategy or a requirement to lower our prices.</p>
+<p>A useful next question is whether shoppers understand the delivered amount early enough. They might value a delivery promise, return experience or another feature more than the difference. Customer feedback and internal data can help test that explanation; they should not be invented to complete the spreadsheet.</p>
+<h2 id="actions">06. Write a decision brief with a validation step</h2>
+<p>Possible responses include keeping the price and clarifying the offer, testing a limited change or collecting missing evidence first. Each proposal needs a reason, an owner and a way to judge its result. A pricing comparison should support a decision rather than mechanically trigger a discount.</p>
+<ol class="editorial-list"><li><strong>Proposed action:</strong> display the T-shirt's delivered pre-tax amount earlier, while retaining the current price initially.</li><li><strong>Reason:</strong> shipping changes the competitor ranking, so the product price alone describes the offer poorly.</li><li><strong>Validation:</strong> check understanding with customers and observe outcomes over a defined period, recording other changes that occur at the same time.</li><li><strong>Guardrail:</strong> before any later price test, calculate contribution using your actual revenue and variable costs on a consistent tax basis. A competitor's selling price does not reveal your margin.</li></ol>
+<p>A before-and-after comparison alone does not establish causality. Traffic mix, promotions or stock availability can change the outcome. Keep alternative explanations in the brief, along with a stopping rule or a date for reassessment.</p>
+<div class="article-cta"><p class="eyebrow">MAKE THE ANALYSIS YOUR OWN</p><h3>A blank template that follows the method</h3><p>The CSV includes the purchase scenario, product attributes, price components, comparison reference, gaps, observation, hypothesis and action. Use one row per item and retailer. Enter calculations using the formulas above; there are no macros or external connections.</p><a class="button" href="/assets/competitor-analysis-template-en.csv" download>Download the CSV template</a><p class="small">An editorial worksheet to complete in your spreadsheet. It is not a ChangeWatch data-export or automated analysis feature.</p></div>
+<h2 id="synthese">Turn a price table into a defensible conclusion</h2>
+<p>A useful analysis states the question, sample and conventions, shows its arithmetic and distinguishes evidence from unresolved explanations. The decision brief can legitimately recommend further investigation before any pricing change.</p>
+<div class="article-takeaway"><p class="eyebrow">KEY TAKEAWAYS</p><p>In this fictional dataset, shipping reverses the T-shirt ranking and our price is $1 above the median for each item. Those are bounded observations. Explaining customer choices and evaluating an intervention require additional evidence.</p></div>
+<p>For a future refresh, our <a href="/en/blog/ecommerce-competitor-monitoring/">ecommerce competitor monitoring guide</a> explains how to organize the observation process. ChangeWatch can flag changes on compatible pages; it does not automatically create this table, these metrics or your recommendations. Explore the <a href="/en/#alertes">fictional demonstration</a> or <a href="/en/#demande">discuss page compatibility</a>. The <a href="/en/#tarifs">plans</a> describe the service's actual frequency and limits, with subscription prices in euros.</p>
+</div><p class="article-end small muted">Entirely fictional stores and data. A method proposed by ChangeWatch — Cybersignal. <a href="/en/blog/">All articles</a></p></article></main><footer class="footer"><div class="container footer-inner"><div><a class="brand" href="/en/"><img src="/assets/favicon.svg" alt="" width="26" height="26">ChangeWatch<span class="brand-period">.</span></a><p>Automated competitor monitoring</p></div><nav aria-label="Footer navigation"><a href="/en/blog/">Blog</a><a href="mailto:changewatch@cybersignal.fr">Contact</a><a href="/en/legal-notice.html">Legal notice</a><a href="/en/terms.html">Terms of sale</a><a href="/en/privacy.html">Privacy policy</a><a href="/en/privacy.html#cookies" data-manage-cookies>Manage cookies</a></nav><p class="small muted">© <span id="year">2026</span> ChangeWatch</p></div></footer></body></html>
