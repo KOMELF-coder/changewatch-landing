@@ -116,7 +116,3 @@ node tests/blog-launch.cjs
 L’offre publique pour nouveaux clients utilise le code `CWBUSINESS3MOIS` : 14,90 €/mois pendant trois mois, puis 29,90 €/mois dès le quatrième mois (45 € économisés sur trois mois). Le lien promotionnel prérempli est distinct des trois liens classiques conservés. Aucun paramètre Stripe n’est modifié par le site. Après consentement, le clic promotionnel émet `stripe_click` avec `plan: Business`, jamais `purchase` ; aucun code ni paramètre de navigation n’est envoyé.
 
 Inventaire, stratégie SEO, contrôles et captures : [docs/blog-launch/README.md](docs/blog-launch/README.md). Cette évolution doit rester en PR brouillon jusqu’à validation explicite. Pour `tests/blog-launch.cjs`, renseigner `CW_AXE_PATH` vers axe-core ; les services externes y sont simulés.
-
-## Guide de choix : nouvel article FR/EN (brouillon)
-
-Deux articles complètent la méthode générale : `/blog/outil-veille-tarifaire/` et `/en/blog/price-monitoring-software/`. Illustrations originales, grille CSV vierge, routes Analytics explicites et liens réciproques. Recherche de mots-clés, analyse concurrentielle, captures, tests et réserves : [rapport de validation](docs/price-guide/README.md). Suite ciblée : `node tests/price-guide.cjs` (Playwright/Edge et axe-core local requis). Ne pas publier sans validation ; adapter les dates au jour de publication réelle si nécessaire.

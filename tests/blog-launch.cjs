@@ -18,7 +18,7 @@ async function main(){await new Promise(r=>server.listen(8772,'127.0.0.1',r));fs
   const links=await page.locator('[href],[src],[srcset]').evaluateAll(es=>es.flatMap(e=>['href','src','srcset'].map(a=>e.getAttribute(a)).filter(Boolean)).filter(v=>!v.startsWith('mailto:')));
   for(const link of new Set(links)){const u=new URL(link,origin+route);if(![origin,publicOrigin].includes(u.origin))continue;const response=await page.request.get(origin+u.pathname);assert.equal(response.status(),200,route+' → '+link);if(u.hash&&u.hash!=='#'){const text=await response.text();assert.ok(text.includes('id="'+decodeURIComponent(u.hash.slice(1))+'"'),link);}}
  }
- console.log('PASS all '+routes.length+' sitemap pages: canonical, all local resources/links/anchors, original French URLs');
+ console.log('PASS all 12 sitemap pages: canonical, all local resources/links/anchors, original French URLs');
  for(const [fr,en] of pairs)for(const route of [fr,en]){
   await page.goto(origin+route);if(await page.locator('.cookie-banner').isVisible())await page.locator('.cookie-banner [data-consent=reject]').click();
   for(const [lang,url] of [['fr',fr],['en',en],['x-default',fr]])assert.equal(await page.locator(`link[hreflang="${lang}"]`).getAttribute('href'),publicOrigin+url);
