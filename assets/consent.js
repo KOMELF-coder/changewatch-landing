@@ -5,6 +5,9 @@
   const ID = 'G-RB6NSRRM9L';
   const base = new URL('../', document.currentScript.src);
   const paths = new Map([
+    ['/blog/etude-de-concurrence/', 'Étude de concurrence'], ['/blog/etude-de-concurrence/index.html', 'Étude de concurrence'],
+    ['/en/blog/competitor-price-analysis/', 'Competitor price analysis'], ['/en/blog/competitor-price-analysis/index.html', 'Competitor price analysis'],
+
     ['/en/blog/', 'Blog'], ['/en/blog/index.html', 'Blog'],
     ['/en/blog/ecommerce-competitor-monitoring/', 'Ecommerce competitor monitoring'],
     ['/en/blog/ecommerce-competitor-monitoring/index.html', 'Ecommerce competitor monitoring'],
