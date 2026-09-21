@@ -5,6 +5,9 @@
   const ID = 'G-RB6NSRRM9L';
   const base = new URL('../', document.currentScript.src);
   const paths = new Map([
+    ['/blog/outil-veille-tarifaire/', 'Guide choix veille tarifaire'], ['/blog/outil-veille-tarifaire/index.html', 'Guide choix veille tarifaire'],
+    ['/en/blog/price-monitoring-software/', 'Price monitoring buying guide'], ['/en/blog/price-monitoring-software/index.html', 'Price monitoring buying guide'],
+
     ['/en/blog/', 'Blog'], ['/en/blog/index.html', 'Blog'],
     ['/en/blog/ecommerce-competitor-monitoring/', 'Ecommerce competitor monitoring'],
     ['/en/blog/ecommerce-competitor-monitoring/index.html', 'Ecommerce competitor monitoring'],

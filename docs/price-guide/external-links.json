@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://support.google.com/merchants/answer/6324461?hl=fr",
+    "status": 200,
+    "final": "https://support.google.com/merchants/answer/6324461?hl=fr"
+  },
+  {
+    "url": "https://support.google.com/merchants/answer/6324371?hl=fr",
+    "status": 200,
+    "final": "https://support.google.com/merchants/answer/6324371?hl=fr"
+  },
+  {
+    "url": "https://support.google.com/merchants/answer/6324471?hl=fr",
+    "status": 200,
+    "final": "https://support.google.com/merchants/answer/6324471?hl=fr"
+  },
+  {
+    "url": "https://support.google.com/merchants/answer/7052112?hl=en",
+    "status": 200,
+    "final": "https://support.google.com/merchants/answer/7052112?hl=en"
+  },
+  {
+    "url": "https://support.google.com/merchants/answer/6324371?hl=en",
+    "status": 200,
+    "final": "https://support.google.com/merchants/answer/6324371?hl=en"
+  },
+  {
+    "url": "https://support.google.com/merchants/answer/6324471?hl=en",
+    "status": 200,
+    "final": "https://support.google.com/merchants/answer/6324471?hl=en"
+  }
+]
