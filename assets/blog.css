@@ -230,3 +230,29 @@
                                                                                                                                                 .article-cta .button {
                                                                                                                                                   width:100%}
                                                                                                                                                 }
+
+
+/* Desktop blog tables: use the available viewport width so readers do not need a horizontal scrollbar. */
+@media (min-width: 900px) {
+  .article-layout .table-scroll {
+    width: min(1100px, calc(100vw - 64px));
+    max-width: none;
+    margin-left: 50%;
+    margin-right: 0;
+    transform: translateX(-50%);
+    overflow: visible;
+  }
+
+  .article-layout .table-scroll table,
+  .analysis-guide .analysis-data,
+  .analysis-guide .strategy-data,
+  .field-guide table {
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  .article-layout .table-scroll th,
+  .article-layout .table-scroll td {
+    padding: 14px;
+  }
+}
