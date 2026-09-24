@@ -1,7 +1,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urljoin,urlparse,unquote
-import xml.etree.ElementTree as ET,json,subprocess,hashlib,csv,os
+import xml.etree.ElementTree as ET,json,subprocess,hashlib,csv,os,re
 r=Path(__file__).resolve().parent.parent; base='https://changewatch.cybersignal.fr'; temp=Path(os.environ['TEMP'])
 class Page(HTMLParser):
  def __init__(self,text):super().__init__();self.links=[];self.ids=set();self.images=[];self.feed(text)
@@ -12,6 +12,17 @@ class Page(HTMLParser):
   if tag in ('img','script') and a.get('src'):self.links.append(a['src'])
   if tag=='img':self.images.append(a)
 pages={p:Page(p.read_text(encoding='utf-8-sig')) for p in r.rglob('*.html') if '.git' not in p.parts and 'docs' not in p.parts}
+# Public browser assets must not embed private Supabase credentials or DB connections.
+public_key='sb_publishable_L3nGfR6XoeU1NSA1pabmpw_22N3lkZl'
+for frontend in [*pages,*r.glob('*.js'),*(r/'assets').glob('*.js')]:
+ code=frontend.read_text(encoding='utf-8-sig')
+ assert not re.search(r'\bsb_secret_[A-Za-z0-9_-]+|postgres(?:ql)?://',code),'private credential pattern in '+str(frontend)
+ assert all(key==public_key for key in re.findall(r'\bsb_publishable_[A-Za-z0-9_-]+',code)),'unexpected public key'
+ for token in re.findall(r'eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+',code):
+  import base64
+  segment=token.split('.')[1]
+  claims=json.loads(base64.urlsafe_b64decode(segment+'='*(-len(segment)%4)))
+  assert claims.get('role')!='service_role','private JWT in frontend'
 errors=[];external=set();count=0
 for p,parsed in pages.items():
  url=base+'/'+p.relative_to(r).as_posix()
@@ -26,16 +37,22 @@ for p,parsed in pages.items():
  for img in parsed.images:
   if 'alt' not in img:errors.append([str(p),'missing alt',img])
 assert not errors,errors
-oldfiles=subprocess.check_output(['git','ls-tree','-r','--name-only','69d002d'],cwd=r,text=True).splitlines(); allowed={'assets/analytics-frame.js','assets/consent.js','blog/index.html','en/blog/index.html','sitemap.xml'}
+oldfiles=subprocess.check_output(['git','ls-tree','-r','--name-only','1aaf5b6'],cwd=r,text=True).splitlines(); allowed={'tests/field-guides.cjs','tests/field-guides-static.py'}
 preserved=[]
 for name in oldfiles:
  if name in allowed:continue
  if not (r/name).is_file():raise AssertionError('removed '+name)
- original=subprocess.check_output(['git','show','69d002d:'+name],cwd=r)
- assert original.replace(b'\r\n',b'\n')==(r/name).read_bytes().replace(b'\r\n',b'\n'),'changed existing '+name
+ original=subprocess.check_output(['git','show','1aaf5b6:'+name],cwd=r)
+ current=(r/name).read_bytes().replace(b'\r\n',b'\n')
+ if name.endswith('/index.html') and '/blog/' in '/'+name and 'data-comments' in current.decode('utf-8'):
+  text=current.decode('utf-8')
+  text=text.replace('  <link rel="stylesheet" href="/assets/blog-comments.css">\n  <script src="/assets/blog-comments.js" defer></script>\n','')
+  text=re.sub(r'\n<!-- blog-comments:start -->.*?<!-- blog-comments:end -->\n','',text,flags=re.S)
+  current=text.encode('utf-8')
+ assert original.replace(b'\r\n',b'\n')==current,'changed existing '+name
  preserved.append(name)
-oldmap=ET.fromstring(subprocess.check_output(['git','show','69d002d:sitemap.xml'],cwd=r));newmap=ET.parse(r/'sitemap.xml').getroot();assert all([(c.tag,c.text) for c in x] in [[(c.tag,c.text) for c in y] for y in newmap] for x in oldmap)
-assert len(newmap)==len(oldmap)+2
+oldmap=ET.fromstring(subprocess.check_output(['git','show','1aaf5b6:sitemap.xml'],cwd=r));newmap=ET.parse(r/'sitemap.xml').getroot();assert all([(c.tag,c.text) for c in x] in [[(c.tag,c.text) for c in y] for y in newmap] for x in oldmap)
+assert len(newmap)==len(oldmap)
 resources={}
 for name in ['veille-exemple-journal-fictif.csv','veille-exemple-modele.csv']:
  with (r/'assets'/name).open(encoding='utf-8-sig',newline='') as f:rows=list(csv.reader(f))
