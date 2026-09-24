@@ -79,7 +79,7 @@ Les consignes [prix de Google Merchant Center](https://support.google.com/mercha
 | Aucune page | `/en/blog/price-tracking-software/` | Price tracking software: choose the right fit — suffixe ChangeWatch | Choose price tracking software for your actual workflow: page alerts, price history or repricing. Use a requirements brief and practical acceptance checks. |
 | 4 articles déjà publiés | Mêmes 4 URL et contenu | Inchangés | Inchangées |
 
-Canonical propre à chaque page ; BlogPosting + BreadcrumbList ; aucun FAQ schema, hreflang artificiel, translationOfWork ou noindex. 1 926 mots FR et 1 939 EN dans le corps, lecture calculée à 200 mots/minute : 10 minutes chacun. Titres/description sociaux, images PNG locales 960 × 500. Aucun nom de client ni résultat commercial présenté comme réel.
+Canonical propre à chaque page ; BlogPosting + BreadcrumbList ; aucun FAQ schema, hreflang artificiel, translationOfWork ou noindex. 1 956 mots FR et 2 041 EN dans le corps, lecture calculée à 200 mots/minute : 10 minutes FR et 11 minutes EN. Titres/description sociaux, images PNG locales 960 × 500. Aucun nom de client ni résultat commercial présenté comme réel.
 
 **Publication à préparer après validation** : les pages et cartes affichent explicitement leur statut de brouillon. Pas de datePublished/dateModified inventée. Remplacer ce statut par la date effective et renseigner les métadonnées correspondantes lors de la publication autorisée. Les nouvelles entrées sitemap n'ont pas de lastmod anticipé ; les entrées existantes restent inchangées.
 
@@ -103,7 +103,7 @@ CSV créés via Artifact Tool puis réimportés avec vérification des en-têtes
 
 ## Validations
 
-Voir [validation.md](validation.md) pour les suites réellement exécutées, les journaux et captures. Les tests de services externes restent simulés ; ils ne prouvent pas la réception effective dans GA4 ni la délivrabilité d'un email. Aucune vraie soumission, aucun paiement, aucune modification de service externe.
+Dernière passe : [compatibilité facultative, tableau EN et validations relancées](refinement/README.md). Voir aussi [validation.md](validation.md) pour les suites réellement exécutées, les journaux et captures. Les tests de services externes restent simulés ; ils ne prouvent pas la réception effective dans GA4 ni la délivrabilité d'un email. Aucune vraie soumission, aucun paiement, aucune modification de service externe.
 
 ## Anomalie préexistante conservée
 
