@@ -5,7 +5,7 @@
   if (window.parent === window) return;
   const ID = 'G-RB6NSRRM9L';
   let initialized = false;
-  const routes = new Set(['/blog/etude-de-concurrence/', '/en/blog/competitor-price-analysis/', '/en/blog/', '/en/blog/ecommerce-competitor-monitoring/', '/en/', '/en/terms.html', '/en/legal-notice.html', '/en/privacy.html', '/en/demo-product.html', '/', '/blog/', '/blog/veille-concurrentielle-ecommerce/', '/demo-produit.html', '/cgv.html', '/mentions-legales.html', '/confidentialite.html']);
+  const routes = new Set(['/blog/veille-concurrentielle-exemple/', '/en/blog/price-tracking-software/', '/blog/etude-de-concurrence/', '/en/blog/competitor-price-analysis/', '/en/blog/', '/en/blog/ecommerce-competitor-monitoring/', '/en/', '/en/terms.html', '/en/legal-notice.html', '/en/privacy.html', '/en/demo-product.html', '/', '/blog/', '/blog/veille-concurrentielle-ecommerce/', '/demo-produit.html', '/cgv.html', '/mentions-legales.html', '/confidentialite.html']);
   window['ga-disable-' + ID] = true;
   window.dataLayer = [];
   window.gtag = function () { window.dataLayer.push(arguments); };

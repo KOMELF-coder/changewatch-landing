@@ -1,0 +1,14 @@
+PASS structure, anchors, labels, heading and language
+PASS local asset and page links
+PASS responsive widths 320/375/390/768/1024/1440
+PASS mobile navigation, Escape and keyboard FAQ
+PASS exact Stripe mappings, same-tab keyboard navigation, no Formspree interception, pricing and CTA
+PASS no token / whitespace: no request, French inline error, fields preserved
+PASS Formspree success / payload / double-submit protection / values
+PASS Formspree http-error / payload / double-submit protection / values
+PASS Formspree network-error / payload / double-submit protection / values
+PASS Formspree timeout / payload / double-submit protection / values
+PASS contact focus, email, reduced motion, 200% text, no-JS
+PASS hero sequence, demo autoplay/pause/replay, direct steps, arrow/Home/End keyboard, reduced motion, 24 responsive states
+PASS all 7 pages: local links/assets/anchors, images alt, H1, five responsive widths
+PASS blog routes, titles, canonical, JSON-LD, length, table, 4 widths, keyboard, every local link/anchor, sitemap and robots

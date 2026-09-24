@@ -1,0 +1,4 @@
+PASS all 16 sitemap pages: canonical, all local resources/links/anchors, original French URLs
+PASS reciprocal language switches, English axe audits, full translated article/schema/word count, four local SVGs
+PASS exact standard/promo links and conditions, six widths, 200% text, no-JS, no-consent/refusal/new canonical GA routes/promo stripe_click/withdrawal (mocked external services)
+Screenshots: C:\Users\flavi\AppData\Local\Temp/cw-pr7-refinement-shots

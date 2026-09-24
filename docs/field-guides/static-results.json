@@ -1,0 +1,24 @@
+{
+  "pages": 20,
+  "local_link_checks": 581,
+  "errors": [],
+  "unchanged_existing_files": 178,
+  "sitemap_urls": 16,
+  "CSV": {
+    "veille-exemple-journal-fictif.csv": {
+      "rows": 24,
+      "columns": 16,
+      "statuses": {
+        "Première observation": 6,
+        "Sans changement observé": 13,
+        "Changement confirmé": 3,
+        "À confirmer": 1,
+        "Échec de lecture": 1
+      }
+    },
+    "veille-exemple-modele.csv": {
+      "rows": 1,
+      "columns": 16
+    }
+  }
+}
