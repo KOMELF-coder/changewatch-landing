@@ -1,0 +1,11 @@
+Observed GA request summary: [{"en":"page_view","tid":"G-RB6NSRRM9L","dl":"https://changewatch.cybersignal.fr/"},{"en":"generate_lead","tid":"G-RB6NSRRM9L","dl":"https://changewatch.cybersignal.fr/"}]
+Observed intercepted GA events (fr): page_view, generate_lead
+PASS fr: refusal, legacy consent renewal, two destinations, one GA page_view, 422/200, no Ads conversion or PII, withdrawal/cookies/reload
+Intercepted Google hosts (fr): www.googletagmanager.com, region1.google-analytics.com
+PASS fr: audience-only and advertising-only choices configure only the authorised destination
+Observed GA request summary: [{"en":"page_view","tid":"G-RB6NSRRM9L","dl":"https://changewatch.cybersignal.fr/en/"},{"en":"generate_lead","tid":"G-RB6NSRRM9L","dl":"https://changewatch.cybersignal.fr/en/"}]
+Observed intercepted GA events (en): page_view, generate_lead
+PASS en: refusal, legacy consent renewal, two destinations, one GA page_view, 422/200, no Ads conversion or PII, withdrawal/cookies/reload
+Intercepted Google hosts (en): www.googletagmanager.com, region1.google-analytics.com
+PASS en: audience-only and advertising-only choices configure only the authorised destination
+REAL Google JavaScript, ALL collection intercepted; no real lead/payment
