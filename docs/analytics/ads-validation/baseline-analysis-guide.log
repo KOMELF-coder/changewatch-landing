@@ -1,0 +1,9 @@
+AssertionError [ERR_ASSERTION]: 200% CSS layout zoom
+    at main (C:\Users\flavi\AppData\Local\Temp\cw-ads-pristine-main\tests\analysis-guide.cjs:38:139) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
