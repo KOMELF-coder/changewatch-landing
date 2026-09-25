@@ -3,14 +3,16 @@
 État : PR en brouillon, aucune publication. Validation locale : 25 septembre 2026.
 Ce document décrit la version Ads et remplace les choix techniques Analytics-only du dossier historique `README.md`.
 
-## Identifiants et activation du lead Ads
+## Identifiants et conversion lead Ads configurée
 
 - GA4 : `G-RB6NSRRM9L`.
 - Google Ads : `AW-18472426652`.
-- **Emplacement du futur label : `assets/analytics-frame.js`, constante `GOOGLE_ADS_LEAD_LABEL = null` (près des identifiants).** Remplacer uniquement `null` par le label exact entre quotes, fourni par Google Ads pour la conversion de demande confirmée. Ne pas copier l’identifiant AW ni le `send_to` complet dans cette constante.
-- Ne pas inventer de label. Pas de conversion Ads, de valeur, de devise ou de `purchase` en son absence.
-- Une fois un label valide fourni, `cw:lead-confirmed` émettra `conversion` avec `send_to: AW-18472426652/<label>` uniquement si la publicité est consentie. GA4 conserve indépendamment `generate_lead`, avec `form_name: contact`, si l’audience est consentie.
-- Ajouter le label exige une nouvelle revue, des tests et une autorisation de publication. Vérifier l’action Ads choisie, son type, sa fenêtre d’attribution, son comptage et les éventuels imports GA4 pour éviter le double comptage. Aucun paramètre du compte Google n’a été modifié ici.
+- Label confirmé par le propriétaire : **`fb09CMW964MdEJy5q-hE`**.
+- `send_to` exact : **`AW-18472426652/fb09CMW964MdEJy5q-hE`**.
+- Emplacement : **`assets/analytics-frame.js:10`**, `const GOOGLE_ADS_LEAD_LABEL = 'fb09CMW964MdEJy5q-hE';`.
+- Le label n’est envoyé qu’avec `conversion` après `cw:lead-confirmed` (succès Formspree) et consentement publicitaire. GA4 conserve indépendamment `generate_lead` avec `form_name: contact` si la mesure d’audience est consentie.
+- Aucune valeur, devise ou conversion `purchase` n’est inventée. Le cas d’un label absent reste testé : aucune conversion Ads, GA4 demeure actif.
+- Vérifier côté Google les imports GA4 pour éviter de compter une même demande via deux actions de conversion. Les tests prouvent un déclenchement côté site, pas la configuration de comptage du compte. Aucun paramètre du compte Google n’a été modifié ici.
 
 ## Consentement et isolation
 
@@ -29,13 +31,13 @@ Les defaults `denied` précèdent toute config dans l’iframe. Seules les desti
 
 Un seul élément script gtag est créé par notre code et par iframe. Google peut télécharger lui-même le module de la seconde destination (`gtag/js?id=AW-…&cx=c`), ce qui ne constitue pas une seconde installation manuelle. Tous les événements métier GA4 portent explicitement `send_to: G-RB6NSRRM9L`.
 
-## Cause de la requête supplémentaire et protection sans label
+## Requêtes automatiques Ads et protection sans label
 
 Le vrai script a émis une requête automatique Google Ads `https://www.google.com/ccm/collect?...&tid=AW-18472426652&en=page_view`, puis un transport DoubleClick. **Ce n’était pas une seconde vue GA4**. Le paramètre `send_page_view:false` n’a pas supprimé ce comportement Ads dans la version testée.
 
 Pour respecter l’exigence de zéro événement Ads sans label, une **Content Security Policy (CSP) propre à l’iframe** autorise les scripts Google Tag et uniquement les destinations de collecte `*.google-analytics.com` tant que le label est absent ou invalide. Les transports Ads par fetch, image, script ou iframe sont bloqués par le navigateur. Les deux configurations restent préparées après consentement, mais **la collecte Ads de base est elle aussi inactive sans label**. Des messages CSP attendus peuvent apparaître dans la console ; ce ne sont pas des erreurs du formulaire.
 
-Avec un label valide, cette protection provisoire n’est plus installée : les requêtes automatiques de base Ads peuvent alors réapparaître en plus de la conversion lead. Il faudra les contrôler à nouveau et ne pas présenter le label comme un simple changement sans incidence réseau.
+Le label exact est désormais configuré : cette protection provisoire n’est plus installée et les requêtes automatiques de base Ads réapparaissent après accord publicitaire. Le test avec les vrais scripts les distingue de la conversion lead : une seule commande conversion produit deux transports Google corrélés par le même paramètre random. Une seule vue GA4 et un seul generate_lead sont observés par scénario. Voir [ADS_LABEL_VALIDATION.md](ADS_LABEL_VALIDATION.md).
 
 Au retrait, une CSP supplémentaire bloque **toutes** les nouvelles destinations dans l’iframe avant `consent update denied`, puis l’iframe est supprimée. Cela empêche le ping sans cookie observé lors de la révocation avec le vrai tag. Les cookies `_ga`, `_ga_*` et `_gcl_*` accessibles sont expirés. Les requêtes déjà parties ne peuvent pas être rappelées ; les cookies tiers/HttpOnly ne peuvent pas être supprimés par le site.
 
@@ -66,15 +68,15 @@ node tests/field-guides.cjs
 python tests/field-guides-static.py
 ```
 
-`--use-system-ca` utilise le magasin de confiance du poste, sans désactiver TLS. Les suites utilisent Edge headless. Les tests GA4/Ads enregistrent les tentatives de collecte, puis répondent localement. Ils ne démontrent **pas** la réception dans les rapports Google. La future conversion est testée avec un label factice injecté uniquement dans une réponse locale, jamais dans le code déployable.
+`--use-system-ca` utilise le magasin de confiance du poste, sans désactiver TLS. Les suites utilisent Edge headless. Les tests GA4/Ads enregistrent les tentatives de collecte, puis répondent localement. Ils ne démontrent **pas** la réception dans les rapports Google. Le label exact est testé, mais toutes ses requêtes sont interceptées avant envoi. Le cas sans label est injecté uniquement dans une réponse locale pour vérifier le comportement fermé par défaut.
 
 ## Google Tag Assistant — contrôle manuel avant publication
 
 1. Démarrer le site local ou une prévisualisation autorisée ; ouvrir [Tag Assistant](https://tagassistant.google.com/) et connecter cette URL. Ne pas publier cette branche pour tester.
 2. Effacer le choix local, puis refuser : aucune balise GA4/Ads. Recharger et naviguer FR/EN ; contrôler aussi le réseau hors Tag Assistant, dont les propres requêtes de diagnostic ne sont pas des événements du site.
-3. Tout accepter : vérifier les quatre signaux granted, les deux configs, une seule vue GA4 et ses paramètres fixes. Sans label, les tentatives Ads automatiques doivent être bloquées par CSP ; aucune conversion ne doit apparaître comme envoyée.
+3. Tout accepter : vérifier les quatre signaux granted, les deux configs, une seule vue GA4 et ses paramètres fixes. Avec ce label, les requêtes Ads automatiques de base sont attendues après accord publicitaire. Elles ne portent pas le label de conversion lead. Aucune conversion lead ne doit apparaître avant succès du formulaire.
 4. Personnaliser : audience seule puis publicité seule ; vérifier les destinations et signaux correspondants. Revenir à refus, naviguer et vérifier l’absence de nouvelles collectes et la suppression des cookies accessibles.
-5. Tester le lead uniquement avec les mocks automatisés. Ne pas envoyer une vraie demande Formspree pour vérifier Tag Assistant sans autorisation. Après fourniture du label, exécuter un test autorisé et vérifier séparément sa réception dans le compte Ads.
+5. Tester le lead uniquement avec les mocks automatisés. Ne pas envoyer une vraie demande Formspree pour vérifier Tag Assistant sans autorisation. Après autorisation d’un test réel, vérifier séparément sa réception dans le compte Ads et les règles de comptage.
 6. Vérifier côté Google l’absence de collecte automatique de données fournies par les utilisateurs/conversions avancées, les destinations connectées et les conversions importées depuis GA4. Aucune certification juridique ou de configuration du compte n’est donnée par ces tests navigateur.
 
 ## Références primaires

@@ -1,4 +1,6 @@
-# Validation Google Ads — 25 septembre 2026
+# Validation initiale Google Ads sans label — 25 septembre 2026
+
+> Rapport historique avant fourniture du label. Le contrôle actuel avec le label exact est dans [ADS_LABEL_VALIDATION.md](ADS_LABEL_VALIDATION.md).
 
 Branche `codex/google-ads-consent`, base `main` : `1aaf5b61aa3ee3227a856fb0a2beb893a0ecd92d`.
 PR destinée à rester en brouillon, sans fusion ni publication.

@@ -7,7 +7,7 @@
   const GOOGLE_ADS_ID = 'AW-18472426652';
   // Paste only the verified Google Ads lead conversion label here (not the full send_to).
   // Leave null until supplied: GA4 generate_lead remains active without an Ads conversion.
-  const GOOGLE_ADS_LEAD_LABEL = null;
+  const GOOGLE_ADS_LEAD_LABEL = 'fb09CMW964MdEJy5q-hE';
   const hasAdsLeadLabel = typeof GOOGLE_ADS_LEAD_LABEL === 'string' && /^[A-Za-z0-9_-]+$/.test(GOOGLE_ADS_LEAD_LABEL);
   let initialized = false, analytics = false, advertising = false;
   const routes = new Set(['/blog/veille-concurrentielle-exemple/', '/en/blog/price-tracking-software/', '/blog/etude-de-concurrence/', '/en/blog/competitor-price-analysis/', '/en/blog/', '/en/blog/ecommerce-competitor-monitoring/', '/en/', '/en/terms.html', '/en/legal-notice.html', '/en/privacy.html', '/en/demo-product.html', '/', '/blog/', '/blog/veille-concurrentielle-ecommerce/', '/demo-produit.html', '/cgv.html', '/mentions-legales.html', '/confidentialite.html']);

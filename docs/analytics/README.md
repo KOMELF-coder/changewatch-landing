@@ -1,6 +1,6 @@
 # GA4 et consentement — dossier de validation
 
-> Dossier historique GA4. Pour la version Google Ads, les nouveaux choix séparés et les tests actuels, voir [GOOGLE_ADS.md](GOOGLE_ADS.md) et [ADS_VALIDATION.md](ADS_VALIDATION.md). Les affirmations « Analytics uniquement » ci-dessous décrivent la version de septembre 2026 antérieure à Ads.
+> Dossier historique GA4. Pour la version Google Ads, les nouveaux choix séparés et les tests actuels, voir [GOOGLE_ADS.md](GOOGLE_ADS.md) et [ADS_LABEL_VALIDATION.md](ADS_LABEL_VALIDATION.md). Les affirmations « Analytics uniquement » ci-dessous décrivent la version de septembre 2026 antérieure à Ads.
 
 **Intégration prête à la revue ; ne pas fusionner ni publier avant validation du propriétaire.**
 Audit et tests : 16 septembre 2026. Ce travail n’est pas une certification juridique.

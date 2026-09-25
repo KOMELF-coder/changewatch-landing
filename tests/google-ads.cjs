@@ -10,6 +10,7 @@ const server=http.createServer((req,res)=>{
  res.setHeader('Content-Type',({'.js':'text/javascript','.css':'text/css','.html':'text/html','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');res.end(fs.readFileSync(file));
 });
 const stub=`function record(c){if(window['ga-disable-${GA}'])return;if(c[0]==='config'){document.cookie='_ga=mock;path=/';document.cookie='_gcl_au=mock;path=/';}if(c[0]==='event')fetch('https://www.google-analytics.com/g/collect?'+new URLSearchParams({en:c[1],params:JSON.stringify(c[2])}),{method:'POST'});}dataLayer.forEach(record);dataLayer.push=(...cs)=>{cs.forEach(record);return Array.prototype.push.apply(dataLayer,cs)};`;
+const LABEL='fb09CMW964MdEJy5q-hE', SEND_TO=ADS+'/'+LABEL;
 const denied={analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'};
 const granted=Object.fromEntries(Object.keys(denied).map(k=>[k,'granted']));
 (async()=>{
@@ -22,7 +23,7 @@ const granted=Object.fromEntries(Object.keys(denied).map(k=>[k,'granted']));
    const req=route.request(),u=new URL(req.url());
    if(u.origin===origin)return route.continue();
    if(u.hostname==='challenges.cloudflare.com')return route.fulfill({contentType:'text/javascript',body:`const w=document.querySelector('.cf-turnstile');if(w){const i=document.createElement('input');i.type='hidden';i.name='cf-turnstile-response';w.append(i);}window.turnstile={reset(){document.querySelector('[name=cf-turnstile-response]').value=''}};`});
-   if(u.hostname==='formspree.io'){forms++;return route.fulfill({status:formStatus,contentType:'application/json',body:formStatus===200?'{}':'{"errors":[{"message":"Simulated failure"}]}'});}
+   if(u.hostname==='formspree.io'){forms++;if(formStatus===0)return route.abort('failed');return route.fulfill({status:formStatus,contentType:'application/json',body:formStatus===200?'{}':'{"errors":[{"message":"Simulated failure"}]}'});}
    external.push({url:req.url(),body:req.postData()||''});
    if(u.hostname==='www.googletagmanager.com'&&u.pathname==='/gtag/js'){
     if(real){const response=await route.fetch();assert.equal(response.status(),200);return route.fulfill({response});}
@@ -54,23 +55,30 @@ const granted=Object.fromEntries(Object.keys(denied).map(k=>[k,'granted']));
   assert.equal(await frame.locator('script[src*="/gtag/js?id=G-"]').count(),1);
   assert.equal(cs.filter(c=>c[0]==='event'&&c[1]==='conversion').length,0);
   async function fill(){for(const [id,value] of Object.entries({name:'PRIVATE_NAME',company:'PRIVATE_COMPANY',email:'private@example.org',message:'PRIVATE_MESSAGE',url1:'https://private.example.org/a',url2:'https://private.example.org/b',url3:'https://private.example.org/c'}))await page.locator('#'+id).fill(value);await page.locator('[name=cf-turnstile-response]').evaluate(e=>e.value='simulated-token');}
+  for (const failure of [422,500,0]) {
+  formStatus=failure;
   await fill();await page.locator('[type=submit]').click();await page.waitForFunction(()=>document.querySelector('#form-status').dataset.state==='error');
   assert.equal((await commands()).filter(c=>c[0]==='event'&&['generate_lead','conversion'].includes(c[1])).length,0);
   assert.equal(await page.locator('#name').inputValue(),'PRIVATE_NAME');
-  formStatus=200;await fill();await page.locator('[type=submit]').click();await page.waitForFunction(()=>document.querySelector('#form-status').dataset.state==='success');
-  cs=await commands();assert.deepEqual(cs.filter(c=>c[0]==='event'&&c[1]==='generate_lead').map(c=>c[2]),[{send_to:GA,form_name:'contact'}]);assert.equal(cs.filter(c=>c[0]==='event'&&c[1]==='conversion').length,0);assert.equal(forms,2);
+  await page.waitForTimeout(real?2000:100);
+  assert.equal(external.filter(r=>new URL(r.url).searchParams.get('label')===LABEL).length,0,'No Ads lead request on failed Formspree');
+  }
+  formStatus=200;await fill();await page.locator('[type=submit]').evaluate(e=>{e.click();e.click();});await page.waitForFunction(()=>document.querySelector('#form-status').dataset.state==='success');
+  cs=await commands();assert.deepEqual(cs.filter(c=>c[0]==='event'&&c[1]==='generate_lead').map(c=>c[2]),[{send_to:GA,form_name:'contact'}]);assert.deepEqual(cs.filter(c=>c[0]==='event'&&c[1]==='conversion').map(c=>c[2]),[{send_to:SEND_TO}]);assert.equal(forms,4,'Double submit sends only one successful request');
   await page.waitForTimeout(real?10000:200);
   const observed=external.filter(r=>new URL(r.url).pathname.endsWith('/collect')).flatMap(r=>{
    const query=new URL(r.url).searchParams;
    return (r.body?r.body.split(/\r?\n/):['']).map(line=>{const q=new URLSearchParams(query);for(const [k,v] of new URLSearchParams(line))q.set(k,v);return Object.fromEntries(q);});
   });
   if(real)fs.writeFileSync(path.join(process.env.TEMP,'cw-ads-traffic-'+lang+'.json'),JSON.stringify(external,null,2));
-  console.log('Observed GA request summary: '+JSON.stringify(observed.map(e=>({en:e.en,tid:e.tid,dl:e.dl,params:e.params}))));
+  console.log('Observed collect request summary: '+JSON.stringify(observed.filter(e=>e.en).map(e=>({en:e.en,tid:e.tid,dl:e.dl,params:e.params}))));
   assert.equal(observed.filter(e=>e.en==='page_view'&&(!real||e.tid===GA)).length,1,'One actual GA4 page_view request');
   assert.equal(observed.filter(e=>e.en==='generate_lead').length,1,'One actual generate_lead request');
-  assert.equal(observed.filter(e=>e.en==='conversion').length,0);
-  if(real){assert.ok(observed.every(e=>e.tid===GA));assert.ok(external.some(r=>r.url.includes('/gtag/js?id='+ADS)),'Google loads its Ads destination module');}
-  console.log('Observed intercepted GA events ('+lang+'): '+observed.map(e=>e.en).join(', '));
+  if(!real)assert.equal(observed.filter(e=>e.en==='conversion').length,1);
+  const adsLeads=external.filter(r=>new URL(r.url).searchParams.get('label')===LABEL);
+  if(real){assert.ok(adsLeads.length>0,'Real Ads lead transport observed');assert.ok(adsLeads.every(r=>new URL(r.url).pathname.endsWith('/18472426652/')));const groups=new Set(adsLeads.map(r=>new URL(r.url).searchParams.get('random')));assert.equal(groups.size,1,'One Ads event across Google transport endpoints');assert.ok(!groups.has(null));console.log('Ads lead transports: '+JSON.stringify(adsLeads.map(r=>{const u=new URL(r.url);return {host:u.hostname,path:u.pathname,label:u.searchParams.get('label'),random:u.searchParams.get('random'),oid:u.searchParams.get('oid')};})));}
+  if(real){assert.ok(observed.filter(e=>e.en==='generate_lead').every(e=>e.tid===GA));assert.ok(external.some(r=>r.url.includes('/gtag/js?id='+ADS)),'Google loads its Ads destination module');}
+  console.log('Observed intercepted GA4 events ('+lang+'): '+observed.filter(e=>!real||e.tid===GA).map(e=>e.en).join(', '));
   assert.doesNotMatch(decodeURIComponent(JSON.stringify(external)+JSON.stringify(cs)),/PRIVATE_|private@example|private\.example/);
   // No event forwarding after withdrawal; readable GA and Ads cookies are removed.
   await context.addCookies([{name:'_gcl_au',value:'test',url:origin}]);
@@ -79,7 +87,7 @@ const granted=Object.fromEntries(Object.keys(denied).map(k=>[k,'granted']));
   assert.equal(external.length,before,'No external request after withdrawal');assert.equal(page.frames().length,1);
   assert.equal((await context.cookies()).filter(c=>/^(_ga|_gcl_)/.test(c.name)).length,0);
   await page.evaluate(()=>document.dispatchEvent(new Event('cw:lead-confirmed')));await page.reload();await page.waitForTimeout(300);assert.equal(external.length,before);
-  assert.deepEqual(errors,[]);console.log('PASS '+lang+': refusal, legacy consent renewal, two destinations, one GA page_view, 422/200, no Ads conversion or PII, withdrawal/cookies/reload');
+  assert.deepEqual(errors,[]);console.log('PASS '+lang+': refusal, legacy consent renewal, two destinations, one GA page_view, 422/500/network failure/200/double-submit, one Ads conversion on success, no PII, withdrawal/cookies/reload');
   console.log('Intercepted Google hosts ('+lang+'): '+[...new Set(external.map(r=>new URL(r.url).hostname))].join(', '));
   for(const category of ['analytics','advertising']) {
    await page.locator('[data-manage-cookies]').click();
@@ -95,21 +103,25 @@ const granted=Object.fromEntries(Object.keys(denied).map(k=>[k,'granted']));
    assert.equal(state.analytics_storage,category==='analytics'?'granted':'denied');
    for(const key of ['ad_storage','ad_user_data','ad_personalization'])assert.equal(state[key],category==='advertising'?'granted':'denied');
    if(category==='advertising')assert.equal(scoped.filter(c=>c[0]==='event').length,0);
+   await page.evaluate(()=>document.dispatchEvent(new Event('cw:lead-confirmed')));
+   const afterLead=await f.evaluate(()=>dataLayer.filter(c=>c&&typeof c.length==='number').map(c=>Array.from(c)));
+   assert.equal(afterLead.filter(c=>c[0]==='event'&&c[1]==='conversion').length,category==='advertising'?1:0);
+   assert.equal(afterLead.filter(c=>c[0]==='event'&&c[1]==='generate_lead').length,category==='analytics'?1:0);
    await page.waitForTimeout(real?1500:100);
-   assert.ok(external.every(r=>new URL(r.url).hostname==='www.googletagmanager.com'||new URL(r.url).hostname.endsWith('.google-analytics.com')),'No Ads collection transport without label');
+   assert.doesNotMatch(decodeURIComponent(JSON.stringify(external)),/PRIVATE_|private@example|private\.example/);
    await page.locator('[data-manage-cookies]').click();await page.locator('.cookie-dialog [data-consent=reject]').click();
   }
   console.log('PASS '+lang+': audience-only and advertising-only choices configure only the authorised destination');
   await context.close();
  }
- // Future-label branch is tested only with a local response replacement, never a real conversion.
+ // Missing-label fail-closed branch is tested with a local response replacement.
  if(!real){
   const context=await browser.newContext();await context.route('https://**/*',r=>r.fulfill({status:204}));
-  await context.route('**/assets/analytics-frame.js',r=>r.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(root,'assets/analytics-frame.js'),'utf8').replace('GOOGLE_ADS_LEAD_LABEL = null',"GOOGLE_ADS_LEAD_LABEL = 'LOCAL_TEST_ONLY'")}));
+  await context.route('**/assets/analytics-frame.js',r=>r.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(root,'assets/analytics-frame.js'),'utf8').replace("GOOGLE_ADS_LEAD_LABEL = '"+LABEL+"'",'GOOGLE_ADS_LEAD_LABEL = null')}));
   const page=await context.newPage();await page.goto(origin);await page.locator('.cookie-banner [data-consent=accept]').click();await page.waitForFunction(()=>document.querySelector('iframe')?.contentWindow?.cwRecord);
   await page.evaluate(()=>document.dispatchEvent(new Event('cw:lead-confirmed')));
   const cs=await page.frames().find(f=>f.url().includes('analytics-frame.html')).evaluate(()=>dataLayer.map(c=>Array.from(c)));
-  assert.deepEqual(cs.filter(c=>c[0]==='event'&&c[1]==='conversion').map(c=>c[2]),[{send_to:ADS+'/LOCAL_TEST_ONLY'}]);await context.close();console.log('PASS future label: exactly one locally simulated conversion, correct send_to, no personal data');
+  assert.deepEqual(cs.filter(c=>c[0]==='event'&&c[1]==='conversion').map(c=>c[2]),[]);assert.equal(cs.filter(c=>c[0]==='event'&&c[1]==='generate_lead').length,1);await context.close();console.log('PASS absent label: no Ads conversion, fail closed');
  }
  console.log(real?'REAL Google JavaScript, ALL collection intercepted; no real lead/payment':'Deterministic tag double; ALL external services intercepted');
  } finally {await browser.close();server.close();}
