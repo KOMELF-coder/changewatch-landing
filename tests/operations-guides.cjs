@@ -15,11 +15,12 @@ try{
   await p.close();
  }
  const existing=['blog/veille-concurrentielle-ecommerce/index.html','blog/etude-de-concurrence/index.html','blog/veille-concurrentielle-exemple/index.html','en/blog/ecommerce-competitor-monitoring/index.html','en/blog/competitor-price-analysis/index.html','en/blog/price-tracking-software/index.html','script.js','index.html','en/index.html','CNAME','google20898eface6e8c69.html','assets/blog.css','styles.css'];
- for(const file of existing)assert.equal(fs.readFileSync(path.join(root,file),'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','40836f8:'+file],{cwd:root,encoding:'utf8'}).replace(/\r\n/g,'\n'),file+' preserved');
+ const withoutComments=s=>s.replace(/\r\n/g,'\n').replace(/\s*<link rel="stylesheet" href="\/assets\/blog-comments.css">/g,'').replace(/\s*<script src="\/assets\/blog-comments.js" defer><\/script>/g,'').replace(/\s*<!-- blog-comments:start -->[\s\S]*?<!-- blog-comments:end -->\s*/g,'');
+ for(const file of existing)assert.equal(withoutComments(fs.readFileSync(path.join(root,file),'utf8').replace(/\r\n/g,'\n')),withoutComments(execFileSync('git',['show','40836f8:'+file],{cwd:root,encoding:'utf8'}).replace(/\r\n/g,'\n')),file+' preserved');
  console.log('PASS existing articles byte-equivalent (including URLs/metadata/markup), form, landing/Stripe/Turnstile, shared styles, CNAME/Search Console');
  for(const [lang,route,asset] of records){
   const c=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),requests=[],errors=[];
-  await c.route('**/*',r=>{const u=r.request().url();if(u.startsWith(origin))return r.continue();requests.push({url:u,body:r.request().postData()||''});if(u.includes('googletagmanager.com/gtag/js'))return r.fulfill({contentType:'text/javascript',body:stub});return r.fulfill({status:204,headers:{'access-control-allow-origin':'*'}});});
+  await c.route('**/*',r=>{const u=r.request().url();if(u.startsWith(origin))return r.continue();if(u.includes('.supabase.co/rest/v1/rpc/get_approved_comments'))return r.fulfill({contentType:'application/json',body:'[]'});requests.push({url:u,body:r.request().postData()||''});if(u.includes('googletagmanager.com/gtag/js'))return r.fulfill({contentType:'text/javascript',body:stub});return r.fulfill({status:204,headers:{'access-control-allow-origin':'*'}});});
   const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));
   assert.equal((await p.goto(origin+route)).status(),200);await p.waitForTimeout(200);assert.equal(requests.length,0);
   assert.equal(await p.locator('h1').count(),1);assert.equal(await p.locator('html').getAttribute('lang'),lang);assert.equal(await p.locator('link[rel=canonical]').getAttribute('href'),pub+route);assert.equal(await p.locator('link[hreflang]').count(),0,'independent articles are not translation alternates');

@@ -2,13 +2,13 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const root=path.resolve(__dirname,'..'),origin='http://127.0.0.1:8784';
 const shots=process.env.CW_COMMENTS_SHOTS||path.join(process.env.TEMP,'cw-blog-comments-shots');
-const routes=['/blog/veille-concurrentielle-ecommerce/','/blog/etude-de-concurrence/','/blog/veille-concurrentielle-exemple/','/en/blog/ecommerce-competitor-monitoring/','/en/blog/competitor-price-analysis/','/en/blog/price-tracking-software/'];
+const routes=['/blog/veille-concurrentielle-ecommerce/','/blog/etude-de-concurrence/','/blog/veille-concurrentielle-exemple/','/en/blog/ecommerce-competitor-monitoring/','/en/blog/competitor-price-analysis/','/en/blog/price-tracking-software/','/blog/logiciel-veille-concurrentielle/','/en/blog/competitor-price-monitoring/'];
 const endpoint='https://isobceqeaiwsxndqxqas.supabase.co/rest/v1/rpc/';
 const key='sb_publishable_L3nGfR6XoeU1NSA1pabmpw_22N3lkZl';
 const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,origin).pathname);if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');if(!f.startsWith(root)||!fs.existsSync(f)){res.writeHead(404);return res.end()}res.setHeader('Content-Type',({'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.csv':'text/csv'})[path.extname(f)]||'text/plain');res.end(fs.readFileSync(f));});
 (async()=>{await new Promise(r=>server.listen(8784,'127.0.0.1',r));fs.mkdirSync(shots,{recursive:true});const browser=await chromium.launch({headless:true,channel:'msedge'});try{
 for(const [index,route] of routes.entries()){
- const en=index>=3,slug=route.split('/').filter(Boolean).at(-1),ctx=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),requests=[],errors=[];
+ const en=route.startsWith('/en/'),slug=route.split('/').filter(Boolean).at(-1),ctx=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),requests=[],errors=[];
  let readMode='hold',writeMode='success',releaseRead,releaseWrite;
  const rows=[{id:1,article_slug:slug,name:'<img src=x onerror=alert(1)>',comment:'<script>alert(1)</script> **plain**\nhttps://example.test',created_at:'2026-09-24T10:00:00Z',email:'NEVER_RENDER@example.test',status:'NEVER_RENDER_STATUS'},{id:2,article_slug:'other-article',name:'Wrong article',comment:'Other',created_at:'2026-09-24T11:00:00Z'}];
  await ctx.route('**/*',async r=>{
@@ -23,6 +23,7 @@ for(const [index,route] of routes.entries()){
   }
   if(url===endpoint+'submit_blog_comment'){
    if(writeMode==='hold')await new Promise(resolve=>releaseWrite=resolve);
+   if(writeMode==='timeout')return new Promise(resolve=>setTimeout(()=>r.abort().then(resolve).catch(resolve),16000));
    if(writeMode==='network')return r.abort('failed');
    return r.fulfill({status:writeMode==='error'?400:204,contentType:'application/json',body:writeMode==='error'?'{"message":"PRIVATE_BACKEND_DETAIL"}':''});
   }
@@ -53,7 +54,8 @@ for(const [index,route] of routes.entries()){
  await form.locator('[name=name]').fill('Jane');await form.locator('[name=email]').fill('jane@example.test');await form.locator('[name=comment]').fill('Keep this draft');await send.click();assert.match(await form.locator('.comments-feedback').textContent(),en?/wait a few/:/patienter/);assert.equal(requests.filter(r=>r.url===endpoint+'submit_blog_comment').length,1);
  await p.waitForTimeout(2100);
  for(const mode of ['error','network']){writeMode=mode;await send.click();await p.waitForFunction(()=>!document.querySelector('.comments-form [type=submit]').disabled);assert.equal(await form.locator('[name=comment]').inputValue(),'Keep this draft');assert.ok(!(await p.locator('[data-comments]').textContent()).includes('PRIVATE_BACKEND_DETAIL'));}
- for(const width of [320,375,1024,1440]){
+ if([0,3].includes(index)){writeMode='timeout';await send.click();await p.waitForFunction(()=>!document.querySelector('.comments-form [type=submit]').disabled,{},{timeout:20000});assert.equal(await form.locator('[name=comment]').inputValue(),'Keep this draft');assert.match(await form.locator('.comments-feedback').textContent(),en?/cannot confirm/:/ne pouvons pas confirmer/);}
+ for(const width of [320,375,390,768,1024,1440]){
   await p.setViewportSize({width,height:1000});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   if([0,3].includes(index)){await p.locator('[data-comments]').screenshot({path:path.join(shots,(en?'en':'fr')+'-'+width+'.png'),style:'.header,.skip-link{visibility:hidden}'});}
   if([320,1440].includes(width)){await p.addScriptTag({path:process.env.CW_AXE_PATH});const audit=await p.evaluate(()=>axe.run(document.querySelector('[data-comments]'),{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}}));assert.deepEqual(audit.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[]);}
@@ -70,5 +72,5 @@ for(const [index,route] of routes.entries()){
  readMode='pages';await p.reload();await p.locator('[data-comments]').scrollIntoViewIfNeeded();await p.waitForFunction(()=>document.querySelectorAll('.comments-item').length===50);await p.getByRole('button',{name:en?'Load more comments':'Afficher les commentaires suivants'}).click();await p.waitForFunction(()=>document.querySelectorAll('.comments-item').length===51);
  assert.deepEqual(errors,[]);await ctx.close();console.log('PASS '+slug+': lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%');
 }
-const nojs=await browser.newContext({javaScriptEnabled:false});const p=await nojs.newPage();for(const route of routes){await p.goto(origin+route);assert.equal(await p.locator('[data-comments] noscript').count(),1);assert.equal(await p.locator('h1').count(),1)}await nojs.close();console.log('PASS six no-JS articles; all APIs mocked, no production writes. Screenshots: '+shots);
+const nojs=await browser.newContext({javaScriptEnabled:false});const p=await nojs.newPage();for(const route of routes){await p.goto(origin+route);assert.equal(await p.locator('[data-comments] noscript').count(),1);assert.equal(await p.locator('h1').count(),1)}await nojs.close();console.log('PASS eight no-JS articles; all APIs mocked, no production writes. Screenshots: '+shots);
 }finally{await browser.close();server.close()}})().catch(e=>{console.error(e);server.close();process.exitCode=1});

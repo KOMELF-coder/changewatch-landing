@@ -1,10 +1,8 @@
-# Commentaires modérés du blog — déploiement bloqué jusqu'à validation SQL
+# Commentaires modérés FR/EN — huit articles
 
-## Statut
+## Statut au 27 septembre 2026
 
-Cette PR part de `main` **1aaf5b6**, qui contient les six articles publiés et les dernières corrections de tableaux. Elle reste **en brouillon**. Aucune migration, lecture de données privées ou écriture de commentaire n'a été réalisée sur Supabase. Le SQL est testé dans PostgreSQL local via PGlite, et l'API est simulée dans le navigateur.
-
-**Ne pas fusionner ni déployer avant l'application et la validation du SQL par le propriétaire.** Le problème d'accès potentiel à l'email dans la table actuelle n'est pas corrigé par ce commit frontend : la migration doit réellement être exécutée.
+Branche de la PR #9 mise à jour par fusion de main `9580788`, sans conflit. PR en brouillon, aucune publication. Selon confirmation du propriétaire, la migration `20260924170000_blog_comments.sql` a été appliquée avec succès le 27 septembre 2026 et le script SQL de vérification a réussi : RLS activé, aucun accès direct public à la table, deux RPC SECURITY DEFINER avec search_path verrouillé ; email/status absents des retours publics et email non lisible par le rôle RPC. Aucune migration réexécutée par cette tâche.
 
 ## Architecture
 
@@ -18,8 +16,8 @@ Article + slug défini dans son HTML
 
 - `assets/blog-comments.js` : composant natif partagé FR/EN, sans SDK ou bibliothèque tierce. Le formulaire est construit hors écran à l'initialisation ; le chargement réseau attend la proximité de la section via IntersectionObserver. Repli sans cet API : chargement immédiat, toujours non bloquant.
 - `assets/blog-comments.css` : styles isolés sous `.blog-comments`, sans changement des styles éditoriaux existants.
-- Six articles : deux références de ressources et une section après `</article>`, avant `</main>`/footer. Aucun changement du corps éditorial, title, meta description, H1, canonical, JSON-LD, URL ou sitemap.
-- `supabase/migrations/20260924170000_blog_comments.sql` : migration transactionnelle à exécuter manuellement.
+- Huit articles : deux références de ressources et une section après `</article>`, avant `</main>`/footer. Aucun changement du corps éditorial, title, meta description, H1, canonical, JSON-LD, URL ou sitemap.
+- `supabase/migrations/20260924170000_blog_comments.sql` : migration transactionnelle déjà appliquée, conservée comme historique.
 - `supabase/verify_blog_comments.sql` : vérification SQL en lecture seule.
 - `supabase/disable_blog_comments.sql` : arrêt des RPC publiques sans réexposer la table.
 - `tests/blog-comments.cjs` : navigateur, API intégralement simulée.
@@ -75,6 +73,8 @@ Champ website dans un conteneur hidden/aria-hidden, non focalisable, sans gêne 
 ## Procédure propriétaire — exactement quoi exécuter
 
 1. Dans le projet Supabase `isobceqeaiwsxndqxqas`, ouvrir **SQL Editor → New query**, avec le rôle propriétaire habituel (postgres). Il doit posséder la table, avoir CREATEROLE et pouvoir accorder USAGE/CREATE sur le schéma public. Ne fournir aucun identifiant privé à Codex.
+**Procédure historique déjà effectuée par le propriétaire le 27 septembre 2026 — ne pas la réexécuter pour cette PR.**
+
 2. Lire puis copier **tout** [20260924170000_blog_comments.sql](../../supabase/migrations/20260924170000_blog_comments.sql), de `begin;` à `commit;`, et l'exécuter. En cas de statuts inconnus, droits hérités, rôle incompatible, surcharge ou droit insuffisant : ne pas continuer ; faire examiner les éléments indiqués. La migration ne modifie pas les données pour « faire passer » la validation. Après une erreur laissant la transaction ouverte, exécuter `ROLLBACK;` dans SQL Editor avant toute nouvelle tentative.
 3. Copier et exécuter **tout** [verify_blog_comments.sql](../../supabase/verify_blog_comments.sql). Attendu : aucune exception, résultat de lecture limité aux cinq colonnes publiques, résultat d'insertion void, SECURITY DEFINER et search_path fixé. Ce script ne lit aucun email ni commentaire et n'insère rien.
 4. Vérifier dans les permissions et éventuelles vues/autres RPC déjà présentes qu'aucun autre objet préexistant n'expose l'email. Cette migration sécurise la table et ces deux fonctions ; elle ne certifie pas tous les objets du projet que nous n'avons pas inspectés.
@@ -91,11 +91,11 @@ fetch('https://isobceqeaiwsxndqxqas.supabase.co/rest/v1/rpc/get_approved_comment
 }).then(response => console.log(response.status)); // attendu 200, pas de journalisation de contenu
 ```
 
-## Email et mentions de confidentialité à valider
+## Email et mentions de confidentialité
 
 Le formulaire explique que l'email reste privé et sert uniquement à la modération ou à un suivi lié au commentaire. Il renvoie vers `/confidentialite.html` ou `/en/privacy.html`. Aucun compte, mot de passe, abonnement newsletter ni transmission aux événements Analytics n'est ajouté.
 
-Les politiques actuelles ne décrivent pas encore cette nouvelle finalité et Supabase. La région choisie et la durée de conservation n'ont pas été fournies. **Avant publication**, le propriétaire doit valider ces paramètres, les règles de suppression (pending/rejected/approved et emails), les mentions concernant Supabase et les informations contractuelles applicables. Aucune durée ou région inventée, aucune certification RGPD revendiquée. La question a été posée pendant le développement ; ces points restent bloquants sans réponse validée.
+Les politiques FR/EN décrivent désormais le nom, l’email, le contenu, la modération avant publication, le suivi lié au commentaire et Supabase. Aucune durée chiffrée n’a été inventée : conservation pendant la durée nécessaire à ces finalités et aux obligations applicables. Le propriétaire reste responsable de la procédure de suppression, des paramètres régionaux/contractuels Supabase et de leur validation avant lancement ; cette revue n’est pas une certification juridique.
 
 ## Modération dans Table Editor
 
@@ -128,5 +128,7 @@ Avant publication, il suffit de ne pas fusionner la PR. Si le SQL a déjà été
 Pour arrêter les commentaires après un déploiement autorisé : exécuter [disable_blog_comments.sql](../../supabase/disable_blog_comments.sql), puis rétablir le frontend précédent par un commit de revert de cette PR. Le script retire EXECUTE et conserve données, RLS, contrainte et absence d'accès direct. Ne pas supprimer la table ni ses commentaires. La réactivation exige une nouvelle revue des droits et de la migration.
 
 ## Validation et limites
+
+La passe actuelle est documentée dans [refresh/VALIDATION.md](refresh/VALIDATION.md). Les journaux et rapports précédents ci-dessous sont historiques.
 
 Voir [validation.md](validation.md) pour les résultats exécutés, captures, échecs préexistants de zoom, environnement PostgreSQL local et étapes externes non réalisées. Aucun résultat simulé n'est présenté comme une validation du projet Supabase réel.

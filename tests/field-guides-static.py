@@ -37,12 +37,12 @@ for p,parsed in pages.items():
  for img in parsed.images:
   if 'alt' not in img:errors.append([str(p),'missing alt',img])
 assert not errors,errors
-oldfiles=subprocess.check_output(['git','ls-tree','-r','--name-only','1aaf5b6'],cwd=r,text=True).splitlines(); allowed={'tests/field-guides.cjs','tests/field-guides-static.py'}
+oldfiles=subprocess.check_output(['git','ls-tree','-r','--name-only','9580788'],cwd=r,text=True).splitlines(); allowed={'tests/field-guides.cjs','tests/field-guides-static.py','tests/operations-guides.cjs','confidentialite.html','en/privacy.html'}
 preserved=[]
 for name in oldfiles:
  if name in allowed:continue
  if not (r/name).is_file():raise AssertionError('removed '+name)
- original=subprocess.check_output(['git','show','1aaf5b6:'+name],cwd=r)
+ original=subprocess.check_output(['git','show','9580788:'+name],cwd=r)
  current=(r/name).read_bytes().replace(b'\r\n',b'\n')
  if name.endswith('/index.html') and '/blog/' in '/'+name and 'data-comments' in current.decode('utf-8'):
   text=current.decode('utf-8')
@@ -51,7 +51,7 @@ for name in oldfiles:
   current=text.encode('utf-8')
  assert original.replace(b'\r\n',b'\n')==current,'changed existing '+name
  preserved.append(name)
-oldmap=ET.fromstring(subprocess.check_output(['git','show','1aaf5b6:sitemap.xml'],cwd=r));newmap=ET.parse(r/'sitemap.xml').getroot();assert all([(c.tag,c.text) for c in x] in [[(c.tag,c.text) for c in y] for y in newmap] for x in oldmap)
+oldmap=ET.fromstring(subprocess.check_output(['git','show','9580788:sitemap.xml'],cwd=r));newmap=ET.parse(r/'sitemap.xml').getroot();assert all([(c.tag,c.text) for c in x] in [[(c.tag,c.text) for c in y] for y in newmap] for x in oldmap)
 assert len(newmap)==len(oldmap)
 resources={}
 for name in ['veille-exemple-journal-fictif.csv','veille-exemple-modele.csv']:
