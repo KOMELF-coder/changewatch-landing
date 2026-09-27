@@ -1,0 +1,878 @@
+[
+  {
+    "file": "blog/etude-de-concurrence/index.html",
+    "title": "Étude de concurrence : méthode complète, matrice et exemple concret | ChangeWatch",
+    "canonical": "https://changewatch.cybersignal.fr/blog/etude-de-concurrence/",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Étude de concurrence : méthode complète, matrice et exemple concret"
+      },
+      {
+        "level": 2,
+        "text": "01. Cadrer l'objectif de l'étude de concurrence"
+      },
+      {
+        "level": 2,
+        "text": "02. Identifier les concurrents directs et indirects"
+      },
+      {
+        "level": 2,
+        "text": "03. Choisir des critères qui éclairent la décision"
+      },
+      {
+        "level": 3,
+        "text": "Distinguer promesse, preuve et information manquante"
+      },
+      {
+        "level": 2,
+        "text": "04. Construire une matrice comparative exploitable"
+      },
+      {
+        "level": 3,
+        "text": "Éviter le faux classement scientifique"
+      },
+      {
+        "level": 3,
+        "text": "Évitez de rouvrir chaque page pour chercher un changement"
+      },
+      {
+        "level": 2,
+        "text": "05. Identifier forces, faiblesses et opportunités"
+      },
+      {
+        "level": 2,
+        "text": "06. Transformer l'étude en décisions concrètes"
+      },
+      {
+        "level": 3,
+        "text": "Télécharger la matrice d'étude de concurrence"
+      },
+      {
+        "level": 2,
+        "text": "Une étude utile débouche sur un choix, puis reste à jour"
+      },
+      {
+        "level": 3,
+        "text": "Gardez un œil sur les pages qui comptent pour votre stratégie"
+      }
+    ],
+    "links": [
+      "https://changewatch.cybersignal.fr/blog/etude-de-concurrence/",
+      "../../assets/favicon.svg",
+      "../../styles.css",
+      "../../assets/blog.css",
+      "../../assets/consent.css",
+      "/assets/languages.css",
+      "/assets/analysis-guide.css",
+      "#contenu",
+      "../../",
+      "/",
+      "/en/",
+      "../../#fonctionnement",
+      "../../#alertes",
+      "../../#tarifs",
+      "../../#faq",
+      "../../blog/",
+      "../",
+      "#objectif",
+      "#concurrents",
+      "#criteres",
+      "#matrice",
+      "#interpretation",
+      "#decisions",
+      "#synthese",
+      "/blog/veille-concurrentielle-ecommerce/",
+      "https://bpifrance-creation.fr/moment-de-vie/4-etapes-bien-realiser-votre-etude-marche",
+      "https://bpifrance-creation.fr/concurrence-indirecte",
+      "https://www.intotheminds.com/blog/white-paper-etude-de-marche/4-etapes-pour-analyser-la-concurrence-et-reussir-votre-etude-de-marche/",
+      "/#demande",
+      "/assets/etude-concurrence-matrice-fr.csv",
+      "/#tarifs",
+      "/blog/",
+      "mailto:changewatch@cybersignal.fr",
+      "../../mentions-legales.html",
+      "../../cgv.html",
+      "../../confidentialite.html",
+      "../../confidentialite.html#cookies"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://changewatch.cybersignal.fr/blog/etude-de-concurrence/#article",
+          "headline": "Étude de concurrence : méthode complète, matrice et exemple concret",
+          "description": "Réalisez votre étude de concurrence : concurrents directs et indirects, offres, prix, positionnement, matrice et décisions. Exemple fictif et CSV gratuit.",
+          "inLanguage": "fr-FR",
+          "author": {
+            "@type": "Organization",
+            "name": "ChangeWatch — Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://changewatch.cybersignal.fr/blog/etude-de-concurrence/"
+          },
+          "wordCount": 1982,
+          "timeRequired": "PT10M",
+          "image": "https://changewatch.cybersignal.fr/assets/etude-concurrence-social-fr.png",
+          "datePublished": "2026-09-21",
+          "dateModified": "2026-09-21"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://changewatch.cybersignal.fr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://changewatch.cybersignal.fr/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Étude de concurrence : méthode complète, matrice et exemple concret",
+              "item": "https://changewatch.cybersignal.fr/blog/etude-de-concurrence/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "file": "blog/veille-concurrentielle-ecommerce/index.html",
+    "title": "Veille concurrentielle e-commerce : une méthode pour décider | ChangeWatch",
+    "canonical": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Veille concurrentielle e-commerce : une méthode pour décider"
+      },
+      {
+        "level": 2,
+        "text": "01. Partez de vos décisions, pas d’une liste de concurrents"
+      },
+      {
+        "level": 2,
+        "text": "02. Construisez un périmètre que vous pouvez expliquer"
+      },
+      {
+        "level": 2,
+        "text": "03. Comparez la même offre, pas seulement deux nombres"
+      },
+      {
+        "level": 2,
+        "text": "04. Choisissez ce qui reste manuel et ce qui peut être automatisé"
+      },
+      {
+        "level": 3,
+        "text": "À quoi ressemble un changement détecté ?"
+      },
+      {
+        "level": 2,
+        "text": "05. De la page surveillée à l’alerte ChangeWatch"
+      },
+      {
+        "level": 2,
+        "text": "06. Vérifiez la couverture réelle et ses limites"
+      },
+      {
+        "level": 2,
+        "text": "07. Transformez chaque alerte en une petite routine de décision"
+      },
+      {
+        "level": 2,
+        "text": "Commencez avec un périmètre clair"
+      },
+      {
+        "level": 3,
+        "text": "Gardez votre temps pour l’analyse."
+      }
+    ],
+    "links": [
+      "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/",
+      "../../assets/favicon.svg",
+      "../../styles.css",
+      "../../assets/blog.css",
+      "../../assets/consent.css",
+      "https://changewatch.cybersignal.fr/en/blog/ecommerce-competitor-monitoring/",
+      "/assets/languages.css",
+      "#contenu",
+      "../../",
+      "/blog/veille-concurrentielle-ecommerce/",
+      "/en/blog/ecommerce-competitor-monitoring/",
+      "../../#fonctionnement",
+      "../../#alertes",
+      "../../#tarifs",
+      "../../#faq",
+      "../../blog/",
+      "../",
+      "#objectif",
+      "#perimetre",
+      "#comparaison",
+      "#methode",
+      "#fonctionnement",
+      "#limites",
+      "#routine",
+      "#demarrer",
+      "https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/veille-et-etudes-de-marche",
+      "https://support.google.com/merchants/answer/7052112?hl=fr",
+      "https://www.cnil.fr/fr/recommandations-reutilisateurs-donnees-internet",
+      "../../#demande",
+      "../../cgv.html",
+      "mailto:changewatch@cybersignal.fr",
+      "../../mentions-legales.html",
+      "../../confidentialite.html",
+      "../../confidentialite.html#cookies"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/#article",
+          "headline": "Veille concurrentielle e-commerce : une méthode pour décider",
+          "description": "Choisissez les bonnes pages, comparez les offres et transformez les changements concurrents en décisions. Méthode, exemples et limites de la veille automatisée.",
+          "datePublished": "2026-09-15",
+          "dateModified": "2026-09-16",
+          "inLanguage": "fr-FR",
+          "author": {
+            "@type": "Organization",
+            "name": "ChangeWatch — Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/"
+          },
+          "wordCount": 1589,
+          "timeRequired": "PT8M",
+          "image": "https://changewatch.cybersignal.fr/assets/guide-social.png"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://changewatch.cybersignal.fr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://changewatch.cybersignal.fr/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Veille concurrentielle e-commerce",
+              "item": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "file": "blog/veille-concurrentielle-exemple/index.html",
+    "title": "Veille concurrentielle : exemple concret et tableau à remplir | ChangeWatch",
+    "canonical": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-exemple/",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Veille concurrentielle : un exemple complet sur cinq jours"
+      },
+      {
+        "level": 2,
+        "text": "01. Le dossier remis au responsable e-commerce"
+      },
+      {
+        "level": 2,
+        "text": "02. Les six pages retenues, et ce qu'elles doivent apprendre"
+      },
+      {
+        "level": 2,
+        "text": "03. Le journal rempli : six lignes à lire de près"
+      },
+      {
+        "level": 3,
+        "text": "Vous consultez encore ces pages à la main ?"
+      },
+      {
+        "level": 2,
+        "text": "04. Lire une baisse sans déclencher une mauvaise décision"
+      },
+      {
+        "level": 3,
+        "text": "P01 : distinguer baisse affichée et coût livré"
+      },
+      {
+        "level": 3,
+        "text": "P02 et P03 : les conditions changent le scénario"
+      },
+      {
+        "level": 2,
+        "text": "05. La note de synthèse du vendredi"
+      },
+      {
+        "level": 2,
+        "text": "06. Reproduire le cas avec vos propres pages"
+      },
+      {
+        "level": 3,
+        "text": "Deux CSV sans inscription"
+      },
+      {
+        "level": 2,
+        "text": "Du dossier d'exemple à une veille qui tient dans la durée"
+      },
+      {
+        "level": 3,
+        "text": "Choisissez votre abonnement ou demandez conseil sur vos pages"
+      }
+    ],
+    "links": [
+      "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-exemple/",
+      "../../assets/favicon.svg",
+      "../../styles.css",
+      "../../assets/blog.css",
+      "../../assets/consent.css",
+      "/assets/languages.css",
+      "/assets/analysis-guide.css",
+      "/assets/field-guides.css",
+      "#contenu",
+      "../../",
+      "/",
+      "/en/",
+      "../../#fonctionnement",
+      "../../#alertes",
+      "../../#tarifs",
+      "../../#faq",
+      "../../blog/",
+      "../",
+      "#dossier",
+      "#pages",
+      "#journal",
+      "#qualification",
+      "#bilan",
+      "#modele",
+      "#suite",
+      "/blog/veille-concurrentielle-ecommerce/",
+      "https://www.escpjunior.fr/blog-posts/benchmark-vs-veille-concurrentielle",
+      "/#demande",
+      "https://support.google.com/merchants/answer/6324371?hl=fr",
+      "/blog/etude-de-concurrence/",
+      "/assets/veille-exemple-journal-fictif.csv",
+      "/assets/veille-exemple-modele.csv",
+      "/#tarifs",
+      "mailto:changewatch@cybersignal.fr",
+      "../../mentions-legales.html",
+      "../../cgv.html",
+      "../../confidentialite.html",
+      "../../confidentialite.html#cookies"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-exemple/#article",
+          "headline": "Veille concurrentielle : un exemple complet sur cinq jours",
+          "description": "Six pages, trois concurrents fictifs, un journal rempli et une synthèse : reproduisez cet exemple de veille concurrentielle avec deux CSV gratuits.",
+          "inLanguage": "fr-FR",
+          "datePublished": "2026-09-24",
+          "dateModified": "2026-09-24",
+          "author": {
+            "@type": "Organization",
+            "name": "ChangeWatch — Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-exemple/"
+          },
+          "wordCount": 1956,
+          "timeRequired": "PT10M",
+          "image": "https://changewatch.cybersignal.fr/assets/watch-example-evidence-fr-social.png"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://changewatch.cybersignal.fr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://changewatch.cybersignal.fr/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Veille concurrentielle : un exemple complet sur cinq jours",
+              "item": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-exemple/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "file": "en/blog/competitor-price-analysis/index.html",
+    "title": "Competitor price analysis: a practical method with a worked example | ChangeWatch",
+    "canonical": "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Competitor price analysis: a practical method with a worked example"
+      },
+      {
+        "level": 2,
+        "text": "01. Start with a pricing question you can answer"
+      },
+      {
+        "level": 2,
+        "text": "02. Build a defensible comparison group"
+      },
+      {
+        "level": 2,
+        "text": "03. Keep the raw offer separate from the comparable price"
+      },
+      {
+        "level": 3,
+        "text": "Normalize only what you can justify"
+      },
+      {
+        "level": 2,
+        "text": "04. Calculate gaps for each item"
+      },
+      {
+        "level": 3,
+        "text": "Name the reference before quoting a percentage"
+      },
+      {
+        "level": 3,
+        "text": "Know when a page behind your analysis changes"
+      },
+      {
+        "level": 2,
+        "text": "05. Separate the observation from the explanation"
+      },
+      {
+        "level": 2,
+        "text": "06. Write a decision brief with a validation step"
+      },
+      {
+        "level": 3,
+        "text": "A blank template that follows the method"
+      },
+      {
+        "level": 2,
+        "text": "Turn a price table into a defensible conclusion"
+      },
+      {
+        "level": 3,
+        "text": "Keep track of the pages behind your pricing decisions"
+      }
+    ],
+    "links": [
+      "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/",
+      "/assets/favicon.svg",
+      "/styles.css",
+      "/assets/blog.css",
+      "/assets/consent.css",
+      "/assets/languages.css",
+      "/assets/analysis-guide.css",
+      "#contenu",
+      "/en/",
+      "/",
+      "/en/#fonctionnement",
+      "/en/#alertes",
+      "/en/#tarifs",
+      "/en/#faq",
+      "/en/blog/",
+      "#question",
+      "#concurrents",
+      "#tableau",
+      "#ecarts",
+      "#interpretation",
+      "#actions",
+      "#synthese",
+      "https://www.shopify.com/blog/competitive-pricing",
+      "/en/#demande",
+      "/assets/competitor-analysis-template-en.csv",
+      "/en/blog/ecommerce-competitor-monitoring/",
+      "mailto:changewatch@cybersignal.fr",
+      "/en/legal-notice.html",
+      "/en/terms.html",
+      "/en/privacy.html",
+      "/en/privacy.html#cookies"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/#article",
+          "headline": "Competitor price analysis: a practical method with a worked example",
+          "description": "Turn competitor prices into a decision brief. Follow a worked example with shipping, discounts, median price gaps and a blank CSV analysis template.",
+          "inLanguage": "en-US",
+          "author": {
+            "@type": "Organization",
+            "name": "ChangeWatch — Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/en/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/en/"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/"
+          },
+          "wordCount": 1786,
+          "timeRequired": "PT9M",
+          "image": "https://changewatch.cybersignal.fr/assets/analysis-social-en.png",
+          "datePublished": "2026-09-21",
+          "dateModified": "2026-09-21"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://changewatch.cybersignal.fr/en/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://changewatch.cybersignal.fr/en/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Competitor price analysis: a practical method with a worked example",
+              "item": "https://changewatch.cybersignal.fr/en/blog/competitor-price-analysis/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "file": "en/blog/ecommerce-competitor-monitoring/index.html",
+    "title": "Ecommerce competitor monitoring: a practical guide | ChangeWatch",
+    "canonical": "https://changewatch.cybersignal.fr/en/blog/ecommerce-competitor-monitoring/",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Ecommerce competitor monitoring: a practical guide"
+      },
+      {
+        "level": 2,
+        "text": "01. What decisions should competitor monitoring support?"
+      },
+      {
+        "level": 2,
+        "text": "02. Which competitor pages should you monitor?"
+      },
+      {
+        "level": 2,
+        "text": "03. How do you compare competitor prices fairly?"
+      },
+      {
+        "level": 2,
+        "text": "04. Manual checks or automated competitor monitoring?"
+      },
+      {
+        "level": 3,
+        "text": "What does a detected change look like?"
+      },
+      {
+        "level": 2,
+        "text": "05. How does ChangeWatch turn a page change into an alert?"
+      },
+      {
+        "level": 2,
+        "text": "06. What are the limits of automated page monitoring?"
+      },
+      {
+        "level": 2,
+        "text": "07. What should you do after a competitor alert?"
+      },
+      {
+        "level": 2,
+        "text": "Start with a clearly defined set of pages"
+      },
+      {
+        "level": 3,
+        "text": "Keep your time for analysis."
+      }
+    ],
+    "links": [
+      "https://changewatch.cybersignal.fr/en/blog/ecommerce-competitor-monitoring/",
+      "/assets/favicon.svg",
+      "/styles.css",
+      "/assets/blog.css",
+      "/assets/consent.css",
+      "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/",
+      "/assets/languages.css",
+      "#contenu",
+      "/en/",
+      "/blog/veille-concurrentielle-ecommerce/",
+      "/en/blog/ecommerce-competitor-monitoring/",
+      "/en/#fonctionnement",
+      "/en/#alertes",
+      "/en/#tarifs",
+      "/en/#faq",
+      "/en/blog/",
+      "#objectif",
+      "#perimetre",
+      "#comparaison",
+      "#methode",
+      "#fonctionnement",
+      "#limites",
+      "#routine",
+      "#demarrer",
+      "https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/veille-et-etudes-de-marche",
+      "https://support.google.com/merchants/answer/7052112?hl=en",
+      "https://www.cnil.fr/fr/recommandations-reutilisateurs-donnees-internet",
+      "/en/#demande",
+      "/en/terms.html",
+      "mailto:changewatch@cybersignal.fr",
+      "/en/legal-notice.html",
+      "/en/privacy.html",
+      "/en/privacy.html#cookies"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://changewatch.cybersignal.fr/en/blog/ecommerce-competitor-monitoring/#article",
+          "headline": "Ecommerce competitor monitoring: a practical guide",
+          "description": "Choose competitor pages, compare prices fairly and turn changes into decisions. A practical ecommerce monitoring guide, with examples and automation limits.",
+          "datePublished": "2026-09-20",
+          "dateModified": "2026-09-20",
+          "inLanguage": "en-GB",
+          "author": {
+            "@type": "Organization",
+            "name": "ChangeWatch — Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/en/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/en/"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://changewatch.cybersignal.fr/en/blog/ecommerce-competitor-monitoring/"
+          },
+          "wordCount": 1435,
+          "timeRequired": "PT8M",
+          "image": "https://changewatch.cybersignal.fr/assets/guide-social-en.png",
+          "translationOfWork": {
+            "@id": "https://changewatch.cybersignal.fr/blog/veille-concurrentielle-ecommerce/#article"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://changewatch.cybersignal.fr/en/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://changewatch.cybersignal.fr/en/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Ecommerce competitor monitoring",
+              "item": "https://changewatch.cybersignal.fr/en/blog/ecommerce-competitor-monitoring/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "file": "en/blog/price-tracking-software/index.html",
+    "title": "Price tracking software: choose the right fit | ChangeWatch",
+    "canonical": "https://changewatch.cybersignal.fr/en/blog/price-tracking-software/",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Price tracking software: choose the right tool for your workflow"
+      },
+      {
+        "level": 2,
+        "text": "01. Choose the output before choosing the software"
+      },
+      {
+        "level": 2,
+        "text": "02. Map each price-tracking need to a capability"
+      },
+      {
+        "level": 2,
+        "text": "03. Write a one-page requirements brief"
+      },
+      {
+        "level": 2,
+        "text": "04. Size the workload without inventing an ROI"
+      },
+      {
+        "level": 3,
+        "text": "Check whether your shortlist fits ChangeWatch"
+      },
+      {
+        "level": 2,
+        "text": "05. Test the difficult cases before committing"
+      },
+      {
+        "level": 3,
+        "text": "Questions worth asking directly"
+      },
+      {
+        "level": 2,
+        "text": "06. Where ChangeWatch fits — and where it does not"
+      },
+      {
+        "level": 2,
+        "text": "Buy the output your team will actually use"
+      },
+      {
+        "level": 3,
+        "text": "Turn your page shortlist into a monitoring plan"
+      }
+    ],
+    "links": [
+      "https://changewatch.cybersignal.fr/en/blog/price-tracking-software/",
+      "/assets/favicon.svg",
+      "/styles.css",
+      "/assets/blog.css",
+      "/assets/consent.css",
+      "/assets/languages.css",
+      "/assets/analysis-guide.css",
+      "/assets/field-guides.css",
+      "#contenu",
+      "/en/",
+      "/",
+      "/en/#fonctionnement",
+      "/en/#alertes",
+      "/en/#tarifs",
+      "/en/#faq",
+      "/en/blog/",
+      "#outputs",
+      "#needs",
+      "#brief",
+      "#sizing",
+      "#pilot",
+      "#fit",
+      "#decision",
+      "https://prisync.com/price-tracking-software/",
+      "https://www.price2spy.com/",
+      "https://support.google.com/merchants/answer/7052112?hl=en",
+      "/en/#demande",
+      "/en/blog/ecommerce-competitor-monitoring/",
+      "/en/blog/competitor-price-analysis/",
+      "mailto:changewatch@cybersignal.fr",
+      "/en/legal-notice.html",
+      "/en/terms.html",
+      "/en/privacy.html",
+      "/en/privacy.html#cookies"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://changewatch.cybersignal.fr/en/blog/price-tracking-software/#article",
+          "headline": "Price tracking software: choose the right tool for your workflow",
+          "description": "Choose price tracking software for your actual workflow: page alerts, price history or repricing. Use a requirements brief and practical acceptance checks.",
+          "inLanguage": "en-US",
+          "datePublished": "2026-09-24",
+          "dateModified": "2026-09-24",
+          "author": {
+            "@type": "Organization",
+            "name": "ChangeWatch — Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/en/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Cybersignal",
+            "url": "https://changewatch.cybersignal.fr/en/"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://changewatch.cybersignal.fr/en/blog/price-tracking-software/"
+          },
+          "wordCount": 2041,
+          "timeRequired": "PT11M",
+          "image": "https://changewatch.cybersignal.fr/assets/price-tracking-outputs-en-social.png"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://changewatch.cybersignal.fr/en/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://changewatch.cybersignal.fr/en/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Price tracking software: choose the right tool for your workflow",
+              "item": "https://changewatch.cybersignal.fr/en/blog/price-tracking-software/"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
