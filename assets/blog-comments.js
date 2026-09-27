@@ -67,6 +67,12 @@
     const t = copy[lang];
     if (!slug || slug.length > 120 || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return;
     const prefix = 'comments-' + slug;
+    const heading = section.querySelector('h2');
+    const headingBase = heading ? heading.textContent.trim() : (lang === 'en' ? 'Comments' : 'Commentaires');
+    const setCount = count => {
+      if (!heading) return;
+      heading.textContent = count > PAGE_SIZE ? `${headingBase} (${PAGE_SIZE}+)` : `${headingBase} (${count})`;
+    };
     const status = el('p', t.loading, { role: 'status', 'aria-live': 'polite', 'aria-atomic': 'true', class: 'comments-status' });
     const list = el('ol', null, { class: 'comments-list', 'aria-label': lang === 'en' ? 'Published comments' : 'Commentaires publiés' });
     const more = el('button', t.more, { type: 'button', class: 'button button-outline', hidden: '' });
@@ -125,7 +131,12 @@
         }
         offset += Math.min(PAGE_SIZE, rows.length);
         more.hidden = rows.length <= PAGE_SIZE;
-        status.textContent = seen.size ? t.loaded : t.empty;
+        setCount(seen.size);
+        status.textContent = seen.size
+          ? (lang === 'en'
+              ? `${seen.size} published comment${seen.size === 1 ? '' : 's'}.`
+              : `${seen.size} commentaire${seen.size === 1 ? '' : 's'} publié${seen.size === 1 ? '' : 's'}.`)
+          : t.empty;
         ready = true;
       } catch {
         status.textContent = t.loadError;
