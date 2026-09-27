@@ -1,0 +1,16 @@
+apiRequestContext.get: read ECONNRESET
+Call log:
+  - → GET http://127.0.0.1:8770/assets/atelier-bag.svg
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at main (C:\Users\flavi\OneDrive\Documents\ChatGPT\changewatch-landing\tests\i18n.cjs:45:146) {
+  log: [
+    '  - → GET http://127.0.0.1:8770/assets/atelier-bag.svg',
+    '    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0',
+    '    - accept: */*',
+    '    - accept-encoding: gzip,deflate,br'
+  ],
+  name: 'Error'
+}
