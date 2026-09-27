@@ -1,0 +1,9 @@
+AssertionError [ERR_ASSERTION]: 200% CSS layout zoom
+    at main (C:\Users\flavi\AppData\Local\Temp\cw-comments-baseline\tests\field-guides.cjs:35:139) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

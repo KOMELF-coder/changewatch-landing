@@ -1,0 +1,9 @@
+NOTE veille-concurrentielle-ecommerce: existing editorial text overflows at 320px / 200% text; comments do not add overflow
+PASS veille-concurrentielle-ecommerce: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS etude-de-concurrence: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS veille-concurrentielle-exemple: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+NOTE ecommerce-competitor-monitoring: existing editorial text overflows at 320px / 200% text; comments do not add overflow
+PASS ecommerce-competitor-monitoring: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS competitor-price-analysis: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS price-tracking-software: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS six no-JS articles; all APIs mocked, no production writes. Screenshots: C:\Users\flavi\AppData\Local\Temp\cw-blog-comments-shots
