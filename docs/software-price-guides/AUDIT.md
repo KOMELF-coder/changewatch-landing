@@ -1,3 +1,7 @@
+## Finalisation du 27 septembre 2026
+
+Prisync vérifié dans le navigateur intégré réel : article accessible, contenu URL-based / Channel-based / Hybrid lisible et pertinent. Lien conservé ; réserve HTTP 403 curl levée pour l’accès lecteur. Les deux articles et cartes sont prêts à publier : mentions de brouillon retirées, datePublished et dateModified au 2026-09-27, lastmod des deux index actualisé. PR toujours en brouillon, sans fusion ni déploiement. Les constats ci-dessous décrivent la passe initiale et sont remplacés sur ces points par cette finalisation.
+
 # Deux articles indépendants : audit et décision éditoriale
 
 Date de recherche et de validation : 27 septembre 2026. Base : `40836f802a9bffcea6e8d49cea9ee00fc1d2d8b7`.

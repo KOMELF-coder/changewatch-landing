@@ -1,3 +1,7 @@
+## Finalisation du 27 septembre 2026
+
+Prisync vérifié dans le navigateur intégré réel : article accessible, contenu URL-based / Channel-based / Hybrid lisible et pertinent. Lien conservé ; réserve HTTP 403 curl levée pour l’accès lecteur. Les deux articles et cartes sont prêts à publier : mentions de brouillon retirées, datePublished et dateModified au 2026-09-27, lastmod des deux index actualisé. PR toujours en brouillon, sans fusion ni déploiement. Les constats ci-dessous décrivent la passe initiale et sont remplacés sur ces points par cette finalisation.
+
 # Validation locale — nouveaux guides FR et EN
 
 27 septembre 2026 — branche `codex/software-and-price-monitoring-guides`, base `40836f8`. Aucun déploiement, paiement, contact Formspree ou événement de test réellement envoyé à Google.
@@ -51,3 +55,7 @@ Douze captures locales à 320 et 1440 px : en-tête, tableau et CTA final pour c
 - Aucun contrôle de publication, indexation Google, rendu OG des réseaux sociaux, widget Turnstile réel ou livraison réelle Formspree/Google réalisé pour ces brouillons. Les services sont simulés/interceptés pour éviter de créer des demandes ou conversions.
 - Avant publication autorisée : supprimer les mentions de brouillon, fixer la datePublished réelle et actualiser dateModified/sitemap si nécessaire, puis relancer les tests ciblés. Ne pas présenter la date de rédaction comme date de publication.
 - Les trois échecs historiques restent visibles ; ne pas masquer leur sortie et ne pas modifier les anciens articles dans cette PR.
+
+### Tests finaux de préparation à la publication
+
+PASS : operations-guides (assertion datePublished actualisée), blog-launch, consent, google-ads (simulation), i18n et git diff --check. Journaux publication-*.log joints. Canonical, JSON-LD, CTA formulaire/tarifs, maillage et préservation des six articles vérifiés. Aucun code GA4/Ads/consentement modifié par cette finalisation. Aucune collecte réelle ni demande envoyée.

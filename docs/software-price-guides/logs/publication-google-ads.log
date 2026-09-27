@@ -1,0 +1,12 @@
+Observed collect request summary: [{"en":"page_view","params":"{\"send_to\":\"G-RB6NSRRM9L\"}"},{"en":"generate_lead","params":"{\"send_to\":\"G-RB6NSRRM9L\",\"form_name\":\"contact\"}"},{"en":"conversion","params":"{\"send_to\":\"AW-18472426652/fb09CMW964MdEJy5q-hE\"}"}]
+Observed intercepted GA4 events (fr): page_view, generate_lead, conversion
+PASS fr: refusal, legacy consent renewal, two destinations, one GA page_view, 422/500/network failure/200/double-submit, one Ads conversion on success, no PII, withdrawal/cookies/reload
+Intercepted Google hosts (fr): www.googletagmanager.com, www.google-analytics.com
+PASS fr: audience-only and advertising-only choices configure only the authorised destination
+Observed collect request summary: [{"en":"page_view","params":"{\"send_to\":\"G-RB6NSRRM9L\"}"},{"en":"generate_lead","params":"{\"send_to\":\"G-RB6NSRRM9L\",\"form_name\":\"contact\"}"},{"en":"conversion","params":"{\"send_to\":\"AW-18472426652/fb09CMW964MdEJy5q-hE\"}"}]
+Observed intercepted GA4 events (en): page_view, generate_lead, conversion
+PASS en: refusal, legacy consent renewal, two destinations, one GA page_view, 422/500/network failure/200/double-submit, one Ads conversion on success, no PII, withdrawal/cookies/reload
+Intercepted Google hosts (en): www.googletagmanager.com, www.google-analytics.com
+PASS en: audience-only and advertising-only choices configure only the authorised destination
+PASS absent label: no Ads conversion, fail closed
+Deterministic tag double; ALL external services intercepted
