@@ -1,0 +1,12 @@
+Observed GA request summary: [{"en":"page_view","params":"{\"send_to\":\"G-RB6NSRRM9L\"}"},{"en":"generate_lead","params":"{\"send_to\":\"G-RB6NSRRM9L\",\"form_name\":\"contact\"}"}]
+Observed intercepted GA events (fr): page_view, generate_lead
+PASS fr: refusal, legacy consent renewal, two destinations, one GA page_view, 422/200, no Ads conversion or PII, withdrawal/cookies/reload
+Intercepted Google hosts (fr): www.googletagmanager.com, www.google-analytics.com
+PASS fr: audience-only and advertising-only choices configure only the authorised destination
+Observed GA request summary: [{"en":"page_view","params":"{\"send_to\":\"G-RB6NSRRM9L\"}"},{"en":"generate_lead","params":"{\"send_to\":\"G-RB6NSRRM9L\",\"form_name\":\"contact\"}"}]
+Observed intercepted GA events (en): page_view, generate_lead
+PASS en: refusal, legacy consent renewal, two destinations, one GA page_view, 422/200, no Ads conversion or PII, withdrawal/cookies/reload
+Intercepted Google hosts (en): www.googletagmanager.com, www.google-analytics.com
+PASS en: audience-only and advertising-only choices configure only the authorised destination
+PASS future label: exactly one locally simulated conversion, correct send_to, no personal data
+Deterministic tag double; ALL external services intercepted

@@ -1,0 +1,6 @@
+PASS A/B initial/ignored/customize/Escape/refusal/reload/navigation: no Google requests or GA cookies
+PASS C/E/F/G one tag/page, page views, allowed CTA/plans, lead only after simulated 2xx, no PII in intercepted traffic
+PASS D withdrawal removes runtime/cookies, synchronizes tabs, persists after reload; refused successful form has no Analytics
+Observed event names: page_view, commercial_cta_click, stripe_click, generate_lead, conversion
+PASS H seven management links, keyboard, responsive, expiry, blocked storage, no page errors
+Deterministic tag stub; ALL services simulated
