@@ -1,0 +1,4 @@
+PASS existing articles byte-equivalent (including URLs/metadata/markup), form, landing/Stripe/Turnstile, shared styles, CNAME/Search Console
+PASS fr: metadata/schema, independent canonical, TOC, six widths, no desktop scroll, axe320/1440, keyboard/200% text/layout, images, localized CTA destinations, consent/GA4 routes and no PII
+PASS en: metadata/schema, independent canonical, TOC, six widths, no desktop scroll, axe320/1440, keyboard/200% text/layout, images, localized CTA destinations, consent/GA4 routes and no PII
+PASS fictitious example arithmetic. External services mocked; no payment/contact/telemetry sent. Screenshots: C:\Users\flavi\AppData\Local\Temp\cw-price-tool-guides
