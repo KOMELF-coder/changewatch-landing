@@ -1,0 +1,48 @@
+[
+  {
+    "lang": "fr",
+    "slug": "surveillance-prix-concurrents",
+    "old": "logiciel-veille-concurrentielle",
+    "asset": "price-check-fr",
+    "body": "cw-prices-fr.html",
+    "title": "Surveillance des prix des concurrents : vérifier avant d’agir",
+    "desc": "Organisez la surveillance des prix des concurrents : produits comparables, promotions, livraison, fréquence et vérifications avant toute décision.",
+    "h1": "Surveillance des prix des concurrents : du relevé à la décision",
+    "deck": "Une offre comparable, un contrôle daté, une décision qui reste humaine.",
+    "eyebrow": "GUIDE OPÉRATIONNEL",
+    "steps": [
+      "Page publique compatible",
+      "Contrôle programmé",
+      "Changement détecté",
+      "Alerte email",
+      "Vérification humaine",
+      "Décision documentée"
+    ],
+    "route": "/blog/surveillance-prix-concurrents/",
+    "words": 1653,
+    "minutes": 9
+  },
+  {
+    "lang": "en",
+    "slug": "competitor-monitor-tool",
+    "old": "competitor-price-monitoring",
+    "asset": "tool-source-en",
+    "body": "cw-tool-en.html",
+    "title": "Competitor monitor tool: choose the right category",
+    "desc": "Choose a competitor monitor tool for the evidence you need: page changes, prices, SEO, social or ads. Compare categories, coverage and limits.",
+    "h1": "Competitor monitor tool: choose by the evidence you need",
+    "deck": "Match the source to the job before comparing features or vendors.",
+    "eyebrow": "TOOL CATEGORY GUIDE",
+    "steps": [
+      "What evidence do you need?",
+      "Known URL → page monitoring",
+      "Search position → SEO tool",
+      "Conversation → social listening",
+      "Seller data → market intelligence",
+      "Reviewed brief → intelligence platform"
+    ],
+    "route": "/en/blog/competitor-monitor-tool/",
+    "words": 1771,
+    "minutes": 9
+  }
+]

@@ -10,7 +10,7 @@
   const GOOGLE_ADS_LEAD_LABEL = 'fb09CMW964MdEJy5q-hE';
   const hasAdsLeadLabel = typeof GOOGLE_ADS_LEAD_LABEL === 'string' && /^[A-Za-z0-9_-]+$/.test(GOOGLE_ADS_LEAD_LABEL);
   let initialized = false, analytics = false, advertising = false;
-  const routes = new Set(['/blog/logiciel-veille-concurrentielle/', '/en/blog/competitor-price-monitoring/', '/blog/veille-concurrentielle-exemple/', '/en/blog/price-tracking-software/', '/blog/etude-de-concurrence/', '/en/blog/competitor-price-analysis/', '/en/blog/', '/en/blog/ecommerce-competitor-monitoring/', '/en/', '/en/terms.html', '/en/legal-notice.html', '/en/privacy.html', '/en/demo-product.html', '/', '/blog/', '/blog/veille-concurrentielle-ecommerce/', '/demo-produit.html', '/cgv.html', '/mentions-legales.html', '/confidentialite.html']);
+  const routes = new Set(['/en/blog/competitor-monitor-tool/', '/blog/surveillance-prix-concurrents/', '/blog/logiciel-veille-concurrentielle/', '/en/blog/competitor-price-monitoring/', '/blog/veille-concurrentielle-exemple/', '/en/blog/price-tracking-software/', '/blog/etude-de-concurrence/', '/en/blog/competitor-price-analysis/', '/en/blog/', '/en/blog/ecommerce-competitor-monitoring/', '/en/', '/en/terms.html', '/en/legal-notice.html', '/en/privacy.html', '/en/demo-product.html', '/', '/blog/', '/blog/veille-concurrentielle-ecommerce/', '/demo-produit.html', '/cgv.html', '/mentions-legales.html', '/confidentialite.html']);
   window['ga-disable-' + ID] = true;
   // Ads config may emit an automatic /ccm/collect page_view even with send_page_view:false.
   // While the label is missing, initialise the tag but allow only GA collection.
