@@ -1,0 +1,15 @@
+PASS retail-price-monitoring: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS veille-concurrentielle-site-internet: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+NOTE veille-concurrentielle-ecommerce: existing editorial text overflows at 320px / 200% text; comments do not add overflow
+PASS veille-concurrentielle-ecommerce: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS etude-de-concurrence: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS veille-concurrentielle-exemple: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+NOTE ecommerce-competitor-monitoring: existing editorial text overflows at 320px / 200% text; comments do not add overflow
+PASS ecommerce-competitor-monitoring: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS competitor-price-analysis: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS price-tracking-software: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS logiciel-veille-concurrentielle: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS competitor-price-monitoring: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS surveillance-prix-concurrents: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS competitor-monitor-tool: lazy loading, private-field exclusion, plain text, validation, honeypot, pending UX, success/errors/double-submit, pagination, responsive/axe/keyboard/200%
+PASS twelve no-JS articles; all APIs mocked, no production writes. Screenshots: C:\Users\flavi\AppData\Local\Temp\cw-blog-comments-shots
