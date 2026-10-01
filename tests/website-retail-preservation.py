@@ -31,7 +31,7 @@ for u,e in a.items():
  else:assert ET.tostring(e).strip()==ET.tostring(b[u]).strip(),u
 for lang,slug in [('fr','veille-concurrentielle-site-internet'),('en','retail-price-monitoring')]:
  route=('/blog/' if lang=='fr' else '/en/blog/')+slug+'/'
- s=(r/route.lstrip('/')/'index.html').read_text(encoding='utf-8');assert 'datePublished' not in s;assert '"dateModified": "2026-10-01"' in s
+ s=(r/route.lstrip('/')/'index.html').read_text(encoding='utf-8');assert '"datePublished": "2026-10-01"' in s;assert '"dateModified": "2026-10-01"' in s
  assert f'data-article-slug="{slug}"' in s;assert s.count('src="/assets/blog-comments.js"')==1;assert 'hreflang=' not in s
  assert b['https://changewatch.cybersignal.fr'+route].find('s:lastmod',ns).text=='2026-10-01'
-print('PASS 10 old articles and every other pre-existing file preserved except six integrations; Google logic identical, old cards unchanged, 22 sitemap URLs, new draft metadata/comments slugs valid.')
+print('PASS 10 old articles and every other pre-existing file preserved except six integrations; Google logic identical, old cards unchanged, 22 sitemap URLs, publication metadata/comments slugs valid.')
