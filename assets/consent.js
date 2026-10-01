@@ -6,6 +6,8 @@
   const ID = 'G-RB6NSRRM9L';
   const base = new URL('../', document.currentScript.src);
   const paths = new Map([
+    ['/en/blog/retail-price-monitoring/', "Retail price monitoring: compare the whole offer"], ['/en/blog/retail-price-monitoring/index.html', "Retail price monitoring: compare the whole offer"],
+    ['/blog/veille-concurrentielle-site-internet/', "Veille concurrentielle site internet : quelles pages suivre ?"], ['/blog/veille-concurrentielle-site-internet/index.html', "Veille concurrentielle site internet : quelles pages suivre ?"],
     ['/en/blog/competitor-monitor-tool/', 'Competitor monitor tool: choose the right category'], ['/en/blog/competitor-monitor-tool/index.html', 'Competitor monitor tool: choose the right category'],
     ['/blog/surveillance-prix-concurrents/', 'Surveillance des prix des concurrents : vérifier avant d’agir'], ['/blog/surveillance-prix-concurrents/index.html', 'Surveillance des prix des concurrents : vérifier avant d’agir'],
     ['/blog/logiciel-veille-concurrentielle/', 'Logiciel de veille concurrentielle'], ['/blog/logiciel-veille-concurrentielle/index.html', 'Logiciel de veille concurrentielle'],

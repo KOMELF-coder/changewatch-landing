@@ -1,0 +1,37 @@
+{
+  "base": "3ccfe3b287a1275a1543835479c95d8966e05a61",
+  "articles": [
+    {
+      "lang": "fr",
+      "old": "surveillance-prix-concurrents",
+      "slug": "veille-concurrentielle-site-internet",
+      "asset": "website-watch-fr",
+      "title": "Veille concurrentielle site internet : quelles pages suivre ?",
+      "h1": "Veille concurrentielle sur un site internet : choisir les pages utiles",
+      "description": "Quelles pages surveiller sur un site concurrent ? Sélectionnez les URL utiles, définissez les changements attendus et vérifiez les alertes avant de décider.",
+      "deck": "Une question commerciale, des pages précises et des changements à vérifier.",
+      "body": "cw-website-fr.html",
+      "eyebrow": "GUIDE DES PAGES À SURVEILLER",
+      "alt": "De la question commerciale à la page utile, puis à la vérification humaine.",
+      "route": "/blog/veille-concurrentielle-site-internet/",
+      "words": 1805,
+      "minutes": 10
+    },
+    {
+      "lang": "en",
+      "old": "competitor-monitor-tool",
+      "slug": "retail-price-monitoring",
+      "asset": "retail-check-en",
+      "title": "Retail price monitoring: compare the whole offer",
+      "h1": "Retail price monitoring: qualify the offer before comparing",
+      "description": "A practical retail price monitoring checklist: variants, sellers, packs, member prices, stock and shipping. Compare offers without confusing monitoring and repricing.",
+      "deck": "A retail price only becomes useful when you know exactly what it buys.",
+      "body": "cw-retail-en.html",
+      "eyebrow": "RETAIL OPERATIONS GUIDE",
+      "alt": "Retail monitoring: match the offer, check conditions, review the change.",
+      "route": "/en/blog/retail-price-monitoring/",
+      "words": 1939,
+      "minutes": 10
+    }
+  ]
+}
