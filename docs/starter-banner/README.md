@@ -1,46 +1,36 @@
-# Bandeau Starter sticky — validation locale
+# Header au-dessus du bandeau Starter — validation
 
-Branche créée depuis `origin/main` au commit `cde98b9` (PR #16 déjà intégrée par le propriétaire). Pas de fusion ni déploiement dans cette livraison.
+La PR #17 a déjà été fusionnée dans main (`51f0d08`). Le propriétaire a explicitement autorisé une nouvelle PR en brouillon pour ce correctif. Branche : `codex/header-above-starter-banner`, issue de ce main. Aucune fusion ni publication dans cette livraison.
 
-## Modification
+## Périmètre
 
-Le bandeau global FR/EN annonce désormais l’essai Starter de 30 jours et pointe vers `#demande`. Son attribut `data-starter-trial` réutilise sans modification les mécanismes de présélection et de tracking existants. Le contenu tarifaire, les quatre liens Stripe, la promotion Business, le formulaire complet et les scripts Analytics/Ads/consentement sont inchangés.
+Seul l’ordre du bloc sticky change : **header/navigation, puis bandeau Starter**. Le contenu HTML du header et du bandeau est conservé ; l’aside est déplacé après le header dans `.sticky-top`, sans duplication. Son positionnement sticky individuel est retiré : les deux composants restent dans le flux naturel du conteneur sticky commun, fixé au haut de la fenêtre pendant le scroll.
 
-Le bandeau et le header sont regroupés dans `.sticky-top`, un conteneur `position:sticky; top:0`, de hauteur naturelle. Le header reste dans le flux sous le bandeau : aucun offset fixe entre eux. Le conteneur est limité à la hauteur du viewport et reste défilable si le menu ou le zoom dépassent cette hauteur ; le bandeau reste sticky dans ce conteneur. Son niveau de superposition laisse le lien d’évitement clavier au-dessus.
+Aucune hauteur fixe ni nouveau JavaScript. Le ResizeObserver existant mesure toujours la hauteur cumulée et alimente `--sticky-offset` pour les ancres. Aucune modification du formulaire, des tarifs, de Business/Pro, des quatre liens Stripe, de Turnstile, de GA4/Ads/consentement, des événements, des articles ou du SEO.
 
-`ResizeObserver` ne pilote pas le sticky : il mesure uniquement la hauteur cumulée pour `--sticky-offset` / `scroll-padding-top`. Cela évite de figer une hauteur fragile pour les ancres malgré traductions, menu ouvert, retours à la ligne et zoom. Le formulaire garde une marge supplémentaire de 16 px. Sans JS, le sticky CSS reste actif avec un dégagement d’ancre conservateur de 18 rem ; l’envoi du formulaire conserve son alternative email existante.
+Mobile inchangé : breakpoint `max-width:600px`, titre court, phrase secondaire masquée, CTA >=44 px ; bandeau de **57 px** à 320/375/390 dans les deux langues. Dès 601 px, le titre long et la phrase secondaire restent visibles. Les dimensions et styles calculés du header, du bandeau et de leurs descendants sont comparés à `2187f36`, à chacune des six largeurs.
 
-## CTA et mesure
+## Parcours et tracking
 
-Le clic sélectionne l’essai dans `request_type` et donne le focus au formulaire, sans remplir les autres champs. Les autres CTA continuent de sélectionner la compatibilité. Le choix reste modifiable.
+Le CTA conserve `href="#demande"` et `data-starter-trial`. Il présélectionne l’essai FR/EN sans remplir les autres champs. Les autres CTA conservent la compatibilité et le choix reste modifiable. `free_trial_click` reste limité au consentement Analytics avec `plan:starter`, `destination:demande` ; `commercial_cta_click` est conservé. Pas de donnée formulaire ni `request_type` vers Google. Les conversions restent liées au succès Formspree.
 
-Après consentement Analytics : un `free_trial_click` avec `plan:starter`, `destination:demande`, routé uniquement vers GA4 ; `commercial_cta_click` conservé. Aucun événement d’essai ne devient une conversion Ads. Aucun changement du label Ads, de `generate_lead`, des champs envoyés ou de Turnstile. Aucune donnée personnelle ni `request_type` dans les événements.
+## Tests et limites
 
-## Contrôles
+Les logs sont dans `logs/`. `starter-banner` vérifie le header à y=0, le bandeau exactement sous son bord inférieur, leur visibilité avant/après un scroll de 2500 px, l’absence de chevauchement/espace/overflow, les ancres tarifs/demande/fonctionnement/alertes/FAQ, le menu mobile, le focus clavier et le lien d’évitement, la zone CTA, les dimensions/styles inchangés, axe, le zoom CSS 200 %, la présélection et les événements fixes après consentement.
 
-Logs dans `logs/`. Les tests utilisent Edge headless et interceptent les services externes : pas de demande Formspree, paiement ou collecte Google réels. Les événements Google sont vérifiés dans l’iframe ou avec le tag simulé, pas dans les rapports GA4.
+Le premier essai utilisait une comparaison PNG stricte de chaque composant déplacé. Elle a échoué ; le test compare désormais les styles et dimensions indépendamment de la position, complété par les captures réelles, plutôt que d’exiger des pixels identiques après déplacement vertical.
 
-Le test `starter-banner` couvre FR/EN, textes et marqueur, 320/375/390/768/1024/1440 px, scroll de 2500 px, position visible du bandeau et absence de recouvrement par le header, menu mobile, ancres tarifs/fonctionnement/alertes/FAQ/formulaire, titre et type de demande visibles, focus clavier, zone CTA >=44 px, zoom CSS 200 %, axe, refus et événement consenti à paramètres fixes. Il compare la section tarifs et le formulaire à main.
+Services externes interceptés dans les tests : aucun paiement, contact Formspree ou événement Google réel. La réception des événements dans les rapports Google n’est pas validée. Le lecteur d’écran matériel et le zoom natif du navigateur restent des vérifications manuelles. Le débordement global préexistant à 320 px avec texte à 200 % demeure inchangé, documenté dans le rapport Starter.
 
-Suites exécutées — toutes PASS : starter-banner, starter-trial, browser, i18n, consent, consent-ux, google-ads, blog-launch et git diff --check. Les premiers essais du nouveau test ont nécessité de normaliser CRLF/LF et de préciser un sélecteur de test ambigu ; aucun changement métier associé.
+## Captures régénérées
 
-Limites : zoom natif et lecteur d’écran matériel non validés ; le contrôle automatisé 200 % utilise le zoom CSS. Le débordement global préexistant à 320 px avec texte agrandi à 200 % reste documenté dans le rapport Starter, sans aggravation. Validation visuelle propriétaire requise avant publication.
-
-## Captures
-
-| Langue | Largeur | Haut de page | Après scroll |
+| Langue | Largeur | Haut | Après scroll |
 |---|---|---|---|
 | FR | 1440 | [haut](screenshots/fr-1440-top.png) | [scroll](screenshots/fr-1440-scroll.png) |
 | FR | 320 | [haut](screenshots/fr-320-top.png) | [scroll](screenshots/fr-320-scroll.png) |
 | EN | 1440 | [haut](screenshots/en-1440-top.png) | [scroll](screenshots/en-1440-scroll.png) |
 | EN | 320 | [haut](screenshots/en-320-top.png) | [scroll](screenshots/en-320-scroll.png) |
 
-## Ajustement mobile de la PR #17
+## Résultats finaux
 
-Breakpoint existant : `max-width:600px`. Le titre court réel est affiché uniquement sur mobile ; le titre long et la phrase secondaire restent inchangés dès 601 px. Deux variantes de texte dans le `strong` du bandeau évitent de fabriquer un titre via du contenu CSS : la variante masquée utilise `display:none`, donc n’est pas lue en double. Aucun autre élément HTML n’a été modifié.
-
-Le titre et le CTA sont côte à côte. Hauteur naturelle mesurée en FR et EN à 320/375/390 : **57 px**, contre **121,39 px** dans le commit validé `13eba2b`. Le CTA conserve une hauteur cliquable de 44 px, son focus visible et son marqueur Starter. Aucune hauteur fixe de bandeau ajoutée.
-
-Le test compare les captures du bloc bandeau + header à la version validée aux largeurs 768/1024/1440 : **identité pixel par pixel** dans Edge headless. La phrase secondaire reste visible à ces largeurs et est masquée à 320/375/390. Les contrôles sticky, ancres, menu, présélection, consentement et événements restent actifs. Tous les scripts, le formulaire et le tracking sont inchangés par cet ajustement.
-
-Les huit captures du tableau ci-dessus ont été régénérées ; les captures desktop sont identiques à la livraison précédente. Les limites de validation manuelle indiquées plus haut restent applicables.
+PASS : `starter-banner`, `starter-trial`, `browser`, `i18n`, `consent`, `consent-ux`, `google-ads`, `blog-launch`, `git diff --check`. Exécution locale avec Playwright/Edge, huit captures FR/EN régénérées. Tous les scripts existants sont identiques à main ; seul l’ordre HTML et la règle de positionnement individuel du bandeau changent côté site.

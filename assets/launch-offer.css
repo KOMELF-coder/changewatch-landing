@@ -1,4 +1,4 @@
-/* Shared natural-height sticky stack: announcement followed by navigation. */
+/* Shared natural-height sticky stack: navigation followed by announcement. */
 .launch-banner{background:#e8f2ed;color:#163b2c;border-bottom:1px solid #c7ddd1;font-size:.8125rem;line-height:1.6}
 .launch-banner>.container{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
 .launch-banner p{margin:0}.launch-banner p span{margin-left:10px}.launch-banner a{color:inherit;font-weight:750;flex-shrink:0;text-underline-offset:3px;padding:5px 0}
@@ -8,7 +8,7 @@
 
 .story-home .sticky-top{position:sticky;top:0;z-index:10;max-height:100dvh;overflow-y:auto}
 .story-home .sticky-top .header{position:static}
-.story-home .sticky-top .launch-banner{position:sticky;top:0;z-index:1}
+.story-home .sticky-top .launch-banner{position:static}
 .launch-banner a{display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration:underline}
 .launch-banner p span{display:block;margin-left:0}
 html:has(.sticky-top){scroll-padding-top:var(--sticky-offset,18rem)}
