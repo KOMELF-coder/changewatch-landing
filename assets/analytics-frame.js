@@ -65,6 +65,8 @@
         gtag('event', 'conversion', {send_to:GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LEAD_LABEL});
       }
     }
+    // Only fixed trial parameters reach GA4; never forward form values or arbitrary parameters.
+    if (analytics && data.name === 'free_trial_click' && data.parameters?.plan === 'starter' && data.parameters?.destination === 'demande') gtag('event', 'free_trial_click', {send_to:ID, plan:'starter', destination:'demande'});
     if (analytics && data.name === 'stripe_click' && ['Starter','Business','Pro'].includes(data.parameters?.plan)) gtag('event', 'stripe_click', {send_to:ID, plan:data.parameters.plan});
     if (analytics && data.name === 'commercial_cta_click' && ['tarifs','demande'].includes(data.parameters?.destination)) gtag('event', 'commercial_cta_click', {send_to:ID, destination:data.parameters.destination});
   };

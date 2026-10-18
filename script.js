@@ -42,6 +42,11 @@ if (form) {
   submit.disabled = false;
   document.querySelectorAll('a[href="#demande"]').forEach((link) => {
     link.addEventListener('click', () => {
+      const requestType = form.elements.request_type;
+      if (requestType) {
+        const kind = link.hasAttribute('data-starter-trial') ? 'starter' : 'compatibility';
+        requestType.value = requestType.querySelector('[data-request-kind="' + kind + '"]').value;
+      }
       form.focus({ preventScroll: true });
     });
   });
