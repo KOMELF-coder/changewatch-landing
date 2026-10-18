@@ -82,3 +82,11 @@ Exécution avec Node fourni par Codex, Playwright et Edge headless. `PLAYWRIGHT_
 - Tests dédiés FR/EN : clic avant consentement/refus/retrait/publicité seule, présélection clavier, modification du sélecteur et retour à compatibilité, un événement par clic, paramètres stricts, données privées absentes des requêtes Google, soumission interceptée 422 puis 200, conservation/réinitialisation du type, aucune conversion à l’échec et une seule après succès.
 - Les soumissions de test sont interceptées localement ; aucune demande réelle ni paiement. Les tests existants continuent de vérifier les succès/erreurs Formspree, `generate_lead`, Ads et les clics Stripe.
 - Premier passage du nouveau test interrompu par l’encodage d’un littéral français dans le test, corrigé en UTF-8 avant relance. Aucun défaut correspondant du formulaire.
+
+### Dernier ajustement : commencer avec une seule page
+
+URL 1 reste obligatoire ; URL 2 et URL 3 sont facultatives et explicitement libellées ainsi en FR/EN. Le groupe annonce « Ajoutez de 1 à 3 pages à vérifier / Add 1 to 3 pages to check ». Les autres champs sont inchangés.
+
+Le traitement existant de FormData conserve les URL 2 et 3 lorsqu’elles sont renseignées (chaînes vides sinon). Les URL facultatives renseignées restent soumises à la validation de format existante. Aucun changement de JavaScript, de Turnstile, d’endpoint Formspree, de tracking ou de consentement dans ce correctif.
+
+Tests dédiés FR/EN : essai avec URL 1 seule, compatibilité avec URL 1 seule puis trois URL, URL 1 vide bloquée, URL facultative invalide refusée, payload complet vérifié sur les requêtes interceptées. `free_trial_click` inchangé, aucune donnée personnelle dans le trafic Google simulé. Aucun contact réel ni paiement.
