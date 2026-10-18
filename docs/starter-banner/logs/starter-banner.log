@@ -1,0 +1,8 @@
+fr 320px: banner 121.390625 → 57px
+fr 375px: banner 121.390625 → 57px
+fr 390px: banner 121.390625 → 57px
+PASS fr: banner copy, natural sticky stack, six widths, mobile compact copy/height, tablet/desktop pixel-identical, anchors/form/menu, keyboard, 200% CSS zoom, axe, refusal and fixed GA4 trial event; unchanged pricing/form
+en 320px: banner 121.390625 → 57px
+en 375px: banner 121.390625 → 57px
+en 390px: banner 121.390625 → 57px
+PASS en: banner copy, natural sticky stack, six widths, mobile compact copy/height, tablet/desktop pixel-identical, anchors/form/menu, keyboard, 200% CSS zoom, axe, refusal and fixed GA4 trial event; unchanged pricing/form

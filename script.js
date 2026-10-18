@@ -9,6 +9,14 @@ const CONTACT_CONFIG = Object.freeze({
 });
 
 document.documentElement.classList.add('js');
+// CSS owns sticky positioning. Measure the natural stack only for anchor clearance
+// (translations, wrapping, zoom and an expanded mobile menu change its height).
+const stickyTop = document.querySelector('.sticky-top');
+if (stickyTop) {
+  const updateAnchorOffset = () => document.documentElement.style.setProperty('--sticky-offset', Math.ceil(stickyTop.getBoundingClientRect().height) + 16 + 'px');
+  updateAnchorOffset();
+  new ResizeObserver(updateAnchorOffset).observe(stickyTop);
+}
 const menu = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 function closeMenu() {
