@@ -1,0 +1,5 @@
+fr 320px / 200% text: baseline scrollWidth=371, new=371; Starter fits
+PASS fr: manual trial copy, unchanged Business/Pro/promo/Stripe; request selector, mock Formspree error/success/reset, one-URL trial and compatibility, three-URL payload, required URL 1, Analytics-only trial event, 6 widths, axe, keyboard/focus, 200% text/zoom, trial CTA tracking without PII and refusal/withdrawal; screenshots C:\Users\flavi\AppData\Local\Temp\cw-starter-trial
+en 320px / 200% text: baseline scrollWidth=457, new=457; Starter fits
+PASS en: manual trial copy, unchanged Business/Pro/promo/Stripe; request selector, mock Formspree error/success/reset, one-URL trial and compatibility, three-URL payload, required URL 1, Analytics-only trial event, 6 widths, axe, keyboard/focus, 200% text/zoom, trial CTA tracking without PII and refusal/withdrawal; screenshots C:\Users\flavi\AppData\Local\Temp\cw-starter-trial
+PASS no-JS trial enquiry anchor and existing email fallback. No real payment, enquiry or telemetry.

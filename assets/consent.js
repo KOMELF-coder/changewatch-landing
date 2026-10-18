@@ -147,6 +147,7 @@
       'https://buy.stripe.com/dRm28q50o2L5aJI58W4gg03':'Business',
       'https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04':'Pro',
     };
+    if (link.hasAttribute('data-starter-trial') && link.origin === location.origin && link.hash === '#demande' && readChoice()?.analytics === true) send('free_trial_click', {plan:'starter', destination:'demande'});
     if (plans[link.href]) send('stripe_click', {plan:plans[link.href]});
     else if (link.origin === location.origin && ['#tarifs', '#demande'].includes(link.hash)) send('commercial_cta_click', {destination:link.hash.slice(1)});
   });
