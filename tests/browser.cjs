@@ -53,10 +53,10 @@ async function main() {
 
 
     const stripeLinks={Starter:'https://buy.stripe.com/dRm5kC8cA3P93hg9pc4gg02',Business:'https://buy.stripe.com/dRm28q50o2L5aJI58W4gg03',Pro:'https://buy.stripe.com/3cI9AScsQ4Td8BA30O4gg04'};
-    assert.deepEqual(await page.locator('.plan-price').allTextContents(),['14,90 €/mois','29,90 €/mois','59,90 €/mois']);
+    assert.deepEqual(await page.locator('.plan-price').allTextContents(),['30 jours gratuitspuis 14,90 €/mois','29,90 €/mois','59,90 €/mois']);
     assert.equal(await page.locator('.hero-actions .button').getAttribute('href'),'#tarifs');
     assert.equal(await page.locator('#navigation .button').getAttribute('href'),'#tarifs');
-    assert.equal(/gratuit|7 jours|sans carte|\bHT\b|\bTTC\b/i.test(await page.locator('body').innerText()),false);
+    assert.equal(/gratuit à vie|7 jours|sans carte|\bHT\b|\bTTC\b/i.test(await page.locator('body').innerText()),false);
     assert.match(await page.locator('body').innerText(),/TVA non applicable — art. 293 B du CGI\./);
     let formCalls=0;page.on('request',r=>{if(r.url().includes('formspree.io'))formCalls++;});
     for(const [plan,url] of Object.entries(stripeLinks)){
