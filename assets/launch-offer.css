@@ -14,3 +14,14 @@
 html:has(.sticky-top){scroll-padding-top:var(--sticky-offset,18rem)}
 .story-home #demande{scroll-margin-top:16px}
 @media(max-width:600px){.launch-banner>.container{flex-wrap:wrap;gap:2px;padding-block:6px}.launch-banner p{flex:1 1 100%}.launch-banner a{font-size:.8125rem}}
+
+/* Real text variants keep the mobile wording available to assistive technology. */
+.launch-banner strong .banner-desktop-title{display:inline;margin:0}
+.launch-banner strong .banner-mobile-title{display:none;margin:0}
+@media(max-width:600px){
+  .launch-banner>.container{flex-wrap:nowrap;align-items:center;gap:12px}
+  .launch-banner p{flex:1 1 auto;min-width:0}
+  .launch-banner p>span,.launch-banner strong .banner-desktop-title{display:none}
+  .launch-banner strong .banner-mobile-title{display:inline}
+  .launch-banner a{max-width:52%}
+}

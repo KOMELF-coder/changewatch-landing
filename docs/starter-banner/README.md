@@ -34,3 +34,13 @@ Limites : zoom natif et lecteur d’écran matériel non validés ; le contrôle
 | FR | 320 | [haut](screenshots/fr-320-top.png) | [scroll](screenshots/fr-320-scroll.png) |
 | EN | 1440 | [haut](screenshots/en-1440-top.png) | [scroll](screenshots/en-1440-scroll.png) |
 | EN | 320 | [haut](screenshots/en-320-top.png) | [scroll](screenshots/en-320-scroll.png) |
+
+## Ajustement mobile de la PR #17
+
+Breakpoint existant : `max-width:600px`. Le titre court réel est affiché uniquement sur mobile ; le titre long et la phrase secondaire restent inchangés dès 601 px. Deux variantes de texte dans le `strong` du bandeau évitent de fabriquer un titre via du contenu CSS : la variante masquée utilise `display:none`, donc n’est pas lue en double. Aucun autre élément HTML n’a été modifié.
+
+Le titre et le CTA sont côte à côte. Hauteur naturelle mesurée en FR et EN à 320/375/390 : **57 px**, contre **121,39 px** dans le commit validé `13eba2b`. Le CTA conserve une hauteur cliquable de 44 px, son focus visible et son marqueur Starter. Aucune hauteur fixe de bandeau ajoutée.
+
+Le test compare les captures du bloc bandeau + header à la version validée aux largeurs 768/1024/1440 : **identité pixel par pixel** dans Edge headless. La phrase secondaire reste visible à ces largeurs et est masquée à 320/375/390. Les contrôles sticky, ancres, menu, présélection, consentement et événements restent actifs. Tous les scripts, le formulaire et le tracking sont inchangés par cet ajustement.
+
+Les huit captures du tableau ci-dessus ont été régénérées ; les captures desktop sont identiques à la livraison précédente. Les limites de validation manuelle indiquées plus haut restent applicables.
